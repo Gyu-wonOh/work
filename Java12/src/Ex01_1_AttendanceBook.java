@@ -39,35 +39,35 @@ public class Ex01_1_AttendanceBook {
 				int i = Integer.parseInt(sc.nextLine());
 				System.out.print("출결사항을 입력하세요 >> "
 						+ "\n0.출석 1.결석 2.지각 3.조퇴 4.외출 5.병결 6.공결");
-				i = Integer.parseInt(sc.nextLine());
+				student2 = Integer.parseInt(sc.nextLine());
 				switch (student2) {
 				case AttendanceBookEx.ATTENDANCE:
 					System.out.println("출석");
-					student[i] = 0;
+					student[i-1] = 0;
 					break;
 				case AttendanceBookEx.ABSENCE:
 					System.out.println("결석");
-					student[i] = 1;
+					student[i-1] = 1;
 					break;
 				case AttendanceBookEx.LATE:
 					System.out.println("지각");
-					student[i] = 2;
+					student[i-1] = 2;
 					break;
 				case AttendanceBookEx.EARLY_LEAVE:
 					System.out.println("조퇴");
-					student[i] = 3;
+					student[i-1] = 3;
 					break;
 				case AttendanceBookEx.OUTING:
 					System.out.println("외출");
-					student[i] = 4;
+					student[i-1] = 4;
 					break;
 				case AttendanceBookEx.SICK_LEAVE:
 					System.out.println("병결");
-					student[i] = 5;
+					student[i-1] = 5;
 					break;
 				case AttendanceBookEx.PUBLIC_LEAVE:
 					System.out.println("공결");
-					student[i] = 6;
+					student[i-1] = 6;
 				default:
 					System.out.println("알 수 없는 상태");
 				}
