@@ -69,41 +69,137 @@ public class BankArray {
 					break;
 				}
 			}
-			System.out.println("test");
-//			// 사용자가 입력한 아이디가 기존 일반 사용자 아이디에 존재하지 않음
-//			if (BankArray.loginUserStatus != BankArray.STATE_USER_LOGIN) {
-//				// 관리자인지 확인
-//				if (BankArray.adminId.equals(BankArray.inputId) && BankArray.adminPw.equals(BankArray.inputPw)) {
-//					System.out.println("관리자로 로그인 하였습니다.");// admin 1111
-//					BankArray.loginUserStatus = BankArray.STATE_ADMIN_LOGIN;
-//				} else {
-//					System.out.println("없는 아이디 입니다. 다시입력해주세요.");
-//				}
-//			}
-//
-//			// 사용자가 프로그램 종료요청시 실행
-//			if (BankArray.inputId.equals("EXIT")) {
-//				BankArray.loginUserStatus = BankArray.STATE_EXIT;
-//			}
-//
-//			switch (BankArray.loginUserStatus) {
-//			case BankArray.STATE_ADMIN_LOGIN:
-//				System.out.println("관리자 관련 작업메뉴");
-//				break;
-//			case BankArray.STATE_USER_LOGIN:
-//				System.out.println("사용자 관련 작업메뉴");
-//				break;
-//			case BankArray.STATE_LOGOUT:
-//				System.out.println("로그아웃된 상태입니다.");
-//				break;
-//			case BankArray.STATE_EXIT:
-//				System.out.println("프로그램을 종료합니다.");
-//				break;
-//			default:
-//				System.out.println("알수 없는 문제가 발생한 상태입니다.");
-//			}
+
+			// 사용자가 입력한 아이디가 기존 일반 사용자 아이디에 존재하지 않음
+			if (BankArray.loginUserStatus != BankArray.STATE_USER_LOGIN) {
+				// 관리자인지 확인
+				if (BankArray.adminId.equals(BankArray.inputId) && BankArray.adminPw.equals(BankArray.inputPw)) {
+					System.out.println("관리자로 로그인 하였습니다.");// admin 1111
+					BankArray.loginUserStatus = BankArray.STATE_ADMIN_LOGIN;
+				} else {
+					System.out.println("없는 아이디 입니다. 다시입력해주세요.");
+				}
+			}
+
+			// 사용자가 프로그램 종료요청시 실행
+			if (BankArray.inputId.equals("EXIT")) {
+				System.out.println("종료 요청 하셨습니다.");
+				BankArray.loginUserStatus = BankArray.STATE_EXIT;
+			}
+
+			switch (BankArray.loginUserStatus) {
+			case BankArray.STATE_ADMIN_LOGIN:
+				System.out.println("관리자 관련 작업메뉴");
+				boolean isAdmMenu = true;
+				while (isAdmMenu) {
+					System.out.println("1.계정추가 2.계정삭제 3. id변경 4.모든 사용자 출력 5.종료");
+					switch (BankArray.sc.nextLine()) {
+					case "1":
+						System.out.println("추가할 id>>");
+						inputId = sc.nextLine();
+						System.out.println("추가할 pw>>");
+						inputPw = sc.nextLine();
+						id[BankArray.totalUserCount] = inputId;
+						pw[BankArray.totalUserCount] = inputPw;
+						account[BankArray.totalUserCount] = 100;
+						System.out.println(id[BankArray.totalUserCount] + "계정생성");
+						BankArray.totalUserCount++;
+						break;
+
+					case "2":
+						System.out.println("삭제할 id>>");// 삭제 작업
+						inputId = sc.nextLine();
+						int findIndex = BankArray.totalUserCount;
+						for (int i = 0; i < BankArray.totalUserCount; i++) {
+							if (id[i].equals(inputId)) {// 찾음
+								findIndex = i;
+							}
+						}
+
+						for (int i = findIndex; i < BankArray.totalUserCount - 1; i++) {
+
+							id[i] = id[i + 1];
+							pw[i] = pw[i + 1];
+							account[i] = account[i + 1];
+						}
+
+						BankArray.totalUserCount--;
+
+						break;
+
+					case "3":
+						System.out.println("변경할 id>>");
+						inputId = sc.nextLine();
+						for (int i = 0; i < BankArray.totalUserCount; i++) {
+							if (id[i].equals(inputId)) {
+								// 찾음
+								System.out.println("변경할 id>>");
+								id[i] = sc.nextLine();
+								System.out.println("변경할 pw>>");
+								pw[i] = sc.nextLine();
+							}
+						}
+						break;
+
+					case "4":
+						System.out.println("출력 시작");
+						for (int i = 0; i < BankArray.totalUserCount; i++) {
+							System.out.print(i + " 번째 id>>" + id[i]);
+							System.out.print(" pw>>" + pw[i]);
+							System.out.println(" account>>" + account[i]);
+						}
+
+						System.out.println("모두 출력");
+						break;
+					case "5":
+						System.out.println("관리자 메뉴 종료");
+						BankArray.loginUserStatus = BankArray.STATE_LOGOUT;
+						isAdmMenu = false;
+						break;
+					}
+				}
+				break;
+			case BankArray.STATE_USER_LOGIN:
+				System.out.println("사용자 관련 작업메뉴");
+				boolean isUseMenu = true;
+				while (isUseMenu) {
+					System.out.println("1.입금 2.출금 3.잔액 조회 4.종료 입력>>");
+					switch (sc.nextLine()) {
+					case "1":
+						System.out.println("입금액 입력>>");
+						inputAccount = Double.parseDouble(sc.nextLine());
+						account[BankArray.loginUserIndex] += inputAccount;
+						System.out.println(id[BankArray.loginUserIndex] + "님 잔액:" + account[BankArray.loginUserIndex]);
+						break;
+					case "2":
+						System.out.println("출금액 출력>>");
+						inputAccount = Double.parseDouble(sc.nextLine());
+						account[BankArray.loginUserIndex] -= inputAccount;
+						System.out.println(id[BankArray.loginUserIndex] + "님 잔액:" + account[BankArray.loginUserIndex]);
+						break;
+					case "3":
+						System.out.println("잔액 조회>>");
+						System.out.println(id[BankArray.loginUserIndex] + "님 잔액:" + account[BankArray.loginUserIndex]);
+						break;
+					case "4":
+						System.out.println("사용자 메뉴 종료");
+						BankArray.loginUserStatus = BankArray.STATE_LOGOUT;
+						isUseMenu = false;
+						break;
+					}
+				}
+				break;
+			case BankArray.STATE_LOGOUT:
+				System.out.println("로그아웃된 상태입니다.");
+				break;
+			case BankArray.STATE_EXIT:
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			default:
+				System.out.println("알수 없는 문제가 발생한 상태입니다.");
+			}
 		} // while문 종료
+		System.out.println("프로그램 종료");
+	}// main메소드 종료
 
-	}
-
-}
+}// 클래스 종료
