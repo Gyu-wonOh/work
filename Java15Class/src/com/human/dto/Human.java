@@ -42,8 +42,8 @@ public class Human {
 //		this.age = age;
 //	}
 //
-	// toString 호출되면 return 뒤에 오는 문자열을 생성한다.
-	// 객체 찍으묜 toString 메소드에서 생성된 리턴된 문자열이 출력된다.
+//	toString 호출되면 return 뒤에 오는 문자열을 생성한다.
+//	객체 찍으묜 toString 메소드에서 생성된 리턴된 문자열이 출력된다.
 //	public String toString() {
 //		return "해당 인스턴스는 name은" + this.name + "age는" + this.age + "이다.";
 //	}

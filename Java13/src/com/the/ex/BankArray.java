@@ -1,5 +1,4 @@
 package com.the.ex;
-
 public class BankArray {
 	// 문자 상수로 표현하였다.//로그인 상태값
 	// 상수의 음수 값은 error 종료와 같은 의미를 가진다.
