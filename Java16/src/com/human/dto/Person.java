@@ -1,4 +1,4 @@
-package com.the.ex;
+package com.human.dto;
 
 import java.util.Objects;
 
@@ -6,6 +6,11 @@ public class Person {
 
 	public String name ="";
 	public int age = 0;
+	public Person() {
+	}
+	public Person(String name, int age) {
+		this.name =name; this.age =age;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(age, name);
