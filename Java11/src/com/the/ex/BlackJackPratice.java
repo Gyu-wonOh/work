@@ -97,7 +97,7 @@ public class BlackJackPratice {
 		boolean p2Flag = true;
 		int p1Sum = 0;
 		int p2Sum = 0;
-		
+
 		while (p1Flag || p2Flag) {
 			if (p1Flag) {
 				System.out.println("p1님 카드를 받으시겠습니까? 1.Yes 2.No");
@@ -107,8 +107,8 @@ public class BlackJackPratice {
 				} else {
 					p1Flag = false;
 				}
-				
-				}
+
+			}
 			if (p2Flag) {
 				System.out.println("p2님 카드를 받으시겠습니까? 1.Yes 2.No");
 				String input = new java.util.Scanner(System.in).nextLine();
@@ -126,21 +126,81 @@ public class BlackJackPratice {
 			// sum이 21이 넘으면 받은 카드에 A가 있으면 -10을 해준다.
 			// A 확인 중간에 21보다 작아지면 확인작업을 중단하고
 			// 더 이상 A가 없으면 최종결과값 sum이 된다.
-			
-			
-			//p1이 가지고 있는 카드를 출력하시오.
+
+			// p1의 카드 총합 구하기
+			p1Sum = 0;
+			for (int i = 0; i < p1DeckIndex; i++) {
+				if (p1Deck[i] % 13 < 1) {
+					p1Sum = p1Sum + 11;
+				} else if (p1Deck[i] % 13 <= 10) {
+					p1Sum = p1Sum + (p1Deck[i] % 13 + 1);
+				} else {
+					p1Sum = p1Sum + 10;
+				}
+			}
+			// p1의 카드 패에서 A찾기
+			// p1 카드 총합이 21보다 작으면 작업 종료
+			for (int i = 0; i < p1DeckIndex; i++) {
+				if (p1Sum <= 21) {
+					break;
+				}
+				if (p1Deck[i] % 13 == 0) {// A가 있으면 10을 빼준다.
+					p1Sum = p1Sum - 10;
+				}
+			}
+
+			// p2의 카드 총합 구하기
+			p2Sum = 0;
+			for (int i = 0; i < p2DeckIndex; i++) {
+				if (p2Deck[i] % 13 < 1) {
+					p2Sum = p2Sum + 11;
+				} else if (p2Deck[i] % 13 <= 10) {
+					p2Sum = p2Sum + (p2Deck[i] % 13 + 1);
+				} else {
+					p2Sum = p2Sum + 10;
+				}
+			}
+			// p2의 카드 패에서 A찾기
+			// p2 카드 총합이 21보다 작으면 작업 종료
+			for (int i = 0; i < p2DeckIndex; i++) {
+				if (p2Sum <= 21) {
+					break;
+				}
+				if (p2Deck[i] % 13 == 0) {// A가 있으면 10을 빼준다.
+					p2Sum = p2Sum - 10;
+				}
+			}
+
+			// p1이 가지고 있는 카드를 출력하시오.
 			System.out.print("p1이 보유한 카드는 ");
-			for(int i = 0; i < p1DeckIndex; i++) {
-				System.out.print(cardShape[p1Deck[i]/13]+cardNum[p1Deck[i]%13]+" ");
+			for (int i = 0; i < p1DeckIndex; i++) {
+				System.out.print(cardShape[p1Deck[i] / 13] + cardNum[p1Deck[i] % 13] + " ");
 			}
 			System.out.println(" 입니다.");
-			//p2가 가지고 있는 카드를 출력하시오.
+			System.out.println("p1님의 점수는 " + p1Sum + "입니다.");
+			// p2가 가지고 있는 카드를 출력하시오.
 			System.out.print("p2가 보유한 카드는 ");
-			for(int i = 0; i < p2DeckIndex; i++) {
-				System.out.print(cardShape[p2Deck[i]/13]+cardNum[p2Deck[i]%13]+" ");
+			for (int i = 0; i < p2DeckIndex; i++) {
+				System.out.print(cardShape[p2Deck[i] / 13] + cardNum[p2Deck[i] % 13] + " ");
 			}
 			System.out.println(" 입니다.");
-			
-		}//while 끝
+			System.out.println("p2님의 점수는 " + p2Sum + "입니다.");
+		} // while 끝
+
+		// 승패 출력
+		String winner = "";
+		if (p1Sum > 21) {
+			winner = "p2 승리";
+		} else if (p2Sum > 21) {
+			winner = "p1 승리";
+		} else if (p1Sum > p2Sum) {
+			winner = "p1 승리";
+		} else if (p1Sum == p2Sum) {
+			winner = "무승부";
+		} else {
+			winner = "p2 승리";
+		}
+		System.out.println("최종결과:" + winner);
+		System.out.println("게임종료");
 	}
 }
