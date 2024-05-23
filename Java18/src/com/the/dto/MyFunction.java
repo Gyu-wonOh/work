@@ -40,11 +40,16 @@ public class MyFunction {
 		System.out.println("안녕하세요");
 	}
 	//7의 배수 찾기
-	public static boolean seven() {
-		 
-		
+	public static boolean sevenLcm(int a) {
+		boolean b= true; 
+		if(a%7==0) {
+			 b =true;
+		}else {
+			b= false;
+		}
+		return b;
 	}
-	
+
 	public static void main(String[] args) {
 	 //달러를 원으로 출력 1161
 		double dollar=6.2;
@@ -78,8 +83,10 @@ public class MyFunction {
 		for(int i = 0; i<3; i++) {
 			hello();
 		}
-
-	
+	//7의 배수 찾기 메소드
+		int num =20;
+		MyFunction.sevenLcm(num);
+		System.out.println(num+"은 7의 배수" +sevenLcm(num)+"입니다.");
 	}
 
 }
