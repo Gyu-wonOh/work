@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            사용자 태그-라디오박스
+        </title>
+    </head>
+    <body>
+        <form>
+            <label> 성별</label>
+            <input id ="man" type="radio" name="gender" value="man" checked>
+            <label for ="man">남자</label>
+            <input id ="woman" type="radio" name ="gender" value ="woman">
+            <label for="woman">여자</label>
+            <br>
+            <br>
+            <br>
+            <br>
+            <table>
+                <tr>
+                    <td>좋아하는 동물</td>
+                    <td>
+                        <input id ="cat" type ="radio" name="animal" value="c">
+                        <label for="cat">고양이</label>
+                        <input id="dog " type = "radio" name="animal" value="d">
+                        <label for="dog">강아지</label> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>좋아하는 나무</td>
+                    <td>
+                        <input id="ginkgo" type="radio" name="tree" value="gink">
+                        <label for="ginkgo">은행나무</label>
+                        <input id="persimmon" type="radio" name="tree" value ="per"checked>
+                        <label for="persimmon">감나무</label>
+                        <input id="koreanRedPine" type="radio" name ="tree" value="krp">
+                        <label for="koreaRedPine">소나무</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><input type="submit" value="전송"</td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

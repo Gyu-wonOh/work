@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset =UTF-8>
+    <title>
+       테이블 만들기
+    </title>
+    </head>
+    <body>
+        <table border ="1">
+            <caption>표제목</caption>
+            <tr><td>1</td><td>2</td><td>3</td>><td>4</td></tr>
+            <tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+            <tr><td>9</td><td>10</td><td>11</td><td>12</td></tr>
+        </table>
+        <br>
+        <br>
+        <table border = 1>
+            <tr>
+                <th>이름</th><th>나이</th>
+            </tr>
+            <tr><td>홍길동</td><td>21</td></tr>
+            <tr><td>홍길남></td><td>18</td></tr>
+            <tr><td>홍길수></td><td>33</td></tr>
+        </table>
+        <br>
+        <br>
+        <table border ="1">
+        <th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+        <tr><td>미술</td><td>국어</td><td>화학</td><td>영어</td><td>기술</td></tr>
+        <tr><td>사회</td><td>체육</td><td>도덕</td><td>수학</td><td>영어</td></tr>
+        </table>
+        <br>
+        <table border ="1" bgcolor = "white" width=" 300px">
+            <tr><td width="60px">1</td><td height="60px">2</td><td>3</td></tr>
+            <tr bgcolor ="yellow"><td>5</td><td bgcolor ="red">6</td><td>7</td></tr>
+            <tr><td>9</td><td>10</td><td>11</td></tr>
+        </table>
+        <br>
+        <!-- cell spacing 셀 간격, cellpadding 셀 과 내용 간의 간격 -->
+            <table border = "1" cellsapcing="10" cellpadding ="1">
+                <tr><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td></tr>
+            </table>
+            <br>
+            <table border = "1" cellspacing ="1" cellpadding ="10">
+                <tr><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td></tr>
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!--셀병합 rowspan colspan-->
+        <table border ="1" width =100 height =100>
+            <tr><td></td><td colspan="3" rowspan ="2"></td></tr>
+            <tr><td rowspan ="2"></td></tr>
+            <tr><td></td><td></td><td></td></tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+       
+        <table border ="1" cellpadding = "5" cellspacing = "5" width ="100" height = "100">
+            <tr><td colspan = "3">1</td><td colspan = "3">2</td></tr>
+            <tr><td colspan ="2">3</td><td>4</td><td>5</td><td colspan ="2" rowspan ="4">6</td></tr>
+            <tr><td colspan ="2">7</td><td colspan ="2" rowspan="3">8</td></tr>
+            <tr><td colspan ="2">9</td></tr>
+            <tr><td colspan ="2">10</td></tr>
+            <tr><td colsapn ="5">11</td></tr>
+        </table>
+        <br>
+        <br>
+        <table border ="1">
+            <tr>
+                <th colspan ="2">칼럼1</th><th>칼럼2</th><th>칼럼3</th><th>칼럼4</th>
+            </tr>
+            <tr>
+                <td>데이터1</td><td>데이터2</td><td rowspan="2">데이터3</td><td rowspan="3">데이터4</td><td>데이터5</td>
+            </tr>
+            <tr>
+                <td>데이터1</td><td>데이터2</td><td>데이터3</td>
+            </tr>
+            <tr>
+                <td colspan="3">데이터1</td><td>데이터2</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table border = 1 bordercolor red cellspacing="0" width = 100 height =100>
+         <tr> 
+            <td valign=top align=left>위</td>
+            <td valign=middle align=center>중간</td>
+            <td valign=bottom align=right>아래</td>
+         </tr>   
+        </table>
+        <br>
+        <br>
+        <table border = "1" bgcolor="yellow" width =200 height = 200>
+        <tr>
+            <td bgcolor="red" valign="middle" align="center">1행 1열</td><td>1행2열</td><td>1행 3열</td>
+        </tr>
+        <tr>
+            <td valign ="top" align="left">2행1열</td><td>2행2열</td><td valign = "bottom" align="left">2행3열</td>
+        </tr>
+        </table>
+       <br>
+       <br>
+       <br>
+        <table border ="1" width= 500 height =200 cellsapcing =0 cellpadding =0>
+          <tr bgcolor ="blue">
+            <th valign ="middle" align="center">소개</th><th valign ="middle" align="center">영화</th><th valign ="middle" align="center">음악</th>
+            <tr></tr>
+          </tr>
+          <tr>
+            <td><ul><li>주인장소개</li><li>가족소개</li><li>친구소개</li><li>홈페이지 소개</li></ul></td>
+            <td><ul><li>추억의영화</li><li>최근에본영화</li><li>영화포스터모음</li></ul></td>
+            <td><ul><li>음악감상실</li><li>TheRealGroup</li><li>음악자료실</li></ul></td>
+          </tr>
+          <tr bgcolor ="blue">
+            <th valign ="middle" align="center">갤러리</th><th valign ="middle" align="center">게시판</th><th valign ="middle" align="center">동호회</th>
+            <tr></tr>
+          </tr>
+          <tr>
+            <td><ul><li>장나라</li><li>소유진</li><li>김희선</li><li>정우성</li><li>장국영</li><li>장동건</li></ul></td>
+            <td><ul><li>자유게시판</li><li>방명록</li><li>묻고답하기</li></ul></td>
+            <td><ul><li>우주애</li><li>산악회</li><li>춤바람</li></ul></td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <table border="1" width = 500 height = 300>
+        <tr bgcolor = "Orange" >
+            <td colspan = 5 align ="left"> Main title of Web Page</td>
+        </tr>
+        <tr>
+            <td colspan = 1 valign = top rowspan = 4 bgcolor = "orange"><b>Menu</b><br>HTML<br>css<br>JavaScript</td><td bgcolor="gray" colspan =4 rowspan =4 valign = "top" align="left">Content goes here</td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr bgcolor = "#ffc31e">
+            <td colspan = 5 rowspan = 1 align = "center" > copyright 2013 lust.com </td>
+        </tr>
+
+        </table>
+        <table border =1 cellspacing = 0 cellpadding = 0>
+            <tr>
+                <td rowspan = 2 valign = "middle">구분</td><td colspan = 3 align = "center">내행성</td><td colspan =5 align = "center">외행성</td>  
+            </tr>
+            <tr>
+                <td>수성</td><td>금성</td><td>지구</td><td>화성</td><td>목성</td><td>토성</td><td>천왕성</td><td>해왕성</td>  
+            </tr>
+            <tr>
+                <td>지름비</td><td>0.383</td><td>0.949</td><td>1.000</td><td>0.532</td><td>11.209</td><td>9.449</td><td>4.007</td><td>3.883</td>  
+            </tr>
+        </table>
+
+    </body>
+</html>
