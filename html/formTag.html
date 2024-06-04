@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device device-width ,intial-scale=1.0">
+        <title>
+            user_form
+        </title>
+    </head>
+    <body>
+        <form>
+            <label for="id1">이름:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="id1" size="20" value="type=text"><br>
+            <label for="nick_name">별명:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input tpye="text" name="nick_name" size="20" value="tpye=text"><br>
+            <label for="ps1">비밀번호:</label>
+            <input type="password" id="ps1"><br>
+            <label>성별</label>
+            <input id= "men" type="radio" name="gender" value="men">
+            <label>남자</label>
+            <input id= "women" type="radio" name="gender" value="women">
+            <label>여자</label><br>
+            <label>관심분야</label>
+            <input type ="checkbox" id="movie" name="interest" value="movie">
+            <label>영화</label>
+            <input type ="checkbox" id="reading" name="interest" value="reading">
+            <label>독서</label>
+            <input type ="checkbox" id="sport" name="interest" value="sport">
+            <label>스포츠</label><br>
+            <label for="age">나이:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="number" name="age" size="20" value="20"><br>
+            <label>생일</label>
+            <input type="date" name="t1"><br>
+            <label>이메일</label>
+            <input type="email" name="email"><br>
+            <label>파일 첨부</label>
+            <input type="file" name="f1"><br>
+            <label>자기소개:</label>
+            <textarea name="textarea" rows="10" cols="50">200자 이내로 자기소개를 작성해주세요.</textarea><br>
+            <select name ="site" size="1">
+                <option value="1" selected>패밀리 사이트</option>
+            </select>
+            <br>
+            <br>
+            <input type='submit' value="전송">
+            <input type='reset' value="다시쓰기">            
+        </form>
+    </body>
+</html>
