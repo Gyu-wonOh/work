@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="wiewport" content="width=width-device, initial=1.0">
+        <title>
+            document
+        </title>
+        <script>
+            //숫자형
+            document.write(10,typeof(10),"<br>");
+            document.write(10.1,typeof(10.1),"<br>");
+            var myNum=10;
+            document.write(myNum,typeof(myNum),"<br>");
+            myNum=10.1;
+            document.write(myNum,typeof(myNum),"<br>");
+            //불리안
+            var myBoolean=true;
+            document.write(myBoolean,typeof(myBoolean),"<br>");
+            myBoolean = false;
+            document.write(myBoolean, typeof(myBoolean),"<br>")
+            //문자열
+            var myString="hello";
+            document.write(myString, typeof(myString),"<br>");
+            //배열
+            var myArray=["A","B","C"];
+            document.write(myArray[0],"<br>");
+            myArray[0]="D";
+            document.write(myArray[0],"<br>");
+            document.write(myArray,typeof(myArray),"<br>");
+            //객체 json
+             var myPerson={
+                firstName:"John",
+                age:40,
+                eyeColor:"blue"
+             };
+             document.write(myPerson.firstName,myPerson.age,myPerson.eyeColor,"<br>");
+             //함수
+             var myFunction=function(){//선언부
+                alert('hello'); alert('world');
+            }
+            document.write(myFunction, typeof(myFunction));
+            myFunction();
+            myFunction();
+            myFunction();
+
+       </script>
+    </head>
+    <body>
+
+    </body>
+</html>

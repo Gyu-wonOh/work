@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var t=parseInt(prompt("시간(0~23)"));
+        if(t<6){
+            alert("새벽");
+        } else if(t<12){
+            alert("아침");
+        } else if(t<18){
+            alert("오후")
+        } else{
+            alert("밤")
+        }
+        var t1 =parseInt(prompt("시간(0~23)"));
+        switch(t1){
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                console.log("새벽");
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            console.log("아침");
+                break;
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            console.log("오후");
+                break;
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            console.log("밤");
+                break;
+            default:
+            console.log("잘못된 입력")
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
