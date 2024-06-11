@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // var str="";
+    // str=str+"<table border=1 width=200 height=200>";
+    
+    //     for(var i=0; i<4; i++){
+    //         str=str+"<tr>";
+    //         for(var j=0; j<9;j++){
+    //             str=str+"<td>("+i+","+j+")</td>"
+    //         }
+    //         str=str+"</tr>";
+    //     }
+    // str=str+"</table>"
+    
+    // document.write(str)
+    var str = "";
+    str = str+"<table border=1 width=200 height=200>";
+        str=str+"<tr>";
+        for(var i=1; i<10 ;i++){
+            str=str+"<td>"+i+"단</td>"
+        }
+        str=str+"</tr>";
+        // str=str+"<tr>";
+        for(var i=1; i<10 ;i++){
+            str=str+"<td>";
+                for(var j=1;j<=9;j++){
+                    str=str+i+"*"+j+"="+i*j+"<br>" 
+               }
+            str=str+"</td>";
+        }
+        str=str+"</tr>";
+    str = str+"</table>"
+    
+    document.write(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

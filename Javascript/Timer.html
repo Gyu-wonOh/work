@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //setTimeout 1번만 실행
+        //setInterval 매 시간마다 실행
+        //clearInterval 실행중인 타이머 종료 
+        // var oneFunction=function(){
+        //     console.log("1번만 실행");
+        //     clearInterval(timer2)
+        // }
+
+        // var timer1= setTimeout(oneFunction,10000)//2초 후 콘솔창 실행
+        // var timer2 = setInterval(function(){
+        //     var currentTime=new Date();
+        //     console.log(currentTime)
+        // },2000);
+
+        //clearInterval(timer1)
+        //clearInterval(timer2)
+       
+
+        //setTimeout 취소 예제
+        // var timeoutId = setTimeout(function(){
+        //     console.log("This will not be printed.");
+        // },2000);
+        // clearTimeout(timeoutId);// setTimeout 취소
+        //setInterval 취소 예제
+        // var intervalId = setInterval(function(){
+        //     console.log("this will no be printed repeatedly.")
+        // },1000);
+        // clearInterval(intervalId);//setInterval 취소
+
+        var intervalId= setInterval(function(){//setInterval로 1초마다 현재시간 출력
+            var currentTime = new Date();
+            console.log("현재시간: "+ currentTime);
+        },1000);
+        setTimeout(function(){//5초 후에 타이머 중지
+            clearInterval(intervalId);//타이머 중지
+            console.log("타이머가 중지되었습니다.")
+        },5000);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
