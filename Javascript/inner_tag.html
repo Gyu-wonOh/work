@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 테이블 추가 예제(createElement와 appendChild 없이)</title>
+    <script>
+        function addTable(){
+            // onload에 정의하지 않은 이유는 함수가 화면에 다 불리워진 후에 사용되기 때문이다. 테이블을 만들기 위해서 HTML문자열을 생성
+        
+            var tableHTML =`
+                <table>
+                    <tr>
+                        <td>셀1-1</td><td>셀1-2</td>
+                    </tr>
+                    <tr>
+                        <td>셀2-1</td><td>셀2-2</td>
+                    </tr>
+                </table>
+                `;
+                // tableContainer에 새로운 테이블의 HTML문자열을 추가
+                var tableContainer = document.getElementById("tableContainer");
+                tableContainer.innerHTML += tableHTML;
+                // 추가된 HTML을 출력
+                var addedHTML =tableContainer.innerHTML;
+                console.log("추가된 HTML:\n"+addedHTML); 
+        }
+    </script>
+</head>
+<body>
+    <h1>테이블 추가 예제</h1>
+    <button onclick = "addTable()">테이블 추가</button>
+    <div id="tableContainer">
+    <!--새로운 테이블이 여기에 추가될 것입니다.-->
+    </div>
+</body>
+</html>

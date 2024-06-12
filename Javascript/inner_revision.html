@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerText vs. innerHTML vs. value 변경 예제</title>
+</head>
+<body>
+    <!-- innerText 변경 예제 -->
+     <div id="innerTextExample">
+        이것은 <strong class="hide">innerText</strong> 예제입니다.
+     </div>
+     <!-- innerHTML 변경예제-->
+      <div id="innerHTMLExample">
+            이것은 <strong class="hide">innerHTML</strong>예제입니다.
+      </div>
+      <!-- value 변경 예제 -->
+       <input type = "text" id="valueExample" value="이것은 value예제입니다."/>
+       <script>
+        //innerText로 텍스트 변경하기
+        var innerTextElement = document.getElementById("innerTextExample");
+        innerTextElement.innerText ="innerText 값이 변경되었습니다.";
+        //innerHTML로 HTML 변경하기
+        var innerHTMLElement = document.getElementById("innerHTMLExample");
+        innerHTMLElement.innerHTML="innerHTML 값이 <em> 변경</em>되었습니다.";
+        //input 요소의 value 변경하기
+        var valueInputElement = document.getElementById("valueExample");
+        valueInputElement.value = "value 값이 변경되었습니다.";
+       // 변경된 값 콘솔에 출력
+       console.log("innerText 값: " + innerTextElement.innerText);
+       console.log("innerHTML 값: " + innerHTMLElement.innerHTML);
+       console.log("value 값:" + valueInputElement.value);
+       </script>
+</body>
+</html>

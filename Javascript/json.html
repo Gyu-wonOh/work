@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //   var b={ 
+    //         name: "John Doe", 
+    //         age: 30, 
+    //         isStudent: false, 
+    //         hobbies: ["reading", "swimming"], 
+    //         address: { 
+    //         street: "123 Main St", 
+    //         city: "Anytown", 
+    //         zipCode: "12345" 
+    //         } ,
+    //         myFunction:function(a){
+    //             alert(a+this.name)
+    //         }
+    //     }
+    //     b.myFunction("1");
+    //     document.write(b.name,"<br>");
+    //     document.write(b.age,"<br>");
+    //     document.write(b.isStudent,"<br>");
+    //     document.write(b.hobbies[0],"<br>");
+    //     document.write(b.address  .city,"<br>");
+
+    //     b.email='hello@daum.net';
+    //     console.log(b);
+    //     delete(b.email);
+    //     document.write(b.email,"<br>");
+    //     console.log(b);
+
+         // JSON 문자열 파싱 
+        var jsonString = '{"name": "John Doe", "age": 30}'; 
+        var jsonObject = JSON.parse(jsonString); 
+        console.log(jsonObject.name); // "John Doe" 
+        // JavaScript 객체를 JSON 문자열로 변환 
+        var person = { name: "Alice", age: 25 }; 
+        var jsonPerson = JSON.stringify(person); 
+        console.log(jsonPerson); // '{"name":"Alice","age":25}'
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

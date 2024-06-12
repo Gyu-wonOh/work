@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+<body onload="alert( '화면이 다 불려지고나면 메시지 발생' )" 
+onresize = "alert( '브라우져 크기를 변경하였으면 발생' )">
+    <input type="text" onfocus="alert( '선택되면 포커스 이벤트가  발생한다.')">
+    <input type="text" onblur="alert( '포커스를 잃어버리면 발생  한다.' ">
+    <div onclick="alert('onclick')">
+        마우스 이벤트 글씨를 클릭하면 onclick 메시지박스가 생성된다.
+    </div>
+    <textarea 
+    onkeypress="alert(event.keyCode+'keyPress:'+String.fromCharCode(event.keyCode))">'</textarea>
+</body>
+</html>

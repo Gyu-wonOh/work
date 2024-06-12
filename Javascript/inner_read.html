@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innertext vs. innerHTML vs. value 차이 예제</title>
+
+</head>
+<body>
+    <!-- innerText예제 -->
+    <div id="innerTextExample">
+        이것은 <strong class="hide">innertext</strong>예제입니다.
+    </div>
+    <!-- innerHTML예제 -->
+     <div id="innerHTMLExample">
+        이것은 <strong class="hide">innerHTML</strong>예제입니다.
+    </div>
+    <!-- value예제 -->
+     <input type ="text" id=" valueExample" value="이것은 value 예제입니다."/>
+     <script>
+        //innerText로 텍스트 가져오기
+        var innerTextElement = document.getElementById("innerTextExample");
+        var innerTextvalue = innerTextElement.innerText;
+        //innerHTML로 HTML 가져오기
+        var innerHTMLElement=document.getElementById("innerHTMLExample");
+        var innerHTMLValue = innerHTMLElement.innerHTML;
+        //input 요소의 value 가져오기
+        var valueInputElement = document.getElementById("valueExample");
+        var valueInputValue = valueInputElement.value;
+        console.log("innerText 값: " + innerTextValue); 
+        console.log("innerHTML 값: " + innerHTMLValue); 
+        console.log("value 값: " + valueInputValue); 
+     </script>
+</body>
+</html>

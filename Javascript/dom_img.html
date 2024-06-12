@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){//화면이 다 호출된 후 다음 코드가 실행된다.
+           
+            var img2=document.getElementById("img2");
+            img2.onmouseover=function(){
+                //document.images.img2.src='img/다운로드.jfif'
+                img2.src='img/2.jfif';
+            }
+            img2.onmouseout=function(){
+                //document.images.img2.src='img/다운로드(1).jfif'
+                img2.src='img/1.jfif';
+            }
+        }
+    </script>
+</head>
+<body>
+  
+    <a href="http://www.daum.net">
+        <img src="img/2.jfif" id="img2">
+    </a>
+</body>
+</html>
