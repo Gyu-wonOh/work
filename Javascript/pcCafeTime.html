@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            document.getElementById("btn1").addEventListener("click" , function (){ 
+                var pDate1=new Date(document.getElementById("pDate1").value);
+                var pDate2=new Date(document.getElementById("pDate2").value);
+                var change = Number(document.getElementById("change").value);
+                var diff=pDate2.getTime()-pDate1.getTime();
+                var diff= diff/(1000*60*60);
+                change=diff*change;
+                alert(change);
+                
+            })
+        }
+    </script>
+</head>
+<body>
+    PC방 요금 계산<br>
+    시간당요금<input type="text" id="change" valeue="1000"/>
+    시작시간<input type="datetime-local" id="pDate1">
+    종료시간<input type="datetime-local" id="pDate2">
+    <input type="button" id="btn1" value="button"> 
+</body>
+</html>

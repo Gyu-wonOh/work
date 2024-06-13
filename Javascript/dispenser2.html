@@ -4,6 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        window.onload=function(){
+            var button =document.getElementById("changeReturn");
+            button.onclick=function(){
+                //changeView //change500 //change100 //output
+                document.getElementById("output").innerHTML="";//음료수 이미지 삭제 작업
+                var change=parseInt(document.getElementById("changeView").value);
+                var change500 = parseInt(change/500);
+                var change100 = parseInt(change%500/100)
+                document.getElementById("change500").value=change500
+                document.getElementById("change100").value=change100
+                document.getElementById("changeView").value=0;
+
+            }
+
+            var buttons =document.getElementsByClassName("changeInput");
+            for(var button of buttons){
+                button.onclick=changeInput;
+            }
+            var buttons = document.getElementsByClassName("item");
+            for(var i=0; i<buttons.length; i++){
+                buttons[i].addEventListener("click",function(){
+                    var view = document.getElementById("changeView")
+                    var totalChange = parseInt(view.value)//잔돈
+                    var itemChange = parseInt(this.innerText); //음료수가격
+                    if(totalChange-itemChange<0){
+                        alert("잔액이 부족합니다.");
+                    } else{
+                        totalChange=totalChange-itemChange;
+                        view.value=totalChange;
+                     
+                    //이미지 추가 작업
+                    var output = document.getElementById("output");
+                    
+                    
+                    alert(this.getAttribute('data-src'));
+                    output.innerHTML=output.innerHTML+'<img src="'+this.getAttribute('data-src')+'" width="50px" height="100px">';
+
+                    console.log(this.parentNode.querySelector("img"));
+                    //클릴한 버튼과 같은 부몰를 가지는 img 태그
+                    console.log(this.parentNode.querySelector("img").getAttribute("src"))
+                    //절대경로가 나옴
+                    //console.log(this.parentNode.querySelector("img").src)
+                    }
+                   
+                })
+                
+            }
+        
+        }
+       
+        function changeInput(){
+            var change=parseInt(this.innerText);
+            var view = document.getElementById("changeView")
+            
+            change=change+parseInt(view.value);
+            view.value=change;
+
+        }
+        ///////////////////////////////
+        // function changeInput(change){
+        //     var view=document.getElementById("chageView");
+        //     change=change+number(view.value);
+        //     view.value=change;
+        // }
+
+    </script>
 </head>
 <body>
     <table border="3px" width=500; height=500;>
@@ -17,50 +84,48 @@
         <tr height= 130>
             <td align="center">
                 <img src="img/콜라.jpg" width=50><br> 
-                <input type="button" onclick=M(1,1200) value="1200원">
+               <button class="item" data-src="img/콜라.jpg">1200원</button>
             </td>
             <td align="center">
                 <img src="img/사이다.jpg" width="50"><br> 
-                <input type="button" onclick=M(2,1100) value="1100원"> 
+                <button class="item" data-src="img/사이다.jpg">1100원</button>
             </td>
             <td align="center">
                 <img src="img/환타.jpg" width="50"><br> 
-                <input type="button" onclick=M(3,1000) value="1000원">
+                <button class="item" data-src="img/환타.jpg">1000원</button>
             </td>
             <td align="center" width="100">
-                <input type="button" onclick=M(0,1000) value="1000원"/><br>
-                <input type="button" onclick=M(0,500) value="500원"/><br>
-                <input type="button" onclick=M(0,100) value="100원"/><br>
-                <input type="text" id="f1" value="0원" style="width:50pt">
+               <button class="changeInput">1000원</button>
+               <button class="changeInput">500원</button><br>
+               <button class="changeInput">100원</button><br>
+                <input id="changeView" type="text" value="0" style="width:60pt; height:20pt">원
             </td>
         </tr>
         <tr height=130>
             <td align="center">
                 <img src="img/블랙.gif" width=50><br> 
-                <input type="button" onclick=M(4,400) value="400원">
+                <button class="item" data-src="img/블랙.gif">400원</button>
             </td>
             <td align="center">
                 <img src="img/블랙.gif" width="50"><br> 
-                <input type="button" onclick=M(4,400) value="400원"> 
+               <button class="item" data-src="img/블랙.gif">400원</button>
             </td>
             <td align="center">
                 <img src="img/블랙.gif" width="50"><br> 
-                <input type="button" onclick=M(4,400) value="400원">
+                <button class="item" data-src="img/블랙.gif">400원</button>
             </td>
             <td align="center" width="50">
-                <input type="button" name="f2" value="잔돈 반환"/><br>
+                <button id="changeReturn">잔돈 반환</button>
             </td>
         </tr>
         <tr>
-            <td colspan="3"></td>
+            <td colspan="3" id="output"></td>
             <td align ="center">
-                500원<input type="text" id="f3" style="width:20pt; height:20pt" readonly>개<br>
-                100원<input type="text" id="f3" style="width:20pt; height:20pt" readonly>개<br>
+                500원<input id="change500" type="text" style="width:20pt; height:20pt">개<br>
+                100원<input id="change100" type="text" style="width:20pt; height:20pt">개<br>
             </td>
         </tr>
     </table>
-    <script>
-
-    </script>
+    
 </body>
 </html>

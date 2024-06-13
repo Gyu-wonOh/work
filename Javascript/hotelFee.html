@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function no3(){
+            //각 변수의 값 입력받기
+            var checkIn=document.getElementById("checkIn");
+            var checkout=document.getElementById("checkOut");
+            var number=document.getElementById("number");
+            var roomChoice=document.getElementsByName("roomChoice");
+            var roomService=document.getElementsByName("roomService");
+            //룸 가격정보
+            var roomPrice={
+                single:100000,
+                double:150000,
+                twin:120000,
+                party:200000,
+                suite:250000
+            };
+            //룸 선택 값 가져오기
+            var roomType = document.querySelector('input[name="roomChoice"]:checked')?.value;
+            var roomPrice = roomPrices[roomType];
+            //체크인,체크아웃 값 date객체로 변환
+            var checkInTime= new Date(checkInInput.value);
+            var checkOutTime= new Date(checkOutInput.value);
+            //숙박기간 계산
+            var timeDiff= checkOut-checkIn;
+            //기본 숙박요금 계산
+            var baseFee = (timeDiff/(1000*60*60*24))*roomPrice;
+            //룸서비스 요금 정보
+            var serviecePrices={
+                breakfast:20000,
+                lunch:40000,
+                dinner:60000,
+                snack:30000,
+                beverage:50000,
+                morningCall:0
+            }
+            //룸서비스 가격 계산
+            let totalRoomServiePrice=0;
+            for(let i =0; i<roomserviceInputs.length;i++){
+                var serviceName = roomServiceInputs[i].value;
+                var servicePrice = servicePrices[serviceName];
+                totalRoomServicePrice += servicePrice;
+            }
+            //올바른 값 입력 확인
+            if(!checkInInput.value||!checkOutInput.value||!headCount.value||!roomType||!roomServiceInputs.length){
+                alert("올바른 값을 입력하세요");
+            }
+            //총 가격 출력
+            var totalFee = baseFee+totalRoomservicePrice;
+            document.getElementById('display').value=totalFee/1000+'만원';
+        }
+    </script>
+</head>
+<body>
+    <header><h1>휴먼 호텔 숙박 요금 계산 프로그램</h1></header>
+    <main>
+        체크인<input tpye="datetime-local" id="chckIn" value="2024-03-09">
+        체크아웃<input tpye="datetime-local" id="checkOut" value="2024-03-09">
+        인원수:<input type="number" id="headCount" value=2>
+    <div id="roomChoice">
+        <p>룸선택</p>
+        <input type="radio" name="roomChoice" id="single" value="single" required>싱글
+        <input type="radio" name="roomChoice" id="double" value="double" required>더블
+        <input type="radio" name="roomChoice" id="twin" value="twin" required>트윈
+        <input type="radio" name="roomChoice" id="party" value="party" required>파티
+        <input type="radio" name="roomChoice" id="suite" value="suite" required>스위트
+    </div>
+    <div id="roomService">
+        <p>룸 서비스</p>
+        <input type="checkbox" name="roomService" id="breakfast" value="breakfast" required>조식
+        <input type="checkbox" name="roomService" id="lunch" value="lunch" required>점심
+        <input type="checkbox" name="roomService" id="dinner" value="dinner" required>저녁
+        <input type="checkbox" name="roomService" id="snack" value="snack" required>과자
+        <input type="checkbox" name="roomService" id="beverage" value="beverage" required>음료
+        <input type="checkbox" name="roomService" id="morningCall" value="morningCall" required>모닝콜
+    </div>
+    </main>
+    <div id="fee">
+        <button onclick="no3()">숙박요금계산</button>
+        <input type="text" id="displayMoney" value="0원">
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //현재 날짜 및 시간 가져오기:
+        var currentDate= new Date();
+        console.log(currentDate)
+        //특정 날짜 및 시간으로 객체 생성:
+        var specificDate =new Date("2022-01-01T12:00:00");
+        console.log(specificDate);
+        //여러매개변수
+        var specificDate = new Date(2022,0,1);
+        console.log(specificDate);
+        var specificDate2 = new Date(2022,0,1,12,0,0);
+        console.log(specificDate2);
+        //타임스탬프 매개변수
+        var timestampDate = new Date(1646149200000);
+        console.log(timestampDate);
+
+        //기존 Date객체 매개변수:
+        var timestampDate =new Date();
+        var copyDate =new Date(currentDate);
+        console.log(timestampDate);
+        console.log(copyDate);
+
+        //특정 날짜 및 시간의 각 구성 요소 얻기:
+        var currentDate = new Date();
+        var year = currentDate.getFullYear()
+        console.log(year);
+        var month =currentDate.getMonth();//0~11 월은 시작 실제 월값에 +1이 필요
+        var day = currentDate.getDate();//1~
+        var hours = currentDate.getHours();//0~23
+        var minutes = currentDate.getMinutes();//0~59
+        var seconds = currentDate.getSeconds();//0~59
+        console.log(year,month+1,day,hours,minutes,seconds);
+
+        //set메소드로 시간 날짜 설정하기
+        var 현재날짜시간 = new Date();
+        console.log("현재 날짜: ", 현재날짜시간);
+        //다음 달 15일로 날짜 설정
+        현재날짜시간.setMonth(현재날짜시간.getMonth()+1,15);
+        console.log("다음 달 15일로 날짜 설정 후: ",현재날짜시간);
+        //현재 날짜에 3달 더하기
+        현재날짜시간.setMonth(현재날짜시간.getMonth()+3);
+        console.log("3 달 뒤 날짜 시간: ", 현재날짜시간);
+        //시간을 8시로 설정
+        현재날짜시간.setHours(8);
+        console.log("시간을 8로 설정한 후: ",현재날짜시간);
+        //시간을 18:30:45로 설정
+        현재날짜시간.setHours(18,30,45);
+        console.log("시간을 18:30:45로 설정 후",현재날짜시간);
+        //연도를 2023으로 설정
+        현재날짜시간.setFullYear(2023);
+        console.log("연도를 2023년으로 설정 후", 현재날짜시간);
+        //현재 날짜에 3달 더하기
+        현재날짜시간.setMonth(현재날짜시간.getMonth()+3);
+        console.log("현재 날짜에 3달 더한 후:" , 현재날짜시간);
+        //현재 날짜에서 5달 전의 날짜를 계산
+        현재날짜시간.setMonth(현재날짜시간.getMonth()-5);
+        console.log("현재 날짜에 5달 전:", 현재날짜시간);
+        //두시간차구하기
+        function getTimestampDifference(date1,date2){
+            //각 날짜의 타임스탬프 구하기
+            var timestamp1 = date1.getTime();
+            var timestamp2 = date2.getTime();
+            //두 타임 스탬프 간의 차이 구하기(밀리초 단위)
+            var timeDifference =Math.abs(timestamp2 - timestamp1);
+            //차이를 그대로 반환
+            return timeDifference;           
+        }
+        //예제: 현재 시간과 1시간 전의 차이 계산
+        var currentDate = new Date();
+        var oneHourAgo = new Date(currentDate);
+        oneHourAgo.setHours(currentDate.getHours()-1);
+        var timeDifference=getTimestampDifference(currentDate,oneHourAgo);
+        console.log("두 시간의 차이(밀리초):", timeDifference);
+        //세계기준 시 밀리 초 기준  0초
+        var myDate = new Date(1970,0,1,0,0,0); 
+        document.write(myDate.getTime(),"<br>");
+        //대한민국 기준 시 0초
+        var myDate = new Date(1970,0,1,9,0,0); 
+        document.write(myDate.getTime(),"<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
