@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #fee{
+            margin-top:10px;
+        }
+    </style>
     <script>
         function no3(){
             //각 변수의 값 입력받기
-            var checkIn=document.getElementById("checkIn");
-            var checkout=document.getElementById("checkOut");
-            var number=document.getElementById("number");
-            var roomChoice=document.getElementsByName("roomChoice");
-            var roomService=document.getElementsByName("roomService");
+            var checkInDateInput=document.getElementById("checkInDate");
+            var checkOutDateInput=document.getElementById("checkOutDate");
+            var headCountInput=document.getElementById("headCount");
+            var roomChoiceInput=document.getElementsByName("roomChoice");
+            var roomServiceInputs=document.querySelectorAll('input[name="roomService"]:checked');
             //룸 가격정보
-            var roomPrice={
+            var roomPrices={
                 single:100000,
                 double:150000,
                 twin:120000,
@@ -24,14 +29,14 @@
             var roomType = document.querySelector('input[name="roomChoice"]:checked')?.value;
             var roomPrice = roomPrices[roomType];
             //체크인,체크아웃 값 date객체로 변환
-            var checkInTime= new Date(checkInInput.value);
-            var checkOutTime= new Date(checkOutInput.value);
+            var checkInTime= new Date(checkInDateInput.value);
+            var checkOutTime= new Date(checkOutDateInput.value);
             //숙박기간 계산
-            var timeDiff= checkOut-checkIn;
+            var timeDiff= checkOutTime-checkInTime;
             //기본 숙박요금 계산
-            var baseFee = (timeDiff/(1000*60*60*24))*roomPrice;
+            var baseFee = parseInt(timeDiff/(1000*60*60*24))*roomPrice;
             //룸서비스 요금 정보
-            var serviecePrices={
+            var servicePrices={
                 breakfast:20000,
                 lunch:40000,
                 dinner:60000,
@@ -40,28 +45,31 @@
                 morningCall:0
             }
             //룸서비스 가격 계산
-            let totalRoomServiePrice=0;
-            for(let i =0; i<roomserviceInputs.length;i++){
+            var totalRoomServicePrice=0;
+            for(var i =0; i<roomServiceInputs.length;i++){
                 var serviceName = roomServiceInputs[i].value;
                 var servicePrice = servicePrices[serviceName];
                 totalRoomServicePrice += servicePrice;
             }
             //올바른 값 입력 확인
-            if(!checkInInput.value||!checkOutInput.value||!headCount.value||!roomType||!roomServiceInputs.length){
+            if(!checkInDateInput.value||!checkOutDateInput.value||!headCountInput.value||!roomType||!roomServiceInputs.length){
                 alert("올바른 값을 입력하세요");
             }
             //총 가격 출력
-            var totalFee = baseFee+totalRoomservicePrice;
-            document.getElementById('display').value=totalFee/1000+'만원';
+            var totalFee = baseFee+totalRoomServicePrice;
+            document.getElementById('display').value=totalFee/10000+'만원';
         }
     </script>
 </head>
 <body>
     <header><h1>휴먼 호텔 숙박 요금 계산 프로그램</h1></header>
     <main>
-        체크인<input tpye="datetime-local" id="chckIn" value="2024-03-09">
-        체크아웃<input tpye="datetime-local" id="checkOut" value="2024-03-09">
-        인원수:<input type="number" id="headCount" value=2>
+        <label for="checkInDate">체크인:</label>
+        <input type ="date" id="checkInDate" required><br>
+        <label for="checkOutDate">체크아웃:</label>
+        <input type="date" id="checkOutDate"required><br>
+        <label for="headCount">인원수:</label>
+        <input type="number" id="headCount" required>
     <div id="roomChoice">
         <p>룸선택</p>
         <input type="radio" name="roomChoice" id="single" value="single" required>싱글
@@ -72,17 +80,17 @@
     </div>
     <div id="roomService">
         <p>룸 서비스</p>
-        <input type="checkbox" name="roomService" id="breakfast" value="breakfast" required>조식
-        <input type="checkbox" name="roomService" id="lunch" value="lunch" required>점심
-        <input type="checkbox" name="roomService" id="dinner" value="dinner" required>저녁
-        <input type="checkbox" name="roomService" id="snack" value="snack" required>과자
-        <input type="checkbox" name="roomService" id="beverage" value="beverage" required>음료
-        <input type="checkbox" name="roomService" id="morningCall" value="morningCall" required>모닝콜
+        <input type="checkbox" name="roomService" id="breakfast" value="breakfast">조식
+        <input type="checkbox" name="roomService" id="lunch" value="lunch">점심
+        <input type="checkbox" name="roomService" id="dinner" value="dinner">저녁
+        <input type="checkbox" name="roomService" id="snack" value="snack">과자
+        <input type="checkbox" name="roomService" id="beverage" value="beverage">음료
+        <input type="checkbox" name="roomService" id="morningCall" value="morningCall">모닝콜
     </div>
     </main>
     <div id="fee">
         <button onclick="no3()">숙박요금계산</button>
-        <input type="text" id="displayMoney" value="0원">
+        <input type="text" id="display" value="0원">
     </div>
 </body>
 </html>
