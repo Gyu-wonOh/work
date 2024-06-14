@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=[ 
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        ]
+        var str =" ";
+        str+="<table border=1px width =900 height=400>";
+        for(var i =0; i<arr.length;i++){
+            str+="<tr>";
+                for(var j=0; j<arr[i].length;j++){
+                str+="<td id=i"+i+"j"+j+">";
+                str+="</td>";
+                }
+            str+="</tr>";
+        }
+        str+="</table>";
+        document.write(str);
+        for(var i= 0; i<arr.length;i++){
+                for(var j=0; j<arr[i].length;j++){
+                    document.getElementById("i"+i+"j"+j).innerHTML=arr[i][j];
+                }
+        }
+        document.getElementById("i1j5").setAttribute("bgcolor","red");
+        document.getElementById("i1j6").setAttribute("bgcolor","red"); 
+        document.getElementById("i1j7").setAttribute("bgcolor","red");
+        document.getElementById("i1j8").setAttribute("bgcolor","red");
+        document.getElementById("i1j9").setAttribute("bgcolor","red");
+        document.getElementById("i2j7").setAttribute("bgcolor","red");
+        document.getElementById("i3j7").setAttribute("bgcolor","red");
+        document.getElementById("i4j7").setAttribute("bgcolor","red");
+        document.getElementById("i5j7").setAttribute("bgcolor","red");
+        document.getElementById("i6j7").setAttribute("bgcolor","red");
+        document.getElementById("i7j7").setAttribute("bgcolor","red");
+        document.getElementById("i8j7").setAttribute("bgcolor","red");
+        document.getElementById("i9j7").setAttribute("bgcolor","red");
+        document.getElementById("i9j5").setAttribute("bgcolor","red");
+        document.getElementById("i9j6").setAttribute("bgcolor","red"); 
+        document.getElementById("i9j7").setAttribute("bgcolor","red");
+        document.getElementById("i9j8").setAttribute("bgcolor","red");
+        document.getElementById("i9j9").setAttribute("bgcolor","red");
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

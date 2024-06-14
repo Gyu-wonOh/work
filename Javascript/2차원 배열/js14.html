@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=[
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ]
+        for(var y=0;y<arr.length;y++){
+            // console.log(arr[i]);
+            for(var x= 0; x<arr[y].length;x++){
+                document.write(arr[y][x]," ");
+            }
+            document.write("<br>")
+        }
+        // //화면의 내용을 순서대로 출력해보자.
+        // for(var i=0;i<arr.length;i++){
+        //     // console.log(arr[i]);
+        //     for(var j= 0; j<arr[i].length;j++){
+        //         document.write(arr[i][j]," ");
+        //     }
+        //     document.write("<br>")
+        // }
+        var str="";
+
+        str+="<table border=1 width=200 height=200>";
+        for(var y =0; y < 3; y++){
+        str+="<tr>";
+            for(var x= 0 ; x<3; x++){
+        str+="<td id=y"+y+"x"+x+">1</td>";
+        }
+        str+="</tr>";
+        }
+        str+="</table>";
+        document.write(str);
+        document.getElementById("y1x1").innerHTML="안";
+        document.getElementById("y2x1").innerHTML="녕"; 
+        //배열을 내용을 테이블에 집어넣기
+            //1.1차원 for문으로 변경 후 
+        // for(var y =0; y< arr.length;y++){
+        //     document.getElementById("y"+y+"x0").innerHTML=arr[y][0];
+        //     document.getElementById("y"+y+"x1").innerHTML=arr[y][1];
+        //     document.getElementById("y"+y+"x2").innerHTML=arr[y][2];    
+        // }
+            //2.2차원 문으로 변경 해보자
+        for(var y =0; y< arr.length;y++){
+            for(var x=0; x<arr[y].length; x++){
+                document.getElementById("y"+y+"x"+x).innerHTML=arr[y][x];
+            }
+             
+        }
+
+        document.getElementById("y0x0").setAttribute("bgcolor","red");
+        document.getElementById("y0x1").setAttribute("bgcolor","green");
+        document.getElementById("y0x2").setAttribute("bgcolor","blue");
+        //배경색 옮기기
+        document.getElementById("y1x0").setAttribute("bgcolor","red");
+        document.getElementById("y1x1").setAttribute("bgcolor","green");
+        document.getElementById("y1x2").setAttribute("bgcolor","blue");
+        
+        var temp= document.getElementById("y0x2").getAttribute("bgcolor")
+
+        document.getElementById("y0x2").setAttribute("bgcolor"
+        ,document.getElementById("y0x1").getAttribute("bgcolor"))
+        document.getElementById("y0x1").setAttribute("bgcolor"
+        ,document.getElementById("y0x0").getAttribute("bgcolor"))
+        document.getElementById("y0x0").setAttribute("bgcolor",temp)
+
+        // document.getElementById("y1x1").innerHTML=arr[1][0];
+        // document.getElementById("y1x1").innerHTML=arr[1][1];
+        // document.getElementById("y2x1").innerHTML=arr[1][2];
+
+        // document.getElementById("y1x1").innerHTML=arr[2][0];
+        // document.getElementById("y1x1").innerHTML=arr[2][1];
+        // document.getElementById("y2x1").innerHTML=arr[2][2];
+
+        // document.getElementById("y1x1").innerHTML=arr[0][0];
+        // document.getElementById("y1x1").innerHTML=arr[0][1];
+        // document.getElementById("y2x1").innerHTML=arr[0][2]; 
+
+        // document.getElementById("y1x1").innerHTML=arr[1][0];
+        // document.getElementById("y1x1").innerHTML=arr[1][1];
+        // document.getElementById("y2x1").innerHTML=arr[1][2];
+
+        // document.getElementById("y1x1").innerHTML=arr[2][0];
+        // document.getElementById("y1x1").innerHTML=arr[2][1];
+        // document.getElementById("y2x1").innerHTML=arr[2][2];
+        // str+="<td id=y1x0>1</td>";
+        // str+="<td id=y1x1>2</td>";
+        // str+="<td id=y1x2>3</td>";
+        // str+="</tr>";
+        // str+="<tr>";
+        // str+="<td id=y2x0>1</td>";
+        // str+="<td id=y2x1>2</td>";
+        // str+="<td id=y2x2>3</td>";
+        // str+="</tr>";
+        
+
+        // str+="<table border=1 width=200 height=200>";
+        // str+="<tr>";
+        // str+="<td id=y0x0>1</td>";
+        // str+="<td id=y0x1>2</td>";
+        // str+="<td id=y0x2>3</td>";
+        // str+="</tr>";
+        // str+="<tr>";
+        // str+="<td id=y1x0>1</td>";
+        // str+="<td id=y1x1>2</td>";
+        // str+="<td id=y1x2>3</td>";
+        // str+="</tr>";
+        // str+="<tr>";
+        // str+="<td id=y2x0>1</td>";
+        // str+="<td id=y2x1>2</td>";
+        // str+="<td id=y2x2>3</td>";
+        // str+="</tr>";
+        // str+="</table>";
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

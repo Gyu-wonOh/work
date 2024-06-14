@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var elements=document.getElementsByClassName("myClass");
+            for(var element of elements){
+                element.innerHTML="Hello";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p class="myClass">첫 번째 문단</p>
+    <p class="myClass">두 번째 문단</p>
+</body>
+</html>

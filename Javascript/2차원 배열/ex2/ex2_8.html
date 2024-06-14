@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var innerTextElement =document.getElementById("innerTextExample")
+            var innerTextValue= innerTextElement.innerText;
+            var innerHTMLElement=document.getElementById("innerHTMLExample")
+            var innerHTMLValue=innerHTMLElement.innerHTML;
+            var ValueInputElement=document.getElementById("valueExample")
+            var ValueInputValue=document.getElementById("valueExample")
+            document.getElementById("console").innerHTML=innerTextValue+"<br>"+innerHTMLValue+"<br>"+ValueInputValue+"<br>";
+        }
+    </script>
+</head>
+<body>
+    <div id="innerTextExample">
+        innerText로 텍스트를 가져옴.
+    </div>
+    <div id="innerHTMLExample">
+        innerHTML로 HTML을 가져옴.
+    </div>
+    <input type="text" id="valueExample" size=40 value="value로 <input> 요소의 사용자 입력값을 가져옴.">
+    
+    <div id=console> 
+     
+    </div>
+
+</body>
+</html>
