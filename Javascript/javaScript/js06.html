@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var arr2 = document.getElementsByTagName('p');
+            for(var i =0; i<arr2.length;i++){
+                arr2[i].innerHTML="hello"+(i+1);//반드시 괄호 해주자
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <p>첫번째문단</p>
+    <p>두번째문단</p>
+</body>
+</html>

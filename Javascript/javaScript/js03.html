@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /* 함수: 반복되는 코드를 묶어서 실행 할 때 사용하는 코드 블럭
+    선언부와 호출부로 이루어져 있고, 선언 후 필요할 때마다 호출해서 사용한다.
+
+    function 키워드 이용
+    
+    선언부 구현
+    function 함수이름 (매개변수, 매개변수...){
+        실행코드;
+        return value;
+    }
+    function : 함수 만들 때 사용하는 키워드
+    함수이름 : 여러 함수를 구별하는 식별자
+    매개변수 : 함수 실행 시 추가로 필요한 데이터
+    실행코드 : 함수가 호출되었을 때 실제로 동작하는 코드 블럭
+    return 값 : 함수가 실행된 후 생성해주는 데이터 없으면 생략 가능
+    return; 리턴 값이 없는 의미 생략 가능
+    return value; 함수가 실행된 후 value 변수가 가지고 있는 값이 남음 
+    호출방법
+    함수이름(매개변수값,매개변수값....);
+
+    - 2 개의 수를 더한 결과를 출력하는 함수를 리턴 값이 있는 경우와 없는 경우로 만들어 보자.
+    - 이름과 회수를 입력받아 이름을 횟수만큼 출력한느 함수를 구현해서 2번 호출해 보자.
+    
+        */
+
+    function add1(num1,num2){//리턴 값이 없음
+        var sum= num1+num2;
+        console.log(num1+"+"+num2+'='+sum)
+    }
+
+    add1(5,4);
+    add1(15,14);
+    function add2(num1,num2){//두수를 더한 값을 리턴
+        var sum=num1+num2;
+        console.log("두수를 더해 리턴함");
+        return sum;//sum 변수에 들어 있는 값이 함수가 종료되면 생성됨
+        }
+    add2(3,4)
+    var mySum=add2(4,4);//리턴 값이 있을 때는 리턴된 값을 변수에 저장해서 사용할 수 있다.
+    console.log(mySum);
+    console.log(add2(4,4));
+    console.log(add2(4,4)+10);
+    //2. 이름과 횟수를 입력 받아 이름을 횟수만큼 출력하는 함수를 구현해서 2 번 호출해 보자.
+    function printName(name,count){
+        for(var i = 0 ; i < count; i++){
+            console.log((i+1)+"번째"+name);
+        }
+    }
+    printName("이름",10);
+    //- 원하는 이미지 이름과 width,height, 이동 주소를 입력받아 이미지를 클릭하면 이동주소로 이동하는 html 문자열을 만들어 div id= console에 출력해보자
+    function madeImaegeLink(href,src,width,height){
+        return  '<a href ="'+href+'"><img src="'+src+'" width="100" height="100"></a>;'
+    }
+    window.onload=function(){//화면이 다 호출된 다음에 실행되는 코드 블록
+     document.getElementById("console").innerHTML='<a href ="http://www.daum.net"><img src="img/f1.jpg" width="100" height="100"></a>'+'<br>'
+
+     document.getElementById("console").innerHTML+=madeImaegeLink("https://www.naver.com","img/f2.jpg",120,120)+'<br>';
+    
+     document.getElementById("console").innerHTML+=madeImaegeLink("https://www.google.com","img/f3.jpg",140,140)+'<br>';
+    }
+    
+    </script>
+</head>
+<body>
+    <a href ="http://www.daum.net"><img src="img/f1.jpg" width="100" height="100"></a>
+    <div id="console"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            각 요소의 문자열을 읽어 앞부분에 hello를 추가해 보자.
+        */
+       window.onload= function(){
+        var myHtml = document.getElementById("myHTML");
+        var myText = document.getElementById("myTEXT");
+        var myValue = document.getElementById("myValue");
+
+        myHtml.innerHTML='Hello '+myHtml.innerHTML;
+        myText.innerHTML='Hello '+myText.innerHTML;
+        myValue.value ='hello '+myValue.value;
+       }
+       
+    
+    </script>
+</head>
+<body>
+    <div id="myHTML">innerHTML</div>
+    <div id="myTEXT">innerHTML</div>
+    <input type ="text" id ="myValue" value="value">
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            document.getElementById("b1").onclick=function(){
+                alert(this.innerHTML)
+            }
+            document.getElementById("b2").addEventListener("click",function(){
+                alert(this.innerHTML);
+            })
+        }
+    </script>
+</head>
+<body>
+    <button id="b1">onclick 이벤트</button>
+    <button id="b2">addEvnetListener 이벤트</button>
+</body>
+</html>
