@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        
+        var object={}//빈 객체 만드는 방법
+        var b={//json은 key와 value로 구성되어있고 :으로 key와 value를 구분하고 , 로 다른 속성을 구분한다.
+            name:"홍길동",
+            age:10,
+            isStudent:false,
+            hobbies:["reading","swimming"],
+            address:{
+                street:"인천로",
+                city:"인천",
+                zipCode:"12345"
+            }
+        }
+        //b 객체의 name를 읽어오는 방법
+        console.log(b.name)
+        b.name="홍길남";//name 속성 변경
+        console.log(b)
+        console.log(b.hobbies[0])//값이 배열일 때 접근방법
+        //hobbies에 새로운 취미 running을 추가해보자.
+        b.hobbies[2]="running";
+        console.log(b)
+        //인천을 출력해보자
+        console.log(b.address.city)
+        //b객체에 새로운 email 속성 추가
+        b.email="hello@daum.net"
+        console.log(b);
+        delete(b.email)
+        console.log(b)
     </script>
 </head>
 <body>

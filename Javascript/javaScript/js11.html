@@ -5,68 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function calculate(){ 
-        var num1=parseInt(document.getElementById("num1").value)
-        var num2=parseInt(document.getElementById("num2").value)
-        // var operator= document.querySelector("opper");
-        // var result = 0;
-       
-        // if(operator=="+"){
-        //     result=num1+num2;
-        // }
-        // else if(operator=="-"){
-        //     result=num1-num2;
-        // }
-        // else if(operator=="*"){
-        //     result=num1*num2;
-        // }
-        // else if(operator=="/"){
-        //     result=num1/num2;
-        // }
+        window.onload=function(){
+            document.getElementById("cal").addEventListener("click",function(){
+                var num1= parseInt(document.getElementById("num1").value)
+                var num2= parseInt(document.getElementById("num1").value)
+                var oper='+';
 
-        // document.getElementById("display").value=result;
-
-        var arr =document.querySelectorAll("operator>input");
-        for(var i= 0;i<arr.length;i++){
-            if(arr[i].checked==true){
-                opper=arr[i].value;
-            }
+            
+            })
         }
-        var result=eval(num1+operator+num2);
-
-        switch(operator){
-            case '':
-                result=num1+num2;
-                break;
-            case'-':
-                result=num1-num2;
-            case'*':
-                result=num1*num2;
-            case'/':
-                result=num1/num2;
-        }
-        document.getElementById("result").innerHTML=result;
-        }
-   
     </script>
 </head>
 <body>
-    <div align="center"><h1>계산기</h1></div>
-    <div align="center">
-    숫자 1:<input type="number" id="num1" value="1"><br>
-    숫자 2:<input type="number" id="num2" value="1"><br>
-    </div>
-    <div align="center">
-        연산자<br>
-        <span id="opper"> 
-            +<input type="radio" name="operator" value="+"">
-            -<input type="radio" name="operator" value="-">
-            *<input type="radio" name="operator" value="*">
-            /<input type="radio" name="operator" value="/">
-        </span>
-       <br>
-        <button onclick="calculate">calculate</button>
-        <input type="text" id="display">
-    </div>
+    숫자1:<input type="text" id="num1"><br>
+    연산자:<span id="oper"><input type="radio" value="+" name="oper"checked>+<input type="radio" value="-" name="oper"><input type="radio" value="*" name="opper"></span>
+    숫자2:<input type="text" id="num2"><br>
+    <button id="cal">계산하기</button><br>
+    결과<div id="result"></div>
 </body>
 </html>

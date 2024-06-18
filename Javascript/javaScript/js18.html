@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highlight{
+            color:red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //DOM을 사용하여 엘리먼트 찾기
+        window.onload= function(){
+        var paragraphElement = document.getElementById('exampleParagraph');
+        //엘리먼트의 style 속성을 변경하여 CSS 적용
+        //paragraphElement.style.color ='blue';
+        paragraphElement.style.fontsize = '20px';
+        //클래스를 추가하여 CSS 클래스 적용
+        paragraphElement.classList.add('highlight');
+        }
+    </script>
+
+</head>
+<body>
+    <p id="exampleParagraph">이것은 예제 문단입니다.</p>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var myDate=new Date(); //현재 시간 다루는 javaScript
+        document.write(myDate,"<br>");
+        //특정 시간을 저장한 시간객체 만들기
+        var myDate = new Date(2022,4,6,10,10,10);
+        document.write(myDate,"<br>");
+
+        document.write(myDate.getFullYear(),"<br>");//2022
+        document.write(myDate.getMonth(),"<br>");//0~11
+        document.write(myDate.getDate(),"<br>")//1
+        document.write(myDate.getHours(),"<br>")
+        document.write(myDate.getMinutes(),"<br>")
+        document.write(myDate.getSeconds(),"<br>")
+        document.write(myDate.getDay(),"<br>")
+
+        myDate.setFullYear(2024);//년월일시분초 set 함수 존재
+        document.write(myDate,"<br>")
+
+        //특정 날짜에 12달 더하기
+        myDate.setMonth(myDate.getMonth()+12);
+        document.write(myDate);
+
+        //시간차 구하기
+        var myDate1 = new Date(2022,3,4,0,1,3);
+        var myDate2 = new Date(2023,4,1,10,11,13);
+
+        var myDate = new Date();
+        //alert(myDate.getTime()) //1970년 1월 1일 0시 0분 0초를 기준으로 1초에 1000씩 증가하였을 때 현재시간의 숫자를 리턴한다.
+
+        var diff=myDate2.getTime()-myDate1.getTime()
+        document.write("<br>",diff,"<br>");
+        var diffSeconds = diff/1000
+        var diffMinutes = diff/(60*1000)
+        var diffHours = diff/(60*60*1000)
+        var diffDates = diff/(24*60*60*1000)
+
+        document.write("초 차이:",diffSeconds,"<br>")
+        document.write("분 차이:",diffMinutes,"<br>")
+        document.write("시간 차이:",diffHours,"<br>")
+        document.write("일 차이:",diffDates,"<br>")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

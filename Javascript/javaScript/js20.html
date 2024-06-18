@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //변수의 scope
+        //변수 선언 방법 3가지
+        //var,let,const
+        //var 함수단위 변수
+        //let 블럭단위 변수
+        //const 블럭단위 상수 선언
+        // function f1(){
+        //     var x =10;
+        //     if(true){
+        //         var y =20;
+        //         console.log(x);//10
+        //         console.log(y);//20
+        //     }
+        //     f1();
+        //     //console.log(x);//10 error
+        //     //console.log(y);//20 error
+        // }
+        // function f2(){
+        //     let x =10;
+        //     if(true){
+        //         let y =20;
+        //     }
+        //     console.log(x);//10
+        //     //console.log(y);//20
+        //     f1();
+            
+        // }
+        //console.log(x);//10 error
+        //console.log(y);//20 error
+        //const는 let과 동일한 블럭 상수선언 시 적용
+        // const a =10;
+        //a=20;//error
+
+        //지역변수 전역변수
+        //전역변수 script 태그 바로 아래에서 선언하면 전역 변수, var,const,let 없이 기술하면 전역 변수가 된다.
+        //지역변수:블럭 안에 기술하면 지역변수
+
+        var a = 10;//전역 변수
+        
+        function f3(){
+            a=30;
+            b=40;
+            console.log(a);
+            console.log(b);
+        }
+        console.log(a);
+        // console.log(b); 함수가 실행되지 않아 전역변수 b가 생성되지 않음
+        f3();
+        console.log(a);
+        console.log(b);
+
+        console.log(window.a);
+        console.log(window.b);
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

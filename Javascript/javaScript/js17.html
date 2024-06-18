@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //구입 날짜를 입력받아 반품 가능한지 구현해 보자.
+        //1달 안에는 반품이 가능하다.
+        window.onload=function(){
+            document.getElementById("myTime").addEventListener('change',function(){
+                //alert(this.value);
+                var selectDate = new Date(this.value);
+                alert(selectDate);
+            })
+        }
+    </script>
+</head>
+<body>
+    <input id="myTime" type="datetime-local">
+</body>
+</html>

@@ -5,10 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        /*
+        DOM객체 속성 조작 찾은 엘리먼트에 속성을 변경하는 것을 의미함
+
+        setAttribute 찾은 속성 추가 변경
+        getAttribute 찾은 속성 읽어오기
+        removeAtrribute 찾은 속성 삭제
+
+        element.setAttribute("id","newId")
+        element.setAttribute("src","newImg.jpg")
+        element.setAttribute("style","color:red;")
+        element.setAttribute("color","red")//color속성은 없어서 아무일도 일어나지 않는다.
+
+        element.getAttribute("src")
+
+        element.removeAttrtbute("style")
         
+        setAttribute getAttribute removeAttribute를 사용해서 버튼을 클릭하여 특정 img src 속성을 조작해보자.
+        */
+       var count=1;
+       window.onload=function(){
+        document.getElementById("b1").onclick=function(){//이미지 변경
+            document.getElementById("img1").setAttribute("src","img/f"+count+".jpg");
+            count++;
+            if(count>3){
+                count=1;
+            }
+        }
+        document.getElementById("b2").onclick=function(){//이미지 이름 얻어오기
+           alert(document.getElementById("img1").getAttribute("src")) 
+        }
+        document.getElementById("b3").onclick=function(){//이미지 제거
+            document.getElementById("img1").removeAttribute("src");
+        }
+       }
     </script>
 </head>
 <body>
-    
+    <button id="b1">이미지 변경</button>
+    <button id="b2">이미지 이름 얻어오기</button>
+    <button id="b3">이미지 제거</button><br>
+    <img src="img/f1.jpg" id="img1" width="150" height="150">
 </body>
 </html>

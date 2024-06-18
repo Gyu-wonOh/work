@@ -5,10 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        
+      //  location.href="https://www.daum.net";
+      window.onload=function(){
+        var buttons=document.querySelectorAll("#myLink button");
+        for (var i=0; i<buttons.length; i++){
+            buttons[i].addEventListener("click",function(){
+                //자기자신을 의미 ->여기서는 클릭된 버튼을 의미
+                //alert(this.getAttribute("data-href"))
+                location.href=this.getAttribute("data-href");
+            })
+        }
+      }
     </script>
 </head>
 <body>
-    
+    <div id="myLink">
+        <button data-href="https://www.daum.net">다음</button>
+        <button data-href="https://www.naver.com">네이버</button>
+        <button data-href="https://www.google.com">구글</button>
+    </div>
 </body>
 </html>
