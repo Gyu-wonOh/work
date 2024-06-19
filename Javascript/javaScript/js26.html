@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html  lang = "en" > 
+<head > 
+<meta  charset = "UTF-8" > 
+<!-- 다음 HTML 문서에는 JavaScript를 사용하여 문서 
+객체 모델(DOM)을 조작하는 스크립트가 포함되어 
+있다. 아래 코드와 비교하면서 확인해 보자. 
+이런 형태의 dom조작을 javascript자체로 많이 
+사용하지 않으므로 이런것이 있구나 정도 생각 
+하면 될것 같다. dom  조작은 나중에 배울 
+jquery를 더 많이 사용한다.  -->
+<meta name = "viewport" content = "width=device-width,initial-scale=1.0" > 
+<title>Document</title> 
+<script> 
+/* 
+DOM이란? Document Object Model 문서를 객체로 만들어 놓은 것 
+DOM를 이용해서 노드에 접근하여 변경할 수 있고, 다른 노드를 찾을 수 있다. 
+*/ 
+window.onload =  function () { 
+// <body> 요소의 모든 자식을 변수 body에 저장하고 콘솔에  출력 
+var body = document.body.children; 
+console.log(body);
+// 첫 번째 <ul> 요소를 변수 myUl에 저장하고 콘솔에 출력 
+var  myUl =  document .getElementsByTagName( 'ul' )[ 0 ]; 
+console.log(myUl);
+//<ul>요소의 모든 자식(<li>요소들)을 변수 myLi에 저장하고  콘솔에 출력 
+var myLi = myUl.children;
+console.log(myLi);
+console.log(myLi.length);
+// 모든 <li> 요소의 innerHTML을 순회하며 콘솔에 출력 
+for  ( var  i =  0 ; i < myLi.length; i++)  { 
+console .log(myLi[i].innerHTML); 
+} 
+// <ul> 요소의 첫 번째 자식 노드의 텍스트를 콘솔에 출력 
+console .log(myUl.firstChild.innerText); 
+105 
+// <ul> 요소의 첫 번째 자식 노드의 HTML 내용을 콘솔에 출력 
+console .log(myUl.firstChild.innerHTML); 
+// <ul> 요소의 첫 번째 자식 노드의 부모 노드를 콘솔에 출력 
+console .log(myUl.firstChild.parentNode); 
+// "오렌지" <li> 요소를 변수 orange에 저장하고 콘솔에  출력 
+var orange = document.getElementsByTagName("li")[1]; 
+console.log(orange.innerHTML); 
+// "오렌지" <li> 요소의 이전 형제 노드의 HTML 내용을 콘솔에  출력 
+console.log(orange.previousSibling.innerHTML); 
+// "오렌지" <li> 요소의 다음 형제 노드의 HTML 내용을 콘솔에  출력 
+console.log(orange.nextSibling.innerHTML); 
+// 새 <li> 요소를 생성하여 변수 newNode에 저장 
+var newNode=document .createElement( "li" ); 
+// "수박" 텍스트 노드를 생성하여 변수 newText에 저장 
+var newText=document.createTextNode("수박"); 
+// newText를 newNode의 자식으로 추가 
+newNode.appendChild(newText); 
+console .log(newNode); 
+// newNode를 <ul>의 자식으로 추가 
+myUl.appendChild(newNode); 
+// newNode를 "오렌지" <li> 요소의 앞에 추가 형제노드로  추가 
+myUl.insertBefore(newNode, orange); 
+// 기존의 newNode를 제거 
+myUl.removeChild(newNode); 
+//"수박"을 포함하는 새<li>요소를 생성하여 변수 newNode에  저장 
+var  newNode =  document .createElement( "li" ); 
+newNode.innerHTML =  "<b>수박</b>" 
+// newNode를 <ul>의 자식으로 추가 
+myUl.appendChild(newNode); 
+} 
+</script> 
+</head> 
+<body> 
+<div> 
+<p>과일리스트</p> 
+<ul><li>사과</li><li>오렌지</li><li>바나나</li></ul> 
+</div> 
+</body> 
+</html>

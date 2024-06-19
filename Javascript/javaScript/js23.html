@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //정규식: 사용자 입력을 확인하는 문자열형태의 식
+        //자바스크립트 정규식은 // 두개의 사선 안에 기술한다.
+        //문자열 안에 e가 들어있는지 확인하려면 /e/
+        //정규식패턴. test(일반문자열)
+        //일반문자열이 정규식 패턴과 일치하면 ture, 일치하지 않으면 false
+
+        var pattern=/e/;
+        var result=pattern.test("hello world")
+        console.log(result)
+
+        //이메일
+        var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        //전화번호
+        var regPhone = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+    
+        window.onload=function(){
+            document.getElementById("myForm").addEventListener("submit",function(event){
+            //alert("test")
+            var userEmail=document.getElementById("Email").value;
+            var userPhone=document.getElementById("phone").value;
+            if(regEmail.test(userEmail)==false){
+                alert("잘못된 이메일을 입력하였습니다.")
+                event.preventDefault();
+            }
+            if(regPhone.test(userPhone)==false){
+                alert("잘못된 전화번호를 입력하였습니다.")
+                event.preventDefault();
+            }
+            })
+        }
+        
+    </script>
+</head>
+<body>
+    <form action="https://www.daum.net">
+        이메일:  <input id="email" type ="text"><br>
+        전화번호: <input id="phone" type="text">
+        <br>
+        <input type ="text" placeholder="4~10자리 입력" maxlength="10" required pattern="[A-Za-z0-9]{4,10}">
+        <button type="submit">확인</button>
+
+    </form>
+</body>
+</html>
