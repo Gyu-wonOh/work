@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\MySTS\sts-bundle\work\.metadata\.plugins\org.eclipse.jdt.core
+3136247592.index
+3864982192.index
+2175433026.index

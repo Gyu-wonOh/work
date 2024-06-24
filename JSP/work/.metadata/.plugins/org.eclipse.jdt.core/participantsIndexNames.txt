@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+C:\MySTS\sts-bundle\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2951455150.index
+\jsp01\src
+C:\MySTS\sts-bundle\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\10900754.index
+\jsp04getpost\src
+C:\MySTS\sts-bundle\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3738714749.index
+\jsp01html\src

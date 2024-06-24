@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Mon Jun 24 18:17:45 KST 2024
+org.eclipse.jst.jee.server\:jsp01html=C\:\\MySTS\\sts-bundle\\common\\apache-tomcat-9.0.90\\apache-tomcat-9.0.90\\wtpwebapps\\jsp01html
+org.eclipse.jst.jee.server\:jsp04getpost=C\:\\MySTS\\sts-bundle\\common\\apache-tomcat-9.0.90\\apache-tomcat-9.0.90\\wtpwebapps\\jsp04getpost
+org.eclipse.jst.jee.server\:jsp01=C\:\\MySTS\\sts-bundle\\common\\apache-tomcat-9.0.90\\apache-tomcat-9.0.90\\wtpwebapps\\jsp01
