@@ -1,0 +1,61 @@
+package com.the.ex;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class CookieCreate
+ */
+@WebServlet("/CookieCreate")
+public class CookieCreate extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CookieCreate() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		Cookie cookie=new Cookie("name2","psm2");
+		cookie.setMaxAge(600);//600초 동안만 유지
+		
+		//0삭제 -1무한대 설정
+		
+		response.addCookie(cookie);//쿠키 클라이언트에 전달
+		
+		response.setContentType("text/html; meta charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<html>");
+		out.println("<body>");
+		out.println(cookie.getName()+"<br>");//쿠키이름
+		out.println(cookie.getValue()+"<br>");//쿠키값
+		out.println(cookie.getMaxAge()+"<br>");//쿠키 설정 시간
+		
+		out.println("</body>");
+		out.println("</html>");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

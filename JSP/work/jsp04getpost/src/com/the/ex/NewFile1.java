@@ -1,0 +1,75 @@
+package com.the.ex;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class NewFile1
+ */
+@WebServlet("/NewFile1")
+public class NewFile1 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public NewFile1() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out=response.getWriter();
+		
+		out.println("<html><body>");
+		String[] imgs= request.getParameterValues("pic");
+		if(imgs!=null) {
+			for(String img:imgs) {
+				System.out.println("img:"+img);
+				String imgSrc="";
+				switch(img) {
+				case "flower":
+					imgSrc="img/flower.jpg";
+					out.println("꽃<br>");
+					break;
+				case "dog":
+					imgSrc="img/dog.jfif";
+					out.println("강아지<br>");
+					break;
+				case "cat":
+					imgSrc="img/Cat.jpg";
+					out.println("고양이<br>");
+					break;
+				case "building":
+					imgSrc="img/building.jfif";
+					out.println("건물<br>");
+					break;
+				}
+				out.print("<img src='" + imgSrc + "' width='100' height='100'><br>");
+			}
+		}else {
+				out.println("선택한 이미지가 없습니다.");
+		}
+		out.println("</body></html>");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

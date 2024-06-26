@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 	
+	1.
+	물건 이름과 가격  4 개값 입력 
+	여자는  5 % 추가할인 
+	5 % 10 % 15 % 20 % 쿠폰 중복사용가능 
+	결과 페이지에 구입 물건의 정가, 할인가, 할인 내용을 출력 하시오.-->
+	
+	<form action=shoppingList method="get">
+	판매물품<br>
+		화장지<input type="checkbox" name="meterial" value=5000>
+		식용유<input type="checkbox" name="meterial" value=8000>
+		대파<input type="checkbox" name="meterial" value=3000>
+		가지<input type="checkbox" name="meterial" value=3000>
+			<br>
+	성별:	<input type= "radio" name="gender" value="male"/>남자
+		<input type= "radio" name="gender" value="female"/>여자
+		<br>
+	쿠폰:<input type="checkbox" name="coupon" value=0.05>5%	
+		<input type="checkbox" name="coupon" value=0.1>10%	
+		<input type="checkbox" name="coupon" value=0.15>15%	
+		<input type="checkbox" name="coupon" value=0.2>20%<br>
+		<input type="submit" values="전송">
+	</form>
+</body>
+</html>

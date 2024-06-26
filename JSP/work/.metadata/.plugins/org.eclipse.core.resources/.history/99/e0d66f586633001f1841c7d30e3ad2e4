@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 사용자가 글자로 되어 있는 꽃, 강아지, 고양이, 건물 중 여러 개를 선택해서 선택된 
+		글자에 해당하는 이미지를 화면에 보여주는 프로그램을 서블릿,jsp페이지로 만드시오. -->
+	<form action="NewFile1" method="get">
+		<input type="checkbox" name="pic" value="flower">꽃
+		<input type="checkbox" name="pic" value="dog">강아지
+		<input type="checkbox" name="pic" value="cat">고양이
+		<input type="checkbox" name="pic" value="building">건물<br>
+		<input type="submit">
+	</form>
+</body>
+</html>

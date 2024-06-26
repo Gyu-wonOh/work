@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	String imgs[]=(String[])request.getAttribute("imgs");
+	if(imgs!=null) {
+		for(String img:imgs) {
+			out.println("img:"+img+"<br>");
+			String imgSrc="";
+			switch(img) {
+			case "flower":
+				imgSrc="img/flower.jpg";
+				out.println("꽃<br>");
+				break;
+			case "dog":
+				imgSrc="img/dog.jfif";
+				out.println("강아지<br>");
+				break;
+			case "cat":
+				imgSrc="img/Cat.jpg";
+				out.println("고양이<br>");
+				break;
+			case "building":
+				imgSrc="img/building.jfif";
+				out.println("건물<br>");
+				break;
+			}
+			out.print("<img src='" + imgSrc + "' width='100' height='100'><br>");
+		}
+	}else {
+		out.println("선택한 이미지가 없습니다.");
+	}
+%>
+</body>
+</html>
