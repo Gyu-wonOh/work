@@ -52,8 +52,6 @@ public class LoginController extends HttpServlet {
 				Cookie cookie = new Cookie("user_id", id);
 				cookie.setMaxAge(6000);
 				response.addCookie(cookie);
-				System.out.println(id);
-				System.out.println(pw);
 				response.sendRedirect("success.jsp");
 
 			} else {
@@ -65,10 +63,10 @@ public class LoginController extends HttpServlet {
 			// 로그아웃 페이지
 			request.getParameter("id");
 			request.getParameter("pw");
-			Cookie cookie = new Cookie(id, pw);
+			Cookie cookie = new Cookie("user_id",id);
 			cookie.setMaxAge(0);
 			response.addCookie(cookie);
-			response.sendRedirect("/login.jsp?isLogout=true");
+			response.sendRedirect("login.jsp?isLogout=true");
 		}
 
 	}
