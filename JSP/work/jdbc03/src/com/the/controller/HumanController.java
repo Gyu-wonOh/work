@@ -65,7 +65,7 @@ public class HumanController extends HttpServlet {
 			request.setAttribute("humanDtos", humanDtos);
 			
 			for(HumanDto humanDto: humanDtos) {
-				System.out.println(humanDtos);
+				System.out.println(humanDto);
 			}
 			
 			viewPage = "select.jsp";
@@ -74,7 +74,7 @@ public class HumanController extends HttpServlet {
 			request.setAttribute("humanDtos", humanDtos);
 			
 			for(HumanDto humanDto: humanDtos) {
-				System.out.println(humanDtos);
+				System.out.println(humanDto);
 			}
 			viewPage = "delete.jsp";
 		}else if (command.equals("/human/deleteDB.human")) {

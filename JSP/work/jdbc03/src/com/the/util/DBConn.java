@@ -57,7 +57,7 @@ public class DBConn {
 					st=dbConn.createStatement();
 				}
 				rValue=st.executeUpdate(sql);
-			} catch(SQLException e) {
+			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		}else {

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,21 +12,21 @@
 	select 페이지
 	<br>
 
-	<table border="1" width="90%" id="costumers">
+	<table border="1" width="90%" id="customers">
 		<tr>
 			<th>name</th>
 			<th>age</th>
 			<th>height</th>
 			<th>birthday</th>
 		</tr>
-		<c:for-each var="humanDto" items=${humanDtos}>
-		
-			<td>${name}</td>
-			<td>${age}</td>
-			<td>${height}</td>
-			<td>${birthday}</td>
-	
-		</c:for-each>
+		<c:forEach var="humanDto" items="${humanDtos}">
+			<tr>
+				<td>${humanDto.name}</td>
+				<td>${humanDto.age}</td>
+				<td>${humanDto.height}</td>
+				<td>${humanDto.birthday}</td>
+			</tr>
+		</c:forEach>
 	</table>
 	<a href="/jdbc04/human/main.jsp">main</a>
 	<br>
