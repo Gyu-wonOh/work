@@ -17,7 +17,7 @@ public class DBConn {
 	public static Connection getInstance() {
 		if (dbConn == null) {
 			try {
-				Class.forName("oracle:jdbc:driver:OracleDriver");
+				Class.forName("oracle.jdbc.driver.OracleDriver");
 				String url = "jdbc:oracle:thin:@localhost:1521:xe";
 				String id = "c##human";
 				String pw = "human";

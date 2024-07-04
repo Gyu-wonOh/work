@@ -9,8 +9,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-select 페이지
+select 페이지<br>
 
-<a href=/jdbc05/human/main.jsp>main</a>
+	<table border="1" width="90%" id="customer">
+	<tr>
+	<th>name</th><th>age</th><th>height</th><th>birthday</th>
+	</tr>
+	<c:forEach var="humanDto" items="${humanDtos}">
+		<tr>
+		<td>${humanDto.name}</td>
+		<td>${humanDto.age}</td>
+		<td>${humanDto.height}</td>
+		<td>${humanDto.birthday}</td>
+		</tr>
+	</c:forEach>	
+	</table>
+	
+	<a href=/jdbc05/human/main.human>main</a>
 </body>
 </html>

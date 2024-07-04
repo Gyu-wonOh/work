@@ -3,6 +3,8 @@ C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst
 \jdbc04\src
 C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2901252817.index
 \jsp05\src
+C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\599950683.index
+\shop_test\src
 C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\976916368.index
 \jsp21CustommerHobby\src
 C:\MySTS\sts-bundle\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3738714749.index
@@ -23,6 +25,8 @@ C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst
 \jsp21CustommerHobby\src
 C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2655446708.index
 \jsp13\src
+C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1569822971.index
+\shop_test\src
 C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1087767630.index
 \jsp07\src
 C:\Users\tj-bu-702-07\Desktop\school\JSP\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1847600438.index

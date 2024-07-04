@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-delete 페이지
+delete 페이지<br>
+<form action="/jdbc05/human/deleteDB.human" method="get">
+name:<input type="text" name="name">
+<input type="submit" value="delete">
+</form>
 
-<a href=/jdbc05/human/main.jsp>main</a>
+<a href=/jdbc05/human/main.human>main</a>
 </body>
 </html>
