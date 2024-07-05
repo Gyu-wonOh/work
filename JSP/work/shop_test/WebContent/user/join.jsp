@@ -54,33 +54,33 @@
 			<tr><td>이메일</td></tr>
 			<tr><td>전화번호</td></tr>
 			<tr><td>주소</td></tr>
-			<tr><td><a href="/shop_test/index.jsp"><button id="cancel">취소</button></a></td></tr>
+			<tr><td><a href="/shop_test/main.User"><button id="cancel">취소</button></a></td></tr>
 			</table>
 			 </td>		
 			<td> 
 				
 					<table>
-					<form action="/shop_test/user/login_pro.jsp" method="get">
-					<tr><td><input type="text" name="id"></td></tr>
-					<tr><td><input type="text" name="pw"></td></tr>
-					<tr><td><input type="text" name="pwCheck"></td></tr>
-					<tr><td><input type="text" name="pwCheck"></td></tr>
-					<tr>
-						<td> 
-							<input type="radio" name="gender" value="women">여자
-					   		<input type="radio" name="gender" value="women">남자
-					   	</td>
-				   	</tr>
-					<tr><td><input type="date" name="birthday"></td></tr>
-					<tr><td><input type="email" name="email"></td></tr>
-					<tr><td><input type="text" name="phoneNumeber"></td></tr>
-					<tr><td><input type="text" name="address"></td></tr>
-					<tr>
-						<td>
-							<a href="/shop_test/user/join_pro.jsp"><button id='join'>가입</button></a>
-						</td>
-					</tr>
-					</form>
+						<form action="/shop_test/user/join_pro.User" method="get">
+						<tr><td><input type="text" name="id"></td></tr>
+						<tr><td><input type="password" name="pw"></td></tr>
+						<tr><td><input type="text" name="pwcheck"></td></tr>
+						<tr><td><input type="text" name="name"></td></tr>
+						<tr>
+							<td> 
+								<input type="radio" name="gender" value="women">여자
+						   		<input type="radio" name="gender" value="men">남자
+						   	</td>
+					   	</tr>
+						<tr><td><input type="datetime-local" name="birthday"></td></tr>
+						<tr><td><input type="email" name="email"></td></tr>
+						<tr><td><input type="text" name="phoneNumber"></td></tr>
+						<tr><td><input type="text" name="address"></td></tr>
+						<tr>
+							<td>
+								<input type="submit" id='join' value="가입">
+							</td>
+						</tr>
+						</form>
 					</table>
 			</td>		
 			<td>&nbsp; </td>		

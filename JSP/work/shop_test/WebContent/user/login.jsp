@@ -57,7 +57,7 @@
 			<td>&nbsp; </td>		
 			<td>&nbsp; </td>		
 			<td>
-				<form action="/shop_test/user/login_pro.jsp" method="get">
+				<form action="/shop_test/user/login_pro.User" method="get">
 					<sup>아이디&nbsp;</sup><input type="text" name="id"><br>
 					<sup>비밀번호</sup><input type="text" name="pw"><br>
 					<input type="checkbox">아이디 저장
@@ -65,7 +65,7 @@
 					<input type="submit" id="id" value="로그인"><br>
 					
 				</form>
-				<a href="/shop_test/user/join.jsp"><button id="join">회원가입</button></a>
+				<a href="/shop_test/user/join.User"><button id="join">회원가입</button></a>
 			</td>		
 			<td>&nbsp; </td>		
 			<td>&nbsp; </td>		

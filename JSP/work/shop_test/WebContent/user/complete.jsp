@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,17 +30,16 @@
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
-			<td><a href="/shop_test/user/login.User">로그인</a>&nbsp;<a href="/shop_test/user/join.User">회원가입</a>&nbsp;<a href="/shop_test/user/orderList.User">주문내역</a></td>
+			<td>로그인&nbsp;회원가입&nbsp;주문내역</td>
 			<td><img src=""></td>
 			<td><textarea>search</textarea>
 				<button>search</button></td>
 			<td>&nbsp;</td>
 		</tr>
 	</table>
+	<h1>회원 정보</h1>
 	
-	<h1>마이 페이지</h1>
-	<br>
-	<a href="/shop_test/user/update.User"><button>회원정보 수정</button></a>	
-	<a href="/shop_test/user/order.User"><button>주문내역</button></a>	
+	회원가입이 완료되었습니다. 
+
 </body>
 </html>

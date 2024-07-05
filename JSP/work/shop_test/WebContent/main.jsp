@@ -40,7 +40,7 @@
 			<td></td>
 			<td>
 				<a href= "/shop_test/shop/products.jsp"><button id="productList">상품목록</button></a>
-				<a href= "/shop_test/user/login.jsp"><button id="login">로그인</button></a>
+				<a href= "/shop_test/user/login.User"><button id="login">로그인</button></a>
 			</td>
 			<td></td>
 		</tr>
