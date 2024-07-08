@@ -17,12 +17,14 @@
 		background-color:blue;
 	}
 	#join{
-		cololr:white;
+		color:white;
 		background-color:green;
 	}
 </style>
+
 </head>
 <body>
+	<%String index = request.getParameter("index");%>
 	<table width="100%">
 		<tr id="head">
 			<td>Home</td>
@@ -30,8 +32,9 @@
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
-			<td>로그인&nbsp;회원가입&nbsp;주문내역</td>
-			<td><img src=""></td>
+			<td id="login"><img src=""></td>
+			<td>회원가입</td>
+			<td>주문내역</td>
 			<td><textarea>search</textarea>
 				<button>search</button></td>
 			<td>&nbsp;</td>
@@ -39,7 +42,12 @@
 	</table>
 	<h1>회원 정보</h1>
 	
-	회원가입이 완료되었습니다. 
-
+	<%if("0".equals(index)){%>
+		회원가입이 완료되었습니다.
+	<%}else if("1".equals(index)){ %>
+		로그인이 완료되었습니다.
+	<%}else if("2".equals(index)){ %>
+		회원정보 수정이 완료되었습니다.
+	<%}%>
 </body>
 </html>

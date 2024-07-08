@@ -19,7 +19,7 @@
 	<h1>인사관리 프로그램</h1>
 	<form action=loginDB.servlet method="get">
 		USER NAME <input type="text" name="user_id"><br>
-		PASSWORD <input type="password" name="password">
+		PASSWORD <input type="password" name="password" value = 0>
 		<input type="submit" value="log-in">
 	</form>
 </body>

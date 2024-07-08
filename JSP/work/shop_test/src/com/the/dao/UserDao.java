@@ -9,9 +9,28 @@ import com.the.dto.UserDto;
 import com.the.util.DBConn;
 
 public class UserDao {
-	
+	public UserDto login (String id, String pw) {
+		UserDto dto = new UserDto();
+		String sql ="select * from shopuser where id in '%s' and pw in '%s'";
+		sql = String.format(sql,id,pw);
+		ResultSet rs = DBConn.statementQuery(sql);
+		
+		try {
+			if(rs.next()) {
+				String DBId= rs.getString("id");
+				String DBPw = rs.getString("pw");
+				
+				dto = new UserDto(DBId,DBPw);
+				System.out.println("id:" + DBId+"login");
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
 	public void insert(UserDto userDto) {
-		String sql ="insert into shopuser values ('%s',%d,'%s','%s',to_date('%s','YYYY-MM-DD HH24:MI:SS'),'%s','%s','%s')";
+		String sql ="insert into shopuser values ('%s','%s','%s','%s',to_date('%s','YYYY-MM-DD HH24:MI:SS'),'%s','%s','%s')";
 		sql=String.format(sql, 
 				userDto.getId(),
 				userDto.getPw(),
@@ -29,7 +48,7 @@ public class UserDao {
 		ResultSet rs = DBConn.statementQuery("select * from shopuser");
 		try {
 			while(rs.next()) {
-				userDtos.add(new UserDto(rs.getString("id"),rs.getInt("pw"),rs.getString("name"),rs.getString("gender"),
+				userDtos.add(new UserDto(rs.getString("id"),rs.getString("pw"),rs.getString("name"),rs.getString("gender"),
 						rs.getTimestamp("birthday").toLocalDateTime(),rs.getString("email"),rs.getString("phoneNumber"),rs.getString("address")));
 			}
 		} catch (SQLException e) {

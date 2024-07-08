@@ -7,6 +7,7 @@ import com.the.dao.UserDao;
 import com.the.dto.UserDto;
 
 public class ShopService {
+	
 	public UserDao userDao =new UserDao();
 	
 	public void userInsert(UserDto userDto) {
@@ -21,5 +22,9 @@ public class ShopService {
 	}
 	public void userDelete (String id) {
 		userDao.delete(id);
+	}
+	public UserDto userLogin(String id,String pw) {
+		UserDto userDto =userDao.login(id, pw);
+		return userDto;
 	}
 }
