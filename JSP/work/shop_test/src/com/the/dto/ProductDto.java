@@ -12,6 +12,14 @@ public class ProductDto {
 	
 	public ProductDto() {}
 
+	public ProductDto(String productCode, String productName, String productPrice, String productDetail) {
+		super();
+		this.productCode = productCode;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productDetail = productDetail;
+	}
+
 	public ProductDto(String productCode, String productName, String productPrice, String productDetail,
 			String menufacture, String category, String stockAmount, String status) {
 		super();
