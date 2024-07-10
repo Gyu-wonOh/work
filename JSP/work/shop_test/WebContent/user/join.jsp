@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#head {
+	color: white;
+	background-color: black;
+}
+</style>
 </head>
 <body>
 <table width="100%">
@@ -29,10 +35,9 @@
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>
-			<td>
+			<td colspan="2">
 			<h1 align="center">회원가입</h1>
 			</td>
-			<td>&nbsp; </td>
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>

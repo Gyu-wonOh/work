@@ -23,7 +23,7 @@ create table shopProduct(
     productName nvarchar2(255),
     productPrice nvarchar2(100),
     productDetail nvarchar2(255),
-    menufacture nvarchar2(255),
+    manufacture nvarchar2(255),
     category nvarchar2(100),
     stockAmount nvarchar2(100),
     status nvarchar2(50)

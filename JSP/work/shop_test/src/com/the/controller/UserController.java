@@ -57,6 +57,11 @@ public class UserController extends HttpServlet {
 				}
 			}
 			
+		}else if (command.equals("/user/logout.User")) {
+			HttpSession session = request.getSession();
+			session.setMaxInactiveInterval(0);
+			
+			viewPage = "login.jsp?isLogout=true";
 		} else if (command.equals("/user/join.User")) {
 			viewPage = "join.jsp";
 		} else if (command.equals("/user/join_pro.User")) {
@@ -78,6 +83,8 @@ public class UserController extends HttpServlet {
 		} else if (command.equals("/user/index.User")) {
 			viewPage = "index.jsp";
 		} else if (command.equals("/user/update.User")) {
+			String id = request.getParameter("id");
+			System.out.println(id);
 			viewPage = "update.jsp";
 		} else if(command.equals("/user/update_pro.User")) {
 			String id = request.getParameter("id");
@@ -91,7 +98,7 @@ public class UserController extends HttpServlet {
 			String id = request.getParameter("id");
 			
 			shopService.userDelete(id);
-			viewPage = "complete.jsp";
+			viewPage = "/main.User";
 		}else if(command.equals("/user/order.User")) {
 			viewPage = "order.jsp";
 		}else if(command.equals("/user/order_pro.User")) {

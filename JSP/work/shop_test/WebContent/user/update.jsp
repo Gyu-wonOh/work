@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,14 +89,14 @@
 			<td rowspan="8">
 				<form action="/shop_test/user/update_pro.User" method="get">
 					<input type ="text" name="id"><br>
-				 ${name}<br>
-				<input type ="radio" id="gender" value=woman>여자&nbsp;&nbsp;&nbsp; 
-				<input type	="radio" id="gender" value="man">남자<br>
-				${birthday}<br> 
-				<input type="email" name="email" value="{email}"> <br>
-				<input type="text" name="phoneNumber" value="${phoneNumber}"><br>
-				<input type="text" name="address" value="${address}"><br>
-				<input type="submit" value="수정">
+					<input type ="text" name="name"><br>
+					<input type ="radio" id="gender" value=woman>여자&nbsp;&nbsp;&nbsp; 
+					<input type	="radio" id="gender" value="man" checked>남자<br>
+					<input type ="datetime-local" name="birthday"><br> 
+					<input type="email" name="email" value="{email}"> <br>
+					<input type="text" name="phoneNumber" value="${phoneNumber}"><br>
+					<input type="text" name="address" value="${address}"><br>
+					<input type="submit" value="수정">
 				</form>
 			</td>
 			<td></td>

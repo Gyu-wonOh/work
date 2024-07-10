@@ -16,7 +16,7 @@
 	<table width="100%">
 		<tr id="head">
 			<td><a href="/shop_test/main.User">Home</a></td>
-			<td><a href="/shop_test/shop_main.jsp">Product</a></td>
+			<td><a href="/shop_test/shop/products.Shop">Product</a></td>
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>

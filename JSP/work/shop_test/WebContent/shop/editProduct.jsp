@@ -49,28 +49,33 @@
 <a href="/shop_test/shop/add.Shop"><button id="add" >상품등록</button></a>
 <a href="/shop_test/shop/products.Shop"><button id="list">상품목록</button></a>
 
-	<table>
 	<c:forEach var="productDto" items="${productDtos}">
-		<tr>
-			<td colspan="4">img</td>
-		</tr>
-		<tr>
-			<td colspan="4">${productDto.productCode}</td>
-		</tr>
-		<tr>
-			<td colspan="4">${productDto.productName}</td>
-		</tr>
-		<tr>
-			<td colspan="4">${productDto.productDetail}</td>
-		</tr>
-		<tr>
-			<td colspan="4" align="right">${productDto.productPrice}</td>
-		</tr>
-		<tr>
-			<td colspan="2"></td><td><button id="update">수정</button></td><td><button id="delete">삭제</button></td>
-		</tr>
+		<table border="1">
+			<tr>
+				<td id="name"colspan="4">${productDto.productName}</td>
+			</tr>
+			<tr>
+				<td colspan="4" align="right">${productDto.productPrice}</td>
+			</tr>
+			<tr>
+				<td colspan="4">${productDto.productDetail}</td>
+			</tr>
+			<tr>
+				<td colspan="2"></td>
+				<td>
+					<form action="/shop_test/shop/update.Shop" method="get">
+					<input type="hidden" name="productCode" value="${productDto.productCode}">
+					<input type="submit" value="수정">	
+					</form>
+				<td>
+					<form action="/shop_test/shop/delete_pro.Shop" method="get">
+						<input type="hidden" name="productCode" value="${productDto.productCode}">
+						<input type="submit" value="삭제">				
+					</form>
+				</td>
+			</tr>
+		</table>
 	</c:forEach>
-	</table>
-	
+	<a href= "/shop_test/shop/products.Shop"><button id="productList">상품목록</button></a>
 </body>
 </html>

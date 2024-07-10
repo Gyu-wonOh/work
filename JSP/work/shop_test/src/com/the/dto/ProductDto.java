@@ -5,29 +5,37 @@ public class ProductDto {
 	private String productName = null;
 	private String productPrice = null;
 	private String productDetail = null;
-	private String menufacture = null;
+	private String manufacture = null;
 	private String category = null;
 	private String stockAmount= null;
 	private String status = null;
 	
 	public ProductDto() {}
 
-	public ProductDto(String productCode, String productName, String productPrice, String productDetail) {
-		super();
+	public ProductDto(String productCode, String productName, String productPrice, String manufacture, String category,
+			String stockAmount, String status) {
 		this.productCode = productCode;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.manufacture = manufacture;
+		this.category = category;
+		this.stockAmount = stockAmount;
+		this.status = status;
+	}
+
+	public ProductDto(String productName, String productPrice, String productDetail) {
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.productDetail = productDetail;
 	}
 
 	public ProductDto(String productCode, String productName, String productPrice, String productDetail,
-			String menufacture, String category, String stockAmount, String status) {
-		super();
+			String manufacture, String category, String stockAmount, String status) {
 		this.productCode = productCode;
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.productDetail = productDetail;
-		this.menufacture = menufacture;
+		this.manufacture = manufacture;
 		this.category = category;
 		this.stockAmount = stockAmount;
 		this.status = status;
@@ -36,7 +44,7 @@ public class ProductDto {
 	@Override
 	public String toString() {
 		return "ProductDto [productCode=" + productCode + ", productName=" + productName + ", productPrice="
-				+ productPrice + ", productDetail=" + productDetail + ", menufacture=" + menufacture + ", category="
+				+ productPrice + ", productDetail=" + productDetail + ", manufacture=" + manufacture + ", category="
 				+ category + ", stockAmount=" + stockAmount + ", status=" + status + "]";
 	}
 
@@ -72,12 +80,12 @@ public class ProductDto {
 		this.productDetail = productDetail;
 	}
 
-	public String getMenufacture() {
-		return menufacture;
+	public String getManufacture() {
+		return manufacture;
 	}
 
-	public void setMenufacture(String menufacture) {
-		this.menufacture = menufacture;
+	public void setManufacture(String manufacture) {
+		this.manufacture = manufacture;
 	}
 
 	public String getCategory() {
@@ -104,4 +112,4 @@ public class ProductDto {
 		this.status = status;
 	}
 
-}
+	}

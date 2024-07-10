@@ -41,6 +41,12 @@ public class ShopController extends HttpServlet {
 		if (command.equals("/main.Shop")) {//메인 페이지
 			viewPage = "main.jsp";
 		} else if (command.equals("/shop/products.Shop")) {//상품 목록 페이지
+			ArrayList<ProductDto> productDtos =shopService.productSelect();
+			request.setAttribute("productDtos", productDtos);
+			
+			for(ProductDto productDto: productDtos) {
+				System.out.println(productDto);
+			}
 			viewPage = "products.jsp";
 		} else if (command.equals("/shop/add.Shop")) {//상품등록 페이지
 			viewPage = "add.jsp";
@@ -50,45 +56,64 @@ public class ShopController extends HttpServlet {
 			String productName= request.getParameter("productName");
 			String productPrice= request.getParameter("productPrice");
 			String productDetail= request.getParameter("productDetail");
-			String menufacture= request.getParameter("menufacture");
+			String manufacture= request.getParameter("manufacture");
 			String category= request.getParameter("category");
 			String stockAmount= request.getParameter("stockAmount");
 			String status= request.getParameter("status");
 			
 			ProductDto productDto = new ProductDto(productCode,productName,productPrice,
-					productDetail,menufacture,category,stockAmount,status);
+					productDetail,manufacture,category,stockAmount,status);
 			
 			shopService.productInsert(productDto);
 			
 			viewPage = "products.jsp";
 		}else if (command.equals("/shop/editProduct.Shop")) {//상품 편집 페이지
+			ArrayList<ProductDto> productDtos =shopService.productSelect();
+			request.setAttribute("productDtos", productDtos);
+			
+			for(ProductDto productDto: productDtos) {
+				System.out.println(productDto);
+			}
 			viewPage = "editProduct.jsp";
 		} else if (command.equals("/shop/product.Shop")) {//상품 상세정보
+			String productCode= request.getParameter("productCode");
+			String productName= request.getParameter("productName");
+			String manufacture= request.getParameter("manufacture");
+			String category= request.getParameter("category");
+			String stockAmount= request.getParameter("stockAmount");
+			String productPrice= request.getParameter("productPrice");
+			String status= request.getParameter("status");
+			
+			ProductDto productDto = new ProductDto(productCode, productName, productPrice, manufacture, category,
+			stockAmount, status);
+			
+			request.setAttribute("productDto", productDto);
+			
 			viewPage = "product.jsp";
 		} else if (command.equals("/shop/cart.Shop")) {//장바구니
 			viewPage = "cart.jsp";
 		} else if (command.equals("/shop/cart_pro.Shop")) {//주문하기->장바구니 처리
 			viewPage = "cart.jsp";
 		} else if (command.equals("/shop/update.Shop")) {//상품정보 수정 페이지
-			ArrayList<ProductDto> productDtos =shopService.productSelect();
-			request.setAttribute("productDtos", productDtos);
+			String productCode = request.getParameter("productCode");
 			
-			for(ProductDto productDto: productDtos) {
-				System.out.println(productDto);
-			shopService.productSelect();
-			}
+			System.out.println(productCode);
+			request.setAttribute("productCode", productCode);
+			
 			viewPage = "update.jsp";
 		} else if (command.equals("/shop/update_pro.Shop")) {//상품정보 수정 처리
 			String productCode= request.getParameter("productCode");
 			String productPrice= request.getParameter("productPrice");
 			String stockAmount= request.getParameter("stockAmount");
 			System.out.println(productCode);
-			shopService.productUpdate(productCode, productPrice, stockAmount);
+			shopService.productUpdate(productCode,productPrice, stockAmount);
 			
 			viewPage = "products.jsp";
 		} else if (command.equals("/shop/delete_pro.Shop")) {
+			String productCode= request.getParameter("productCode");
 			
-			
+			System.out.println(productCode);
+			shopService.productDelete(productCode);
 			viewPage = "products.jsp";
 		}
 		System.out.println(viewPage);

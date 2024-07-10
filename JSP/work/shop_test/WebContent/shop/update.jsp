@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +58,7 @@
 			<table>
 				<form action = "/shop_test/shop/update_pro.Shop" method="get">
 				<tr>
-					<td><input type="text" name="productCode"></td>
+					<td name="productCode"><c:out value="${productCode}"/></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="productPrice"></td>
@@ -71,6 +73,7 @@
 				</tr>
 				</form>
 			</table>
+			<a href= "/shop_test/shop/products.Shop"><button id="productList">상품목록</button></a>
 		</td>
 	</tr>
 </table>

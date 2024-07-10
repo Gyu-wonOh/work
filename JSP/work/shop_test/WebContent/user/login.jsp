@@ -24,6 +24,8 @@
 		alert("id 또는 pw를 잘못 입력하셨습니다.");
 	}else if(<%=request.getParameter("isLogin")%>==false){
 		alert("로그인 후 사용 가능합니다.");
+	}else if(<%=request.getParameter("isLogout")%>==true){
+		alert("로그아웃 되었습니다.");
 	}
 
 </script>
@@ -31,8 +33,8 @@
 <body>
 	<table width="100%">
 		<tr id="head">
-			<td>Home</td>
-			<td>Product</td>
+			<td><a href="/shop_test/main.User">Home</a></td>
+			<td><a href="/shop_test/shop/products.Shop">Product</a></td>
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>
 			<td>&nbsp; </td>

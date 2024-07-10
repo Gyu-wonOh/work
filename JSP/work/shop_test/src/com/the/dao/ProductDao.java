@@ -16,7 +16,7 @@ public class ProductDao {
 				productDto.getProductName(),
 				productDto.getProductPrice(),
 				productDto.getProductDetail(),
-				productDto.getMenufacture(),
+				productDto.getManufacture(),
 				productDto.getCategory(),
 				productDto.getStockAmount(),
 				productDto.getStatus()
@@ -30,7 +30,7 @@ public class ProductDao {
 			while(rs.next()) {
 				productDtos.add(new ProductDto(rs.getString("productCode"),
 						rs.getString("productName"),rs.getString("productPrice"),rs.getString("productDetail"),
-						rs.getString("menufacture"),rs.getString("category"),rs.getString("stockAmount"),
+						rs.getString("manufacture"),rs.getString("category"),rs.getString("stockAmount"),
 						rs.getString("status")));
 			}
 		}catch(SQLException e) {
@@ -38,8 +38,9 @@ public class ProductDao {
 		}
 		return productDtos;
 	}
+	
 	public void update(String productCode,String productPrice, String stockAmount) {
-		String sql = "update shopProduct set productPrice='%s',stockAmount='%s' where prodcuctCode='%s'";
+		String sql = "update shopProduct set productPrice='%s',stockAmount='%s' where productCode='%s'";
 				
 		sql= String.format(sql,productPrice,stockAmount,productCode);
 		DBConn.statementUpdate(sql);

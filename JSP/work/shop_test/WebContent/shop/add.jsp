@@ -92,7 +92,7 @@
 						<td colspan="6"><textarea name="productDetail">상세정보를 입력하세요.</textarea></td>
 					</tr>
 					<tr>	
-						<td>제조사</td><td colspan="5"><input type="text" name="menufacture"></td>
+						<td>제조사</td><td colspan="5"><input type="text" name="manufacture"></td>
 					</tr>
 					<tr>
 						<td>분류</td><td colspan="5"><input type="text" name="category"></td>
@@ -108,8 +108,8 @@
 					</tr>
 					</form>
 				</table>
+				<a href= "/shop_test/shop/products.Shop"><button id="productList">상품목록</button></a>
 			</td>
-			<td></td>
 			<td></td>
 		</tr>				
 		<tr id="main">
