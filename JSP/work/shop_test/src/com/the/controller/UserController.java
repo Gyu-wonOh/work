@@ -59,7 +59,8 @@ public class UserController extends HttpServlet {
 			
 		}else if (command.equals("/user/logout.User")) {
 			HttpSession session = request.getSession();
-			session.setMaxInactiveInterval(0);
+			session.invalidate();
+			System.out.println("/logout.servlet");
 			
 			viewPage = "login.jsp?isLogout=true";
 		} else if (command.equals("/user/join.User")) {

@@ -18,12 +18,17 @@
 	#add{
 		color:white;
 		background-color:blue;
-		align :center;
+		border:1px solid blue;
+		border-radius:5px;
 	}
 	#list{
 		color: white;
 		background-color: green;
-		align:centrt;
+		border:1px solid green;
+		border-radius:5px;
+	}
+	#button{
+		text-align: center;
 	}
 </style>
 </head>
@@ -45,12 +50,13 @@
 
 <h1 align="center">상품 수정</h1>
 <h2 align="center" id="description">쇼핑몰 상품목록 입니다.</h2>
-
+<div id="button">
 <a href="/shop_test/shop/add.Shop"><button id="add" >상품등록</button></a>
 <a href="/shop_test/shop/products.Shop"><button id="list">상품목록</button></a>
+</div>
 
 	<c:forEach var="productDto" items="${productDtos}">
-		<table border="1">
+		<table>
 			<tr>
 				<td id="name"colspan="4">${productDto.productName}</td>
 			</tr>
@@ -75,6 +81,7 @@
 				</td>
 			</tr>
 		</table>
+		<br>
 	</c:forEach>
 	<a href= "/shop_test/shop/products.Shop"><button id="productList">상품목록</button></a>
 </body>

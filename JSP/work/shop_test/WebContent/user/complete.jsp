@@ -8,17 +8,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	#headPart{
+	background-color:black;
+	}
 	#head{
 		color: white;
-		background-color:black;
+		width: auto;
 	}
 	#id{
 		color:white;
-		background-color:blue;
 	}
 	#join{
 		color:white;
 		background-color:green;
+	}
+	#search{
+		text-align:right;
 	}
 </style>
 
@@ -28,27 +33,36 @@
 	String index = request.getParameter("index");
 	String id = (String)session.getAttribute("id");
 	%>
-	<table width="100%">
-		<tr id="head">
-			<td>Home</td>
-			<td>Product</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td id="id">
-				<%=id%>님
-				<form action="/shop_test/user/logout.User">
-					<input type="submit" value="logout">
-				</form>
-			</td>
-			<td>회원가입</td>
-			<td>주문내역</td>
-			<td><textarea>search</textarea>
-				<button>search</button></td>
-			<td>&nbsp;</td>
-		</tr>
-	</table>
-	<h1>회원 정보</h1>
+	
+		<div id="headPart">
+			<table width="100%">
+				<tr id="head">
+					<td>Home</td>
+					<td>Product</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td id="id">
+						<%if(id!=null){ %>
+						<%=id%>님
+						<form action="/shop_test/user/logout.User">
+							<input type="submit" value="logout">
+						</form>
+						<%}else{%>
+							로그인
+						
+					</td>
+					<td>회원가입</td>
+					<%}%>
+					<td><a href="/shop_test/user/order.User">주문내역</a></td>
+					<td id ="search"><input type="text" value="search">
+						<button>search</button></td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+		
+	<h1 align="center">회원 정보</h1>
 	
 	<%if("0".equals(index)){//회원가입
 		out.println("회원가입이 완료되었습니다.");

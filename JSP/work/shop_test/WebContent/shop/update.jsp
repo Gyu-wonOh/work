@@ -73,7 +73,7 @@
 				</tr>
 				</form>
 			</table>
-			<a href= "/shop_test/shop/products.Shop"><button id="productList">상품목록</button></a>
+			<a href= "/shop_test/shop/editProducts.Shop"><button id="productList">편집목록</button></a>
 		</td>
 	</tr>
 </table>

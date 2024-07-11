@@ -5,13 +5,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-#head {
-	color: white;
-	background-color: black;
-}
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+	#head {
+		color: white;
+		background-color: black;
+	}
+	#update{
+		color: white;
+		background-color:skyblue;
+		border:1px solid skyblue;
+		border-radius:5px;
+	}
+	#delete {
+		color: white;
+		background-color: red;
+		border:1px solid red;
+		border-radius: 5px;
+	}
 </style>
 </head>
 <body>
@@ -28,8 +40,8 @@
 			<td></td>
 			<td colspan="2">
 				<form>
-				<input type="text" name="search">
-				<input type="submit" value="search">
+					<input type="text" name="search"> <input type="submit"
+						value="search">
 				</form>
 			</td>
 		</tr>
@@ -88,15 +100,15 @@
 			<td></td>
 			<td rowspan="8">
 				<form action="/shop_test/user/update_pro.User" method="get">
-					<input type ="text" name="id"><br>
-					<input type ="text" name="name"><br>
-					<input type ="radio" id="gender" value=woman>여자&nbsp;&nbsp;&nbsp; 
-					<input type	="radio" id="gender" value="man" checked>남자<br>
-					<input type ="datetime-local" name="birthday"><br> 
-					<input type="email" name="email" value="{email}"> <br>
+					<input type="text" name="id"><br> 
+					<input type="text"name="name"><br> 
+					<input type="radio" id="gender" value=woman>여자&nbsp;&nbsp;&nbsp; 
+					<input type="radio"id="gender" value="man" checked>남자<br> 
+					<input type="datetime-local" name="birthday"><br> 
+					<input type="email" name="email" value="{email}"> <br> 
 					<input type="text" name="phoneNumber" value="${phoneNumber}"><br>
 					<input type="text" name="address" value="${address}"><br>
-					<input type="submit" value="수정">
+					<input type="submit" id="update" value="수정">
 				</form>
 			</td>
 			<td></td>

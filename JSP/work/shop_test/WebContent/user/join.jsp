@@ -3,14 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-#head {
-	color: white;
-	background-color: black;
-}
-</style>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		#head {
+			color: white;
+			background-color: black;
+		}
+		#join {
+			color: white;
+			background-color: blue;
+			border :1px solid blue;
+			border-radius: 5px;
+		}
+		#cancel {
+			color:white;
+			background-color:gray;
+			border:1px solid gray;
+			border-radius: 5px;
+		}
+	</style>
 </head>
 <body>
 <table width="100%">

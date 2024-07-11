@@ -6,9 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	#headPart{
+		background-color:black;
+	}
 	#head{
 		color: white;
-		background-color:black;
 	}
 	#id{
 		color:white;
@@ -21,20 +23,39 @@
 </style>
 </head>
 <body>
-	<table width="100%">
-		<tr id="head">
-			<td>Home</td>
-			<td>Product</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td><a href="/shop_test/user/login.User">로그인</a>&nbsp;<a href="/shop_test/user/join.User">회원가입</a>&nbsp;<a href="/shop_test/user/orderList.User">주문내역</a></td>
-			<td><img src=""></td>
-			<td><textarea>search</textarea>
-				<button>search</button></td>
-			<td>&nbsp;</td>
-		</tr>
-	</table>
+	<%String id= (String)session.getAttribute("id"); %>
+	<div id="headPart">
+		<table width="100%">
+			<tr id="head">
+				<td><a href="/shop_test/main.User">Home</a></td>
+				<td><a href="/shop_test/shop/products.Shop">Product</a></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>
+				<%if(id!=null){ %>
+				<%=id%>님
+				</td>	
+				<td>
+					<form action="/shop_test/user/logout.User">
+						<input type="submit" value="logout">
+					</form>
+					<%}else{%>
+						<a href="/shop_test/user/login.User">로그인</a>&nbsp;
+					<%}%>
+				</td>
+				<td>
+					<a href="/shop_test/user/orderList.User">주문내역</a>
+					<img src="">
+				</td>
+				<td><textarea>search</textarea>
+					<button>search</button></td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+	
+	
 	
 	<h1>마이 페이지</h1>
 	<br>
