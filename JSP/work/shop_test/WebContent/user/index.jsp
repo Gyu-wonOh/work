@@ -45,10 +45,10 @@
 					<%}%>
 				</td>
 				<td>
-					<a href="/shop_test/user/orderList.User">주문내역</a>
+					<a href="/shop_test/user/order.User">주문내역</a>
 					<img src="">
 				</td>
-				<td><textarea>search</textarea>
+				<td><input type="text" value="search">
 					<button>search</button></td>
 				<td>&nbsp;</td>
 			</tr>

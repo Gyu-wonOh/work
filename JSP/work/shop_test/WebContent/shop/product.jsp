@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	#headPart{
+			background-color:black;
+		}
 	#head{
 		color: white;
 		background-color:black;
@@ -26,7 +29,9 @@
 </style>
 </head>
 <body>
-	<table width= "100%">
+	<%String id= (String)session.getAttribute("id"); %>
+	<div id="headPart">
+		<table width= "100%">
 			<tr id="head">
 				<td><a href = "/shop_test/main.Shop">Home</a></td>
 				<td><a href = "/shop_test/shop/products.Shop">Product</a></td>
@@ -35,12 +40,28 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><a href="/shop_test/user/login.User">로그인</a></td>
+				<td>
+					<%if(id!=null){ %>
+							<td>
+							<%=id%>님
+							<a href="/shop_test/user/index.jsp">마이페이지</a>
+							</td>
+							<td>
+							<form action="/shop_test/user/logout.User">
+								<input type="submit" value="logout">
+							</form>
+						<%}else{%>
+							<td>
+							<a href="/shop_test/user/login.User">로그인</a>&nbsp;
+							&nbsp;<a href ="/shop_test/user/join.jsp">회원가입</a>&nbsp;
+							</td>
+						<%}%>
+				</td>
 				<td><a href="/shop_test/shop/cart.Shop">장바구니 아이콘</a></td>
 				<td colspan="2"><input type="text" name="searchBox">&nbsp;<button id="searchButton">search</button></td>
 			</tr>
-	</table>
-	
+		</table>
+	</div>
 	<h1 align="center">상품 상세정보</h1>
 	<h2 align="center">상품 상세정보 페이지 입니다.</h2>
 	<div align="center" style="text-align:left;">
@@ -53,7 +74,5 @@
 	상품가격: ${productDto.productPrice}<br>
 	<a href= "/shop_test/shop/products.Shop"><button id="productList">상품목록</button></a>
 	</div>
-	
-		
 </body>
 </html>

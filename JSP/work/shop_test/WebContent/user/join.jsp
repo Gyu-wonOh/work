@@ -6,9 +6,18 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<style>
-		#head {
+		#headPart{
+			background-color:black;
+		}
+		#head{
 			color: white;
-			background-color: black;
+			
+		}
+		#main{
+			
+		}
+		#insertMain{
+			margin: auto;
 		}
 		#join {
 			color: white;
@@ -25,57 +34,59 @@
 	</style>
 </head>
 <body>
-<table width="100%">
-		<tr id="head">
-			<td>Home</td>
-			<td>Product</td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-			<td>로그인&nbsp;회원가입&nbsp;주문내역</td>
-			<td><img src=""></td>
-			<td>
-			<textarea>search</textarea>
-			<button>search</button>
-			</td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-		</tr>
-		<tr>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-			<td colspan="2">
-			<h1 align="center">회원가입</h1>
-			</td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-			<td>&nbsp; </td>
-		</tr>
-		<tr>
-			<td>&nbsp; </td>		
-			<td>&nbsp; </td>		
-			<td>&nbsp; </td>		
-			<td>&nbsp; </td>		
-			<td>&nbsp; </td>		
-			<td>
-			<table>
-			<tr><td>아이디</td></tr>
-			<tr><td>비밀번호</td></tr>
-			<tr><td>비밀번호 확인</td></tr>
-			<tr><td>이름</td></tr>
-			<tr><td>성별</td></tr>
-			<tr><td>생일</td></tr>
-			<tr><td>이메일</td></tr>
-			<tr><td>전화번호</td></tr>
-			<tr><td>주소</td></tr>
-			<tr><td><a href="/shop_test/main.User"><button id="cancel">취소</button></a></td></tr>
-			</table>
-			 </td>		
-			<td> 
-				
+<%String id= (String)session.getAttribute("id"); %>
+	<div id="headPart">
+		<table width= "100%">
+			<tr id="head">
+				<td><a href = "/shop_test/main.Shop">Home</a></td>
+				<td><a href = "/shop_test/shop/products.Shop">Product</a></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<%if(id!=null){ %>
+							<td>
+							<%=id%>님
+							<a href="/shop_test/user/index.jsp">마이페이지</a>
+							</td>
+							<td>
+							<form action="/shop_test/user/logout.User">
+								<input type="submit" value="logout">
+							</form>
+						<%}else{%>
+							<td>
+							<a href="/shop_test/user/login.User">로그인</a>&nbsp;
+							&nbsp;<a href ="/shop_test/user/join.jsp">회원가입</a>&nbsp;
+							</td>
+						<%}%>
+				</td>
+				<td><a href="/shop_test/shop/cart.Shop">장바구니 아이콘</a></td>
+				<td colspan="2"><input type="text" name="searchBox">&nbsp;<button id="searchButton">search</button></td>
+			</tr>
+		</table>
+	</div>
+	<div id="main">
+		<h1 align="center">회원가입</h1>
+			
+		<table id="insertMain">
+			<tr>
+				<td>
+					<table>
+						<tr><td>아이디</td></tr>
+						<tr><td>비밀번호</td></tr>
+						<tr><td>비밀번호 확인</td></tr>
+						<tr><td>이름</td></tr>
+						<tr><td>성별</td></tr>
+						<tr><td>생일</td></tr>
+						<tr><td>이메일</td></tr>
+						<tr><td>전화번호</td></tr>
+						<tr><td>주소</td></tr>
+						<tr><td><a href="/shop_test/main.User"><button id="cancel">취소</button></a></td></tr>
+					</table>
+			 	</td>		
+				<td> 
 					<table>
 						<form action="/shop_test/user/join_pro.User" method="get">
 						<tr><td><input type="text" name="id"></td></tr>
@@ -99,11 +110,9 @@
 						</tr>
 						</form>
 					</table>
-			</td>		
-			<td>&nbsp; </td>		
-			<td>&nbsp; </td>		
-			<td>&nbsp; </td>		
-		</tr>
-	</table>
+				</td>			
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

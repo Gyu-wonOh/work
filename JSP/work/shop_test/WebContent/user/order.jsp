@@ -12,12 +12,15 @@
 		#head{
 			color:white;
 			}
+		#main{
+			text-align:center;
+		}
 	</style>
 </head>
 <body>
 	<%String id= (String)session.getAttribute("id"); %>
 	<div id= "headPart">
-		<table width="100%" border="1">
+		<table width="100%">
 			<tr id="head">
 				<td><a href="/shop_test/main.User">Home</a></td>
 				<td><a href="/shop_test/shop/products.Shop">Product</a></td>
@@ -49,19 +52,21 @@
 			</tr>
 		</table>
 	</div>
-	<h1 align="center">주문내역</h1>
-	<%if(id!=null){ %>
-			<!-- 
-			1.회원 정보와 일치하는 주문DB select
-			2.forEach로 화면에 출력 
-			-->
-	<%}else{%>
-		<h2 align="center">비회원 주문하신 경우, 전화번호와 주문 비밀번호를 입력해주세요.</h2>
-		<form action= "/shop_test/user/order_pro.User" method="get">
-		전화번호:<input type="text" id="phoneNumber"><br>
-		주문비밀번호:<input type="password" id="oderPw">
-		<input type="submit" id="selectProduct" value="조회">
-		</form>
-	<%}%>
+	<div id="main">
+		<h1 align="center">주문내역</h1>
+		<%if(id!=null){ %>
+				<!-- 
+				1.회원 정보와 일치하는 주문DB select
+				2.forEach로 화면에 출력 
+				-->
+		<%}else{%>
+			<h2 align="center">비회원 주문하신 경우, 전화번호와 주문 비밀번호를 입력해주세요.</h2>
+			<form action= "/shop_test/user/order_pro.User" method="get">
+			전화번호:<input type="text" id="phoneNumber"><br>
+			주문비밀번호:<input type="password" id="oderPw">
+			<input type="submit" id="selectProduct" value="조회">
+			</form>
+		<%}%>
+	</div>
 </body>
 </html>

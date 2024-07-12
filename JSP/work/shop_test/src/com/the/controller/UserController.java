@@ -34,7 +34,9 @@ public class UserController extends HttpServlet {
 		System.out.println("conPath : " + conPath);
 		String command = uri.substring(conPath.length());
 		System.out.println("command : " + command);
+		
 		String viewPage = "main.jsp";
+		
 		if (command.equals("/main.User")) {
 			viewPage = "main.jsp";
 		} else if (command.equals("/user/login.User")) {
@@ -92,14 +94,17 @@ public class UserController extends HttpServlet {
 			String email = request.getParameter("email");
 			String phoneNumber = request.getParameter("phoneNumber");
 			String address = request.getParameter("address");
-			
-			shopService.userUpdate(id, email, phoneNumber, address);
-			viewPage = "complete.jsp?index=2";
-		}else if(command.equals("/user/delete.User")) {
-			String id = request.getParameter("id");
-			
-			shopService.userDelete(id);
-			viewPage = "/main.User";
+			String value= request.getParameter("value");
+			if(value.equals("수정")) {
+				shopService.userUpdate(id, email, phoneNumber, address);
+				viewPage = "complete.jsp?index=2";
+			}else if(value.equals("회원 탈퇴")) {
+				HttpSession session= request.getSession();
+				session.invalidate();				
+				shopService.userDelete(id);
+				
+				viewPage = "/main.User";
+			}
 		}else if(command.equals("/user/order.User")) {
 			viewPage = "order.jsp";
 		}else if(command.equals("/user/order_pro.User")) {
