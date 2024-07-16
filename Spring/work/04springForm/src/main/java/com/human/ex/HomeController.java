@@ -127,6 +127,12 @@ public class HomeController {
 			
 			return "board/form6";
 		}
-
-
+		//checkBox
+		//http://localhost:8088/ex//board/form7?names=10&names=20
+		@RequestMapping(value = "/board/form7", method = RequestMethod.GET)
+		public String form7(String[] names,Model model) {
+			model.addAttribute("names",names);
+			
+			return "board/form7";
+		}
 }
