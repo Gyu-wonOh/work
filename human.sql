@@ -19,3 +19,37 @@ commit;
 
 select * from human;
 
+DROP TABLE customer CASCADE CONSTRAINTS;
+
+create table customer(
+
+    id number,
+
+    name nvarchar2(30),
+
+    height number(5,2),
+
+    birthday date
+
+);
+
+?
+
+drop table hobby;
+
+create table hobby(
+
+    id number,
+
+    hobby nvarchar2(100)
+
+);
+
+drop sequence id_counter;
+
+create sequence id_counter;
+
+select * from hobby;
+select * from customer;
+
+select * from customer,hobby where customer.id=hobby.id;

@@ -33,3 +33,4 @@ insert into shopproduct values('P00001','꽃','10000','야생에서 재배한 꽃이다.',
 
 commit;
 select * from shopProduct;
+select * from shopuser;

@@ -11,8 +11,8 @@
 			name="driverClassName" />
 		<property value="jdbc:oracle:thin:@localhost:1521:xe"
 			name="url" />
-		<property value="c##human" name="username" />
-		<property value="human" name="password" />
+		<property value="c##scott" name="username" />
+		<property value="tigger" name="password" />
 	</bean>
 
 	<bean id="sqlSessionFactory"
