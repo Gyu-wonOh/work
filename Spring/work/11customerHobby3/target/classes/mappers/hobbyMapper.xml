@@ -22,6 +22,9 @@ delete from hobby where id=#{id}
 <delete id="delete">
 delete from hobby where id=#{id} and hobby=#{hobby}
 </delete>
+<delete id="deleteIdHobby">
+delete from hobby where id=#{id} and hobby=#{hobby}
+</delete>
 <update id="update">
 update hobby set hobby=#{modifyHobby}
  where id=#{id} and hobby=#{hobby}

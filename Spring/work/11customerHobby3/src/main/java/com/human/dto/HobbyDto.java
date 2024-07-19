@@ -6,6 +6,20 @@ public class HobbyDto {
 	
 	private String modifyHobby;
 	
+	public HobbyDto() {}
+	   public HobbyDto(int id, String hobby) {
+	      super();
+	      this.id = id;
+	      this.hobby = hobby;
+	   }
+	   
+	   public HobbyDto(int id, String hobby, String modifyHobby) {
+	      super();
+	      this.id = id;
+	      this.hobby = hobby;
+	      this.modifyHobby = modifyHobby;
+	   }
+	
 	public String getModifyHobby() {
 		return modifyHobby;
 	}

@@ -27,9 +27,9 @@ public class DeptServiceImpl implements IDeptService {
 	}
 
 	@Override
-	public void delete(String name) throws Exception {
+	public void delete(int deptNo) throws Exception {
 		IDeptDao dao=sqlSession.getMapper(IDeptDao.class);
-		dao.delete(name);
+		dao.delete(deptNo);
 
 	}
 
@@ -41,9 +41,9 @@ public class DeptServiceImpl implements IDeptService {
 	}
 
 	@Override
-	public DeptDto selectName(String name) throws Exception {
+	public DeptDto selectDeptNo(int deptNo) throws Exception {
 		IDeptDao dao=sqlSession.getMapper(IDeptDao.class);
-		return dao.selectName(name);
+		return dao.selectDeptNo(deptNo);
 	}
 
 }

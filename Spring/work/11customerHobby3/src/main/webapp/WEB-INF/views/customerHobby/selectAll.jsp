@@ -25,14 +25,16 @@ if(result=='success'){
 	<th>hobbys</th>
 	</tr>
 	<c:forEach items="${list }" var="customerInfo">
-	<tr>
-		<td>${customerInfo.id }</td>
-		<td>${customerInfo.name }</td>
-		<td>${customerInfo.height}</td>
-		<td>${customerInfo.birthday }</td>
-		<td>${customerInfo.hobby }</td>
-		
-	</tr>
+		<tr>
+			<td>${customerInfo.id }</td>
+			<td>${customerInfo.name }</td>
+			<td>${customerInfo.height}</td>
+			<td>${customerInfo.birthday }
+			<a href='/ex/customerHobby/deleteCustomer?id=${customerInfo.id}'>삭제</a></td>
+			<td>${customerInfo.hobby }
+			<a href='/ex/customerHobby/deleteHobby?id=${customerInfo.id}&hobby=${customerInfo.hobby}'>삭제</a></td>
+			
+		</tr>
 	</c:forEach>
 </table> 
 <a href="/ex/customerHobby/insert">고객추가</a>

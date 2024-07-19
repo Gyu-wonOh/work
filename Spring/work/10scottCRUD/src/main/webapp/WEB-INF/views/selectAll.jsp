@@ -40,26 +40,18 @@
   select
   <table id='customers' width=100% border="1">
 	<tr>
-		<th style="width: 10px">name</th>
-		<th style="width: 100px">age</th>
-		<th style="width: 200px">height</th>
-		<th style="width: 40px">birthday</th>
+		<th style="width: 10px">DeptNo</th>
+		<th style="width: 100px">DepartmentName</th>
+		<th style="width: 200px">Local</th>
 	</tr>
 	<c:forEach items="${list}" var="dto">	
 		<tr>
-			
-			<td><a href="/ex/selectName?name=${dto.name }">${dto.name }</a></td>
-			<td >${dto.age}</td>
-			<td >${dto.height }</td>
-			<td >
-			<fmt:parseDate value="${dto.birthday }"
- pattern="yyyy-MM-dd'T'HH:mm"
- var="now" type="both" />
-			<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value= "${now}"/></td>
-			
+			<td><a href="/ex/selectName?name=${dto.deptNo }">${dto.deptNo }</a></td>
+			<td >${dto.dName}</td>
+			<td >${dto.loc }</td>
 		</tr>
 	</c:forEach>
     </table>
-	<a href="/ex/insert">새글</a>
+	<a href="/ex/insert">부서 추가</a>
 </body>
 </html>

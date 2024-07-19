@@ -66,4 +66,11 @@ public class HobbyServiceImpl implements IHobbyService {
 		dao.deleteId(id);
 	}
 
+	@Override
+	public void delete(Integer id, String hobby) {
+		// TODO Auto-generated method stub
+		IHobbyDao dao=sqlSession.getMapper(IHobbyDao.class);
+		dao.deleteIdHobby(id,hobby);
+	}
+
 }

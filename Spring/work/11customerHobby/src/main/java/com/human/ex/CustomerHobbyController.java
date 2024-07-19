@@ -56,11 +56,34 @@ public class CustomerHobbyController {
 		ArrayList<String> hobbysArr = new ArrayList<String>();
 		for (String hobby : hobbys) {
 			hobbysArr.add(hobby);
+			System.out.println("insert db" + hobby);
 		}
+		 customerHobbyService.insertCustomHobby(dto, hobbysArr);
 
 		 //customerService.insert(dto);
         //hobbyService.insert(dto);
         //rttr.addFlashAttribute("msg","success");
         return "redirect:/customerHobby/selectAll";
      }
+	//삭제 방법
+	//1-1.고객 상세페이지를 통해서 지우는 경우
+	//1-2.고객이 보유한 하비 정보를  하비 db에서 모두 삭제한 다음에 고객 db에서 삭제해야한다.
+	//customerHobby/deleteCustomer?id=20
+	//2-1.하비 상세페이지를 통해서 자우는 경우
+	//2-2.하비를 소유한 고객아이디를  하비 db에서 하비 이름으로 하비만 삭제해야 한다.
+	//customerHobby/deleteCustomer?id=20&hobby=야구
+//	/ex/customer/read?bno=${
+	@RequestMapping(value = "/customerHobby/deleteCustomer", method = RequestMethod.GET)
+	public String deleteCustomer(Integer id,Model model) throws Exception{
+		System.out.println("deleteCustomer");
+		customerHobbyService.deleteCustom(id);
+		return "redirect:/customerHobby/selectAll";
+	}
+
+	@RequestMapping(value = "/customerHobby/deleteHobby", method = RequestMethod.GET)
+	public String deleteHobby(String hobby,Integer id,Model model) throws Exception{
+		System.out.println("/customerHobby/deleteHobby");
+		customerHobbyService.deleteIdHobby(id, hobby);
+		return "redirect:/customerHobby/selectAll";
+	}
 }

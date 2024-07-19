@@ -2,6 +2,8 @@ package com.human.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.human.dto.CustomerDto;
 import com.human.dto.HobbyDto;
 
@@ -14,4 +16,5 @@ public interface IHobbyDao {
 	public List<Integer> insertItem() throws Exception;
 	public List<String> selectId(Integer id) throws Exception;
 	public void deleteId(int id) throws Exception;
+	public void deleteIdHobby(@Param("id")Integer id, @Param("hobby")String hobby);
 }

@@ -14,4 +14,5 @@ public interface IHobbyService {
 	public List<Integer> insertItem() throws Exception;
 	public List<String> selectId(Integer id) throws Exception;
 	public void deleteId(Integer id) throws Exception;
+	public void deleteIdHobby(Integer id, String hobby);
 }

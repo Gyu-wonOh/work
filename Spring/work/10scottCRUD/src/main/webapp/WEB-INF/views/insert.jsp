@@ -8,10 +8,9 @@
 <body>
 insert
 <form action="/ex/insert" method="post">
-이름<input type="text" name=name >
-나이<input type="text" name=age >
-키<input type="text" name=height >
-생일<input type="datetime-local" name=birthday >
+DeptNo : <input type="number" name="deptNo" >
+DepartmentName : <input type="text" name="dName" >
+Local : <input type="text" name="loc" >
 <input type="submit" value="제출">
 </form>
 </body>

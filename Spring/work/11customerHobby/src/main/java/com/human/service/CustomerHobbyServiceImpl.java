@@ -46,4 +46,21 @@ public class CustomerHobbyServiceImpl implements ICustomerHobbyService {
 	         }
 	      }
 	}
+
+	@Override
+	public void selectCustomerHobby(int id) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void deleteCustom(Integer id) throws Exception {
+		hobbyService.deleteId(id);
+		customerService.delete(id);
+	}
+
+	@Override
+	public void deleteIdHobby(Integer id, String hobby) throws Exception {
+		hobbyService.deleteIdHobby(id,hobby);
+	}
+	
 }
