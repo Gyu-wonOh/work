@@ -14,4 +14,5 @@ public interface IDeptDao {
 	public ArrayList<DeptDto> selectAll() throws Exception;
 	public DeptDto selectDeptNo(int deptNo) throws Exception;
 	public List<DeptEmpDto> selectAllDeptEmp() throws Exception;
+	public Integer selectMaxDeptNo() throws Exception;
 }

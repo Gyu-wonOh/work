@@ -14,7 +14,6 @@ public class EmpDto {
 	private int sal;
 	private int comm;
 	
-	public EmpDto() {}
 	
 	public EmpDto(int empNo, String enName, String job, String mgr, LocalDateTime hirDate, int sal, int comm) {
 		super();

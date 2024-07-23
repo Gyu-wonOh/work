@@ -37,12 +37,10 @@ public class HobbyServiceImpl implements IHobbyService {
 		IHobbyDao dao=sqlSession.getMapper(IHobbyDao.class);
 		dao.delete(dto);
 	}
-
 	@Override
 	public void update(HobbyDto dto) throws Exception {
 		IHobbyDao dao=sqlSession.getMapper(IHobbyDao.class);
-		dao.update(dto);
-		
+		dao.update(dto);	
 	}
 
 	@Override

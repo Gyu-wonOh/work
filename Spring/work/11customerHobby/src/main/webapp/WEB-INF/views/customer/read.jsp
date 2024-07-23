@@ -17,8 +17,7 @@
 	</tr>
 	<tr>
 		<td>${customerDto.id }</td>
-		<td>
-		${customerDto.name }</td>
+		<td>${customerDto.name }</td>
 		<td>${customerDto.height}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" 
 		value="${customerDto.birthday }" /> </td>	
