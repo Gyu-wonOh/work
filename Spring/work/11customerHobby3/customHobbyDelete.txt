@@ -1,0 +1,58 @@
+delete작업
+1.  selectAll.jsp에 링크 추가
+<c:forEach items="${list }" var="customerInfo">
+	<tr>
+		<td>${customerInfo.id }</td>
+		<td>${customerInfo.name }</td>
+		<td>${customerInfo.height}</td>
+		<td>${customerInfo.birthday }
+		<a href='/ex/customerHobby/deleteCustomer?id=${customerInfo.id}'>삭제</a></td>
+		<td>${customerInfo.hobby }
+		<a href='/ex/customerHobby/deleteHobby?id=${customerInfo.id}&hobby=${customerInfo.hobby}'>삭제</a></td>
+		
+	</tr>
+</c:forEach>
+
+2. CustomerHobbyController에 주소 추가
+@RequestMapping(value = "/customerHobby/deleteCustomer", method = RequestMethod.GET)
+public String deleteCustomer(Integer id,Model model) throws Exception{
+	System.out.println("deleteCustomer");
+	customerHobbyService.deleteCustom(id);
+	return "redirect:/customerHobby/selectAll";
+}
+
+@RequestMapping(value = "/customerHobby/deleteHobby", method = RequestMethod.GET)
+public String deleteHobby(String hobby,Integer id,Model model) throws Exception{
+	System.out.println("/customerHobby/deleteHobby");
+	customerHobbyService.deleteHobby(id, hobby);
+	return "redirect:/customerHobby/selectAll";
+}
+
+3.ICustomerHobbyService에 메소드 추가
+public void deleteCustom(Integer id) throws Exception;
+public void deleteIdHobby(Integer id,String hobby) throws Exception;
+
+4.CustomerHobbyServiceImpl에 구현부 추가
+@Override
+public void deleteCustom(Integer id) throws Exception {
+	hobbyService.deleteId(id);
+	customerService.delete(id);
+}
+
+@Override
+public void deleteHobby(Integer id, String hobby) throws Exception {
+	hobbyService.deleteIdHobby(id,hobby);
+}
+
+5. IHobbyDao에 deleteIdHobby 추가
+public void deleteIdHobby(@Param("id")Integer id, @Param("hobby")String hobby);
+
+6.hobbyMapper.xml에 추가
+<delete id="deleteIdHobby">
+delete from hobby where id=#{id} and hobby=#{hobby}
+</delete>
+7.customerMapper.xml에 수정
+<select id="selectAllCustomerHobby" resultType="com.human.dto.CustomerHobbyDto">
+select customer.id,name,height,birthday,hobby
+ from customer,hobby where customer.id=hobby.id(+)
+</select> 
