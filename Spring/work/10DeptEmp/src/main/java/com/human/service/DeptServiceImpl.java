@@ -47,11 +47,6 @@ public class DeptServiceImpl implements IDeptService {
 		
 	}
 //	@Override
-//	public Integer selectMaxDeptNo() throws Exception {
-//		IDeptDao dao=sqlSession.getMapper(IDeptDao.class);
-//		return dao.selectMaxDeptNo();
-//	}
-//	@Override
 //	public List<CustomerHobbyVo2> selectAllCustomerHobby() throws Exception {
 //		// TODO Auto-generated method stub
 //		ICustomerDao dao=sqlSession.getMapper(ICustomerDao.class);

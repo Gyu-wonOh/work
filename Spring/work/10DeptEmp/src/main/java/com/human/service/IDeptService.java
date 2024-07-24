@@ -12,6 +12,7 @@ public interface IDeptService {
 	public DeptDto select(int deptNo) throws Exception;
 	public List<DeptDto> selectAll() throws Exception;
 	public void delete(int deptNo) throws Exception;
-	public void update(DeptDto dto) throws Exception;	
+	public void update(DeptDto dto) throws Exception;
+
 //	public List<CustomerHobbyVo2> selectAllCustomerHobby() throws Exception;
 }

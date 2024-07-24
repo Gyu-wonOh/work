@@ -22,14 +22,7 @@ update emp set empNo=#{empNo},enName=#{enName},job=#{job},mgr=#{mgr},hirDate=#{h
  where deptNo=#{deptNo}
 </update>
 
-<!-- <select id="selectMaxDeptNo" resultType="Integer">
-select max(deptNo) as id from deptNo
-</select> -->
 
-<!-- <select id="selectAllCustomerHobby" resultType="com.human.dto.CustomerHobbyDto">
-select customer.id,name,height,birthday,hobby
- from customer,hobby where customer.id=hobby.id(+)
-</select>  -->
 <!-- mapper에 없는 클래스를 요청하면 404에러가 난다. -->
 
 </mapper>

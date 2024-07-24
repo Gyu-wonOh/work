@@ -5,14 +5,21 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class DeptDto {
-	private int deptNo;
+	private Integer deptNo;
 	private String dName;
 	private String loc;
 	
-	public int getDeptNo() {
+	public DeptDto() {}
+	public DeptDto(Integer deptNo, String dName, String loc) {
+		super();
+		this.deptNo = deptNo;
+		this.dName = dName;
+		this.loc = loc;
+	}
+	public Integer getDeptNo() {
 		return deptNo;
 	}
-	public void setDeptNo(int deptNo) {
+	public void setDeptNo(Integer deptNo) {
 		this.deptNo = deptNo;
 	}
 	public String getdName() {
@@ -27,19 +34,11 @@ public class DeptDto {
 	public void setLoc(String loc) {
 		this.loc = loc;
 	}
-	
-	public DeptDto() {
-	}
-	
-	public DeptDto(int deptNo, String dName, String loc) {
-		super();
-		this.deptNo = deptNo;
-		this.dName = dName;
-		this.loc = loc;
-	}
 	@Override
 	public String toString() {
-		return "CustomerDto [deptNo=" + deptNo + ", dName=" + dName + ", loc=" + loc + "]";
+		return "DeptDto [deptNo=" + deptNo + ", dName=" + dName + ", loc=" + loc + "]";
 	}
+	
+	
 	
 }

@@ -7,6 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <insert id="insert">
 insert into dept values(#{deptNo},#{dName},#{loc})
 </insert>
+<insert id="insertDept">
+insert into dept values(#{deptNo},#{dName},#{loc})
+</insert>
 <select id="select" resultType="com.human.dto.DeptDto">
 select * from dept where deptNo=#{deptNo}
 </select>
@@ -27,8 +30,7 @@ select max(deptNo) as id from deptNo
 </select> -->
 
 <select id="selectAllDeptEmp" resultType="com.human.dto.DeptEmpDto">
-select dept.deptno,dName,loc,empNo,enName,job,mgr,hirdate,sal,comm from dept,emp 
-where emp.deptno= dept.deptno(+) order by dept.deptno;
+select dept.deptno,dept.dName,dept.loc,emp.empNo,emp.enName,emp.job,emp.mgr,emp.hirdate,emp.sal,emp.comm from dept,emp where emp.deptno= dept.deptno(+)
 </select>
 <!-- mapper에 없는 클래스를 요청하면 404에러가 난다. -->
 
