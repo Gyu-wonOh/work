@@ -34,7 +34,8 @@ if(result=='success'){
 		<td><a href='/ex/deptEmp/read?deptEmpNo=${deptEmpDto.deptNo}'>
 		${deptEmpDto.deptNo }</a></td>
 		<td>${deptEmpDto.dName }</td>
-		<td>${deptEmpDto.loc }</a>
+		<td>${deptEmpDto.loc }
+		<a href='/ex/deptEmp/updateDept?deptNo=${deptEmpDto.deptNo}'>수정</a>
 		<a href='/ex/deptEmp/deleteDept?deptNo=${deptEmpDto.deptNo}'>삭제</a></td>
 		<td>${deptEmpDto.empNo}</td>
 		<td>${deptEmpDto.enName}</td>
@@ -43,7 +44,8 @@ if(result=='success'){
 		<td>${deptEmpDto.hirDate}</td>
 		<td>${deptEmpDto.sal}</td>
 		<td>${deptEmpDto.comm}
-		<a href='/ex/deptEmp/deleteEmp?=${depEmpDto.empNo}'>삭제</a></td>
+		<a href='/ex/deptEmp/updateEmp?empNo=${deptEmpDto.empNo}'>수정</a>
+		<a href='/ex/deptEmp/deleteEmp?empNo=${deptEmpDto.empNo}'>삭제</a></td>
 		</td>
 	</tr>
 	</c:forEach>

@@ -23,6 +23,7 @@ import com.human.dto.DeptEmpDto;
 import com.human.dto.EmpDto;
 import com.human.service.IDeptEmpService;
 import com.human.service.IDeptService;
+import com.human.service.IEmpService;
 
 /**
  * Handles requests for the application home page.
@@ -36,7 +37,8 @@ public class DeptEmpController {
 	private IDeptService deptService;
 	@Autowired
 	private IDeptEmpService deptEmpService;
-	
+	@Autowired
+	private IEmpService empService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	
@@ -71,9 +73,46 @@ public class DeptEmpController {
     }
 	//http://localhost:8089/ex/deptEmp/deleteDept?=90
 	@RequestMapping(value = "/deptEmp/deleteDept", method = RequestMethod.GET)
-    public String delete(int deptNo) throws Exception{
+    public String deleteDept(int deptNo) throws Exception{
        System.out.println("deptNo:"+ deptNo);
        deptEmpService.deleteDept(deptNo);
+       return "redirect:/deptEmp/selectAll";
+    }
+	//http://localhost:8089/ex/deptEmp/deleteEmp?empNo=
+	@RequestMapping(value = "/deptEmp/deleteEmp", method = RequestMethod.GET)
+    public String deleteEmp(int empNo) throws Exception{
+       System.out.println("empNo:"+ empNo);
+       deptEmpService.deleteEmp(empNo);
+       return "redirect:/deptEmp/selectAll";
+    }
+	@RequestMapping(value = "/deptEmp/updateDept", method = RequestMethod.GET)
+    public String updateDept(int deptNo,Model model) throws Exception{
+       System.out.println("Update \ndeptNo: "+deptNo);
+       System.out.println("insert GUI");
+       model.addAttribute(deptService.select(deptNo));
+       return "deptEmp/updateDept";
+    }
+	//http://localhost:8089/ex/deptEmp/updateDept
+	@RequestMapping(value = "/deptEmp/updateDept", method = RequestMethod.POST)
+    public String updateDeptDB(DeptDto dto) throws Exception{
+       System.out.println("Update \ndeptDto"+dto);
+       System.out.println("insert GUI");
+       deptService.update(dto);
+       return "redirect:/deptEmp/selectAll";
+    }
+	@RequestMapping(value = "/deptEmp/updateEmp", method = RequestMethod.GET)
+    public String updateEmp(int empNo,Model model) throws Exception{
+       System.out.println("Update \nempNo: "+empNo);
+       System.out.println("insert GUI");
+       model.addAttribute(empService.select(empNo));
+       return "deptEmp/updateEmp";
+    }
+	//http://localhost:8089/ex/deptEmp/updateDept
+	@RequestMapping(value = "/deptEmp/updateEmp", method = RequestMethod.POST)
+    public String updateDB(EmpDto dto) throws Exception{
+       System.out.println("Update \nEmpDto"+dto);
+       System.out.println("insert GUI");
+       empService.update(dto);
        return "redirect:/deptEmp/selectAll";
     }
 }

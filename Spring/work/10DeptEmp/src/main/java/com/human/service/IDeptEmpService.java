@@ -10,4 +10,5 @@ public interface IDeptEmpService {
 	public List<DeptEmpDto> selectAll() throws Exception;
 	public void insertDeptEmp(int deptNo,String dName,String loc,EmpDto emp) throws Exception;
 	public void deleteDept(int deptNo) throws Exception;
+	public void deleteEmp(int empNo) throws Exception;
 }

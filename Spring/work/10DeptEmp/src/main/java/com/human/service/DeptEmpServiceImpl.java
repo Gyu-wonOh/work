@@ -48,4 +48,8 @@ public class DeptEmpServiceImpl implements IDeptEmpService {
 		empService.delete(deptNo);
 		deptService.delete(deptNo);
 	}
+	@Override
+	public void deleteEmp(int empNo) throws Exception {
+		empService.delete(empNo);
+	}
 }
