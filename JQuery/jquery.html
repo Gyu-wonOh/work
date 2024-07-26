@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+    
+        // jQuery란? javascript라이브러리
+        // html/dom조작,event 처리,css조작,효과 및 애니메이션,ajax
+        
+        $(document).ready(function(){
+            $("p3").dblclick(function(){
+            $(this).hide();
+            });
+            $("button").click(function(){
+            $("p").hide();
+             });
+            $("p2").click(function(){
+            $(this).hide();
+            });
+            $("#p4").mouseenter(function(){
+            alert("You entered p1!");
+            });
+        });
+      
+    </script>
+</head>
+<body>
+    <p>사라짐</p>
+    <button>클릭</button>
+    <p2>없어짐</p2>
+    <p3>더블 클릭</p3>
+    <p4 id="p4">mouseenter</p4>
+</body>
+</html>

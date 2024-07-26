@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #menu>li>div{
+            margin-bottom: 2px;
+            height: 35px;
+            line-height: 35px;
+            background-color:green;
+            cursor:pointer;
+        }
+        #menu,#menu ul{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+        }
+        ul#menu{
+            width:200px;
+            text-indent:35px;
+        }
+        ul.sub li{
+            background: rgb(242,10,234);
+            line-height: 35px;
+            margin-bottom: 2px;
+        }
+        ul.sub li:hover{
+            background: rgba(4,116,118,0,354);
+        }
+        ul.sub li a{
+            display:block;
+            text-decoration:none;
+            color:#fff;
+        }
+    </style>
+    <script>
+        var selectDiv=$("#menu>li>div").eq(0);
+        $(function(){
+            $(".sub").hide();
+            $("#menu>li>div").on("mouseenter",function(){
+                $(".sub").stop().slideUp(300);
+                $(this).next().stop().slideDown(300);
+            });
+            $("#menu>li>div").on("click",function(){
+                selectDiv=$(this);
+            })
+            $("#menu").on("mouseleave",function(){
+                setTimeout(function(){
+                    $(".sub").stop().slideUp(300);
+                    selectDiv.next().stop().slideDown(300);
+                },2000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            <div>title</div>
+            <ul class="sub">
+                <li><a href="#">sub1</a></li>
+                <li><a href="#">sub2</a></li>
+                <li><a href="#">sub3</a></li>
+            </ul>
+        </li>
+        <li>
+            <div>title</div>
+            <ul class="sub">
+                <li><a href="#">sub1</a></li>
+                <li><a href="#">sub2</a></li>
+            </ul>
+        </li>
+        <li>
+            <div>title</div>
+            <ul class="sub">
+                <li><a href="#">sub1</a></li>
+                <li><a href="#">sub2</a></li>
+                <li><a href="#">sub3</a></li>
+                <li><a href="#">sub4</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

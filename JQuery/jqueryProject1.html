@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text],input[type=password]{
+            height:24px;
+            line-height:5px;
+            font-family: "맑은고딕";
+        }
+        input[type=submit]{
+            margin-top:15px;
+            padding: 5px 15px;
+            font-family: "맑은고딕";
+            background:#666;
+            color:#fff;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;/*ie9이상 사용가능*/
+            -webkit-border-radius: 5px;/*사파리 크롬*/
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#my_form").submit(function(e){
+                //e.preventDefault();
+                //입력양식의 value를 가져옵니다.
+                var name=$("#name").val();
+                var password=$("#password").val();
+                var str=name+":"+password;
+                if(name!=""&&password!=""){//둘다 입력하였을 경우
+                    //데이터 전송
+                    alert(name+":"+password);
+                }else{
+                    //전송을 막기
+                    //기본이벤트 막기
+                    alert("데이터를 입력하세요");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="my_form">
+        <input type="text" name="name" id="name"/><br>
+        <input type="password" name="password" id="password"/><br>
+        <input type="submit" value="제출"/><br>
+    </form>
+</body>
+</html>

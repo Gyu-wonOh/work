@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px; padding:0px;
+        }
+        #container ul li{
+         border: 1px;
+         position:relative;
+         padding: 10px;
+         width: 80px;
+         height: 80px;
+         background: #ef8605; color:rgb(173,36,200);  
+        }
+        .top{
+            position:absolute;
+            left:0px;
+            top:0px;
+            padding:10px;
+            width:80px;
+            height:80px;
+            background:#82b81d; color:aqua;
+        }
+    </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script>
+        $(function(){
+            $("#container>ul>li").hover(
+                function(){
+                    $(this).find(".top").stop().animate({
+                        left:"-100px"
+                    })
+                },function(){
+                    $(this).find(".top").stop().animate({
+                        left:"0px"
+                    })
+                }
+            )
+        })
+     </script>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li>
+                bottom
+                <div class="top">top</div>
+            </li>
+            <li>
+                bottom
+                <div class="top">top</div>
+            </li>
+            <li>
+                bottom
+                <div class="top">top</div>
+            </li>
+            <li>
+                bottom
+                <div class="top">top</div>
+            </li>
+            <li>
+                bottom
+                <div class="top">top</div>
+            </li>
+            <li>
+                bottom
+                <div class="top">top</div>
+            </li>
+            <li>
+                bottom
+                <div class="top">top</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

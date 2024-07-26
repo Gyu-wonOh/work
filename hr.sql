@@ -196,3 +196,6 @@ drop table copyTable;
 drop table copytable3;
 drop table copytable4;
 select * from tab;
+
+select * from tab;
+desc 
