@@ -53,3 +53,24 @@ select * from hobby;
 select * from customer;
 
 select * from customer,hobby where customer.id=hobby.id;
+--게시판 테이블
+
+CREATE TABLE board ( 
+bGroupKind VARCHAR2(255), 
+bId NUMBER PRIMARY KEY, 
+bName VARCHAR2(255) NOT NULL, 
+bTitle VARCHAR2(255) NOT NULL, 
+bContent VARCHAR2(4000) NOT NULL, 
+bEtc VARCHAR2(4000) NULL, 
+bWriteTime DATE DEFAULT sysdate, 
+bUpdateTime DATE DEFAULT null, 
+bHit NUMBER DEFAULT 0, 
+bGroup NUMBER, 
+bStep NUMBER, 
+bIndent NUMBER, 
+bDelete VARCHAR2(1) DEFAULT 'Y', 
+bLike NUMBER DEFAULT 0, 
+bDislike NUMBER DEFAULT 0 
+);
+select * from board;
+create sequence bId;

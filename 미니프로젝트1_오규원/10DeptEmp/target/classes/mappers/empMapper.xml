@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.dao.IEmpDao">
+<insert id="insert">
+insert into emp values(#{empNo},#{enName},#{job},#{mgr},#{hirDate},#{sal},#{comm},#{deptNo})
+</insert>
+<select id="select" resultType="com.human.dto.EmpDto">
+select * from emp where empNo=#{empNo}
+</select>
+<select id="selectAll" resultType="com.human.dto.EmpDto">
+select * from emp order by empNo
+</select>
+
+<delete id="delete">
+delete from emp where empNo=#{empNo}
+</delete>
+<update id="update">
+update emp set empNo=#{empNo},enName=#{enName},job=#{job},mgr=#{mgr},hirDate=#{hirDate},sal=#{sal},comm=#{comm},deptNo=#{deptNo}
+ where deptNo=#{deptNo}
+</update>
+
+
+<!-- mapper에 없는 클래스를 요청하면 404에러가 난다. -->
+
+</mapper>
+
+
+
+
+
+
+
+
+

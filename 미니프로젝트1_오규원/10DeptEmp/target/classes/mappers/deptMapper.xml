@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.dao.IDeptDao">
+<insert id="insert">
+insert into dept values(#{deptNo},#{dName},#{loc})
+</insert>
+<insert id="insertDept">
+insert into dept values(#{deptNo},#{dName},#{loc})
+</insert>
+<select id="select" resultType="com.human.dto.DeptDto">
+select * from dept where deptNo=#{deptNo}
+</select>
+<select id="selectAll" resultType="com.human.dto.DeptDto">
+select * from dept order by deptNo
+</select>
+
+<delete id="delete">
+delete from dept where deptNo=#{deptNo}
+</delete>
+<update id="update">
+update dept set deptNo=#{deptNo},dName=#{dName},loc=#{loc}
+ where deptNo=#{deptNo}
+</update>
+
+<!-- <select id="selectMaxDeptNo" resultType="Integer">
+select max(deptNo) as id from deptNo
+</select> -->
+
+<select id="selectAllDeptEmp" resultType="com.human.dto.DeptEmpDto">
+select dept.deptno,dept.dName,dept.loc,emp.empNo,emp.enName,emp.job,emp.mgr,emp.hirdate,emp.sal,emp.comm from dept,emp where emp.deptno= dept.deptno(+)
+</select>
+<!-- mapper에 없는 클래스를 요청하면 404에러가 난다. -->
+
+</mapper>
+
+
+
+
+
+
+
+
+
