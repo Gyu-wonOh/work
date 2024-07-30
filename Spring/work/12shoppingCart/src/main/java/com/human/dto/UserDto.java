@@ -5,15 +5,15 @@ import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class UserDto {
-	String id;
-	String pw;
-	String name;
-	String gender;
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	LocalDateTime birthday;
-	String email;
-	String phoneNumber;
-	String address;
+	private String id;
+	private String pw;
+	private String name;
+	private String gender;
+	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm")
+	private LocalDateTime birthday;
+	private String email;
+	private String phoneNumber;
+	private String address;
 	
 	@Override
 	public String toString() {
@@ -85,6 +85,8 @@ public class UserDto {
 		this.address = address;
 	}
 
+	public UserDto() {}
+	
 	public UserDto(String id, String pw, String name, String gender, LocalDateTime birthday, String email,
 			String phoneNumber, String address) {
 		super();

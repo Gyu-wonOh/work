@@ -19,6 +19,7 @@ select * from shopuser;
 drop table shopProduct;
 
 create table shopProduct(
+    productImagePath nvarchar2(255),
     productCode nvarchar2(100),
     productName nvarchar2(255),
     productPrice nvarchar2(100),
@@ -28,9 +29,11 @@ create table shopProduct(
     stockAmount nvarchar2(100),
     status nvarchar2(50)
     );
-insert into shopproduct values('P00001','꽃','10000','야생에서 재배한 꽃이다.',
+insert into shopproduct values('C:\Users\tj-bu-702-07\Desktop\school\Spring\work\12shoppingCart\src\main\webapp\resources'
+,'P00001','꽃','10000','야생에서 재배한 꽃이다.',
 '썬플라워원예','꽃 장식','100','신규제품');
 
+delete from shopProduct where productName= '꽃';
 commit;
 select * from shopProduct;
 select * from shopuser;
