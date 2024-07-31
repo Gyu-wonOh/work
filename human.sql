@@ -74,3 +74,22 @@ bLike NUMBER DEFAULT 0,
 bDislike NUMBER DEFAULT 0
 );
 create sequence bId;
+
+select * from board;
+insert into board (bGroupKind, bId, bName, bTitle, bContent, bWriteTime, bGroup)
+select bGroupKind, bId.nextval, bName, bTitle, bContent, bWriteTime,bid.currval from board where bid = bgroup;
+--select * from board(bgroupkind,bid,bname,btitle,bcontent,bwritetime,bgroup);
+--insert into board(bgroupkind,bid.nextval,bname,btitle,bcontent,bwritetime,bgroup);
+--select bgroupkind,bid.nextval,bname,btitle,bcontent,bwritetime,bid.currval from board where bid=bgroup;
+commit;
+
+SELECT *
+FROM board
+WHERE 1=1
+ORDER BY bGroup DESC, bStep ASC
+OFFSET (3 - 1) * 10 ROWS
+FETCH NEXT 10 ROWS ONLY;
+
+select (*) count
+
+

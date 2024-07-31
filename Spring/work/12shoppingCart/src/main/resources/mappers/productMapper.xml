@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.human.dao.IProductDao">
 <insert id="insert">
 insert into shopProduct
-values(#{productImagePath}#{productCode},#{productName},#{productPrice},#{productDetail},#{manufacture},#{category},#{stockAmount},#{status})
+values(#{productImagePath},#{productCode},#{productName},#{productPrice},#{productDetail},#{manufacture},#{category},#{stockAmount},#{status})
 </insert>
 <select id="select" resultType="com.human.dto.ProductDto">
 select * from shopProduct where productCode=#{ProductCode}
@@ -19,7 +19,7 @@ select * from shopProduct order by productCode
 delete from shopProduct where productCode=#{ProductCode}
 </delete>
 <update id="update">
-update shopProduct set productName=#{productName},productPrice=#{productPrice},productDetail=#{productDetail},
+update shopProduct set productImagePath=#{productImagePath},productName=#{productName},productPrice=#{productPrice},productDetail=#{productDetail},
 manufacture=#{manufacture},category=#{category},stockAmount=#{stockAmount},status=#{status}
  where productCode=#{productCode}
 </update>

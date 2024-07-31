@@ -38,6 +38,21 @@ public class productController {
 		model.addAttribute("list",dto);
 		return "product/selectAll";
 	}
+	@RequestMapping(value = "/product/insert", method = RequestMethod.GET)
+	public String insert(Model model) throws Exception {
+		System.out.println("move insert page");
+		return "/product/insert";
+	}
+	@RequestMapping(value = "/product/insert", method = RequestMethod.POST)
+	public String insertDB(ProductDto dto) throws Exception {
+		System.out.println("insert data:"+dto);
+		String path="/ex/resources/";
+		path=path+dto.getProductImagePath();
+		dto.setProductImagePath(path);
+		System.out.println("path:"+path);
+		productService.insert(dto);
+		return "redirect:/product/selectAll";
+	}
 	@RequestMapping(value = "/product/select", method = RequestMethod.GET)
 	public String select(String productCode,Model model) throws Exception {
 		System.out.println("select");
@@ -46,6 +61,28 @@ public class productController {
 		model.addAttribute("productDto",dto);
 		return "product/select";
 	}
-	
-	
+	@RequestMapping(value = "/product/update", method = RequestMethod.GET)
+	public String update(String productCode,Model model) throws Exception {
+		System.out.println("move update page");
+		ProductDto dto = productService.select(productCode);
+		System.out.println(dto);
+		model.addAttribute("productDto",dto);
+		return "product/update";
+	}
+	@RequestMapping(value = "/product/update", method = RequestMethod.POST)
+	public String updateDB(ProductDto dto) throws Exception {
+		System.out.println("update data:"+dto);
+		String path="/ex/resources/";
+		path=path+dto.getProductImagePath();
+		dto.setProductImagePath(path);
+		System.out.println("path:"+path);
+		productService.update(dto);
+		return "redirect:/product/selectAll";
+	}
+	@RequestMapping(value = "/product/delete", method = RequestMethod.GET)
+	public String delete(String productCode) throws Exception {
+		System.out.println("delete data:"+productCode);
+		productService.delete(productCode);
+		return "redirect:/product/selectAll";
+	}
 }

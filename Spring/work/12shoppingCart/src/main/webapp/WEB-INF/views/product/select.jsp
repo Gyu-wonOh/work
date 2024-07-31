@@ -31,6 +31,9 @@
 		<td>${productDto.stockAmount}</td>
 		<td>${productDto.status}</td>
 	</tr>
-</table>
+</table><br>
+<a href="/ex/product/update?productCode=${productDto.productCode}"><button>수정</button></a>
+<a href="/ex/product/delete?productCode=${productDto.productCode}"><button>삭제</button></a>
+<a href="/ex/product/selectAll"><button>목록</button></a>
 </body>
 </html>

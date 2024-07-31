@@ -14,11 +14,22 @@ public class UserDto {
 	private String email;
 	private String phoneNumber;
 	private String address;
+	private String productCode;
 	
-	@Override
-	public String toString() {
-		return "UserDto [id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday
-				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", address=" + address + "]";
+	public UserDto() {}
+
+	public UserDto(String id, String pw, String name, String gender, LocalDateTime birthday, String email,
+			String phoneNumber, String address, String productCode) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.productCode = productCode;
 	}
 
 	public String getId() {
@@ -85,19 +96,18 @@ public class UserDto {
 		this.address = address;
 	}
 
-	public UserDto() {}
-	
-	public UserDto(String id, String pw, String name, String gender, LocalDateTime birthday, String email,
-			String phoneNumber, String address) {
-		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.gender = gender;
-		this.birthday = birthday;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.address = address;
+	public String getProductCode() {
+		return productCode;
 	}
-	
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDto [id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday
+				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", address=" + address + ", productCode="
+				+ productCode + "]";
+	}
 }
