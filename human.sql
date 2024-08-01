@@ -93,3 +93,20 @@ FETCH NEXT 10 ROWS ONLY;
 select (*) count
 
 
+drop sequence rid;
+CREATE SEQUENCE rId;
+
+drop table reply;
+CREATE TABLE reply (
+rId NUMBER PRIMARY KEY,
+bId NUMBER NOT NULL,
+rContent VARCHAR2(1000) NOT NULL,
+rName VARCHAR2(100) NOT NULL,
+rWriteTime date DEFAULT sysdate,
+rUpdateTime date,
+rEtc VARCHAR2(1000),
+rGroup NUMBER NOT NULL,
+rStep NUMBER DEFAULT 0,
+rIndent NUMBER DEFAULT 0,
+rDelete CHAR(1) DEFAULT 'N'
+);

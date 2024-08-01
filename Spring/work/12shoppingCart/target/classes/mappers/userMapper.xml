@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.human.dao.IUserDao">
 <insert id="insert">
 insert into shopuser
-values(#{id},#{pw},#{name},#{gender},#{birthday},#{email},#{phoneNumber},#{address})
+values(#{id},#{pw},#{name},#{gender},#{birthday},#{email},#{phoneNumber},#{address},#{productCode})
 </insert>
 <select id="select" resultType="com.human.dto.UserDto">
 select * from shopuser where id=#{id}
@@ -23,10 +23,10 @@ update shopuser set pw=#{pw},email=#{email},phoneNumber=#{phoneNumber}
  where id=#{id}
 </update>
 
-<!-- <select id="selectAllCustomerHobby" resultType="com.human.dto.CustomerHobbyDto">
-select customer.id,name,height,birthday,hobby
- from customer,hobby where customer.id=hobby.id(+)
- </select>--> 
+<select id="selectAllUserProduct" resultType="com.human.dto.UserProductDto">
+select user.id,name,
+ from user,product where user.productCode=product.productCode(+)
+ </select>
 <!-- 
 매퍼에 없는 클래스를 요청하면 404에러가 난다
 -->
