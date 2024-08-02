@@ -16,7 +16,7 @@ insert into shopuser values('kkk',1234,'지름신','남',TO_DATE('1994-07-19 20:09:1
 'kkk@naver.com','010-7904-4871','인천광역시 부평구 경원대로 74','');
 commit;
 select * from shopuser;
-
+update shopuser set productCode='P00001';
 drop table shopProduct;
 
 create table shopProduct(
@@ -27,7 +27,7 @@ create table shopProduct(
     productDetail nvarchar2(255),
     manufacture nvarchar2(255),
     category nvarchar2(100),
-    stockAmount nvarchar2(100),
+    stockAmount number,
     status nvarchar2(50)
     );
 insert into shopproduct values('/ex/resources/flower.jpg','P00001','꽃','10000','야생에서 재배한 꽃이다.',
@@ -37,3 +37,20 @@ delete from shopProduct where productName= '꽃';
 commit;
 select * from shopProduct;
 select * from shopuser;
+
+select * from shopUser,shopProduct where shopuser.productCode=shopproduct.productcode;
+
+drop table shoppingCart;
+create table shoppingCart(
+    cartId number ,
+    userId nvarchar2(100),
+    userName nvarchar2(100),
+    productImage nvarchar2(255),
+    productCode nvarchar2(100),
+    productName nvarchar2(255),
+    orderAmount number
+);    
+select * from shoppingCart;
+commit;
+
+create sequence cartId;

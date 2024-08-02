@@ -8,13 +8,13 @@ public class ProductDto {
 	private String productDetail;
 	private String manufacture;
 	private String category;
-	private String stockAmount;
+	private int stockAmount;
 	private String status;
 	
 	public ProductDto() {}
 
 	public ProductDto(String productImagePath, String productCode, String productName, String productPrice,
-			String productDetail, String manufacture, String category, String stockAmount, String status) {
+			String productDetail, String manufacture, String category, int stockAmount, String status) {
 		super();
 		this.productImagePath = productImagePath;
 		this.productCode = productCode;
@@ -83,11 +83,11 @@ public class ProductDto {
 		this.category = category;
 	}
 
-	public String getStockAmount() {
+	public int getStockAmount() {
 		return stockAmount;
 	}
 
-	public void setStockAmount(String stockAmount) {
+	public void setStockAmount(int stockAmount) {
 		this.stockAmount = stockAmount;
 	}
 

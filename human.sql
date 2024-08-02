@@ -110,3 +110,5 @@ rStep NUMBER DEFAULT 0,
 rIndent NUMBER DEFAULT 0,
 rDelete CHAR(1) DEFAULT 'N'
 );
+
+select * from reply;
