@@ -112,3 +112,34 @@ rDelete CHAR(1) DEFAULT 'N'
 );
 
 select * from reply;
+
+--security--
+--users-- 테이블 생성 및 데이터 삽입:
+drop table users;
+create table users(
+username varchar2(30) not null,
+password varchar2(100) not null,
+enabled integer not null -- 아이디 사용여부 0이면 사용 불가 1이면 사용가능
+);
+insert into users values('user','1111',1);
+insert into users values('member','1111',1);
+insert into users values('admin','1111',1);
+commit;
+
+--users 테이블은 사용자 정보를 저장합니다.
+각 행은 사용자 이름 (username), 비밀번호 (password), 사용 여부 (enabled)를 나타냅니다.
+사용 여부가 0이면 사용 불가능, 1이면 사용 가능을 의미합니다.
+authorities 테이블 생성 및 데이터 삽입:
+drop table authorities;
+create table authorities(
+username varchar2(30) not null,
+authority varchar2(50) not null
+);
+insert into authorities values('user','ROLE_MEMBER');
+insert into authorities values('member','ROLE_MEMBER');
+insert into authorities values('admin','ROLE_MEMBER');
+insert into authorities values('admin','ROLE_ADMIN');
+commit;
+select * from users;
+select * from authorities;
+

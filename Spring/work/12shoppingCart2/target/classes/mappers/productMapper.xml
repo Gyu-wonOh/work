@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.dao.IProductDao">
+<insert id="insert">
+insert into shopProduct
+values(#{productImagePath},#{productCode},#{productName},#{productPrice},#{productDetail},#{manufacture},#{category},#{stockAmount},#{status})
+</insert>
+<select id="select" resultType="com.human.dto.ProductDto">
+select * from shopProduct where productCode=#{ProductCode}
+</select>
+<select id="selectAll" resultType="com.human.dto.ProductDto">
+select * from shopProduct order by productCode
+</select>
+
+<delete id="delete">
+delete from shopProduct where productCode=#{ProductCode}
+</delete>
+<update id="update">
+update shopProduct set productImagePath=#{productImagePath},productName=#{productName},productPrice=#{productPrice},productDetail=#{productDetail},
+manufacture=#{manufacture},category=#{category},stockAmount=#{stockAmount},status=#{status}
+ where productCode=#{productCode}
+</update>
+
+<!-- <select id="selectAllCustomerHobby" resultType="com.human.dto.CustomerHobbyDto">
+select customer.id,name,height,birthday,hobby
+ from customer,hobby where customer.id=hobby.id(+)
+ </select>--> 
+<!-- 
+매퍼에 없는 클래스를 요청하면 404에러가 난다
+-->
+
+</mapper>

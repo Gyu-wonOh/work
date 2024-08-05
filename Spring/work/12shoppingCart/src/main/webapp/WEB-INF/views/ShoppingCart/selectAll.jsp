@@ -36,14 +36,14 @@ if(result=='success'){
 	</tr>
 	<c:forEach items="${list }" var="cartDto">
 	<tr>
-		<td><a href='/ex/user/read?id=${cartDto.id}'>${cartDto.id }</a></td>
-		<td>${cartDto.userId }</td>
-		<td>${cartDto.userName}</td>
 		<td>
-			${cartDto.productCode }
+			<a href='/ex/Shoppingcart/read?id=${cartDto.userId}'>
+			${cartDto.userId }</a>
 		</td>
-		<td>${userDto.productName}</td>
-		<td>${userDto.orderAmount}</td>
+		<td>${cartDto.userName}</td>
+		<td>${cartDto.productCode }</td>
+		<td>${cartDto.productName}</td>
+		<td>${cartDto.orderAmount}</td>
 	</tr>
 	</c:forEach>
 </table>

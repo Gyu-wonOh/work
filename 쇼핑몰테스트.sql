@@ -51,6 +51,7 @@ create table shoppingCart(
     orderAmount number
 );    
 select * from shoppingCart;
+select * from shoppingCart order by cartId;
 commit;
 
 create sequence cartId;

@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.human.dao.IShoppingCartDao;
 import com.human.dto.ProductDto;
 import com.human.dto.UserDto;
 import com.human.service.IProductService;
