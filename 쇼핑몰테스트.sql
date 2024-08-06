@@ -1,3 +1,4 @@
+--사용자
 drop table shopuser;
 
 create table shopuser(
@@ -8,17 +9,16 @@ create table shopuser(
     birthday date,
     email nvarchar2(50),
     phoneNumber nvarchar2(50),
-    address nvarchar2(50),
-    productCode nvarchar2(100)
+    address nvarchar2(50)
     );
     
 insert into shopuser values('kkk',1234,'지름신','남',TO_DATE('1994-07-19 20:09:13','YYYY-MM-DD HH24:MI:SS'),
-'kkk@naver.com','010-7904-4871','인천광역시 부평구 경원대로 74','');
+'kkk@naver.com','010-7904-4871','인천광역시 부평구 경원대로 74');
 commit;
 select * from shopuser;
 update shopuser set productCode='P00001';
 drop table shopProduct;
-
+--상품테이블
 create table shopProduct(
     productImagePath nvarchar2(255),
     productCode nvarchar2(100),
@@ -39,19 +39,18 @@ select * from shopProduct;
 select * from shopuser;
 
 select * from shopUser,shopProduct where shopuser.productCode=shopproduct.productcode;
-
-drop table shoppingCart;
-create table shoppingCart(
+--장바구니
+drop table Cart;
+create table Cart(
     cartId number ,
     userId nvarchar2(100),
-    userName nvarchar2(100),
-    productImage nvarchar2(255),
     productCode nvarchar2(100),
-    productName nvarchar2(255),
     orderAmount number
 );    
-select * from shoppingCart;
-select * from shoppingCart order by cartId;
+select * from Cart;
+select * from Cart order by cartId;
 commit;
+drop sequence cartId_seq;
+create sequence cartId_seq;
 
-create sequence cartId;
+select id, pw from shopuser;

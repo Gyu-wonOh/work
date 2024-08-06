@@ -24,10 +24,19 @@ if(result=='success'){
 </script>
 </head>
 <body>
-<h1>고객 정보</h1>
+<div id='head'>
+	<table>
+		<tr>
+			<td>Home</td><td></td><td>로그인</td>
+		</tr>
+	</table>
+</div>
+<div id= 'main'>
+<hr/>
+<h1>장바구니</h1>
 <table  id="table" boarder="1" width="90%" id="customers">
 	<tr id="field">
-	<th>ID</th>
+	<th>CartID</th>
 	<th>UserID</th>
 	<th>UserName</th>
 	<th>ProductCode</th>
@@ -37,7 +46,7 @@ if(result=='success'){
 	<c:forEach items="${list }" var="cartDto">
 	<tr>
 		<td>
-			<a href='/ex/Shoppingcart/read?id=${cartDto.userId}'>
+			<a href='/ex/Cart/read?id=${cartDto.userId}'>
 			${cartDto.userId }</a>
 		</td>
 		<td>${cartDto.userName}</td>
@@ -48,6 +57,8 @@ if(result=='success'){
 	</c:forEach>
 </table>
 <a href="/ex/user/insert">장바구니추가</a>
+
+</div>
 </body>
 </html>
 

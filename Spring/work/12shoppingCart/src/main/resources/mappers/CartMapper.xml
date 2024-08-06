@@ -3,27 +3,27 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.human.dao.IProductDao">
+<mapper namespace="com.human.dao.ICartDao">
 <insert id="insert">
-insert into shopProduct
-values(#{productImagePath},#{productCode},#{productName},#{productPrice},#{productDetail},#{manufacture},#{category},#{stockAmount},#{status})
+insert into Cart
+values(cartId_seq.nextval,#{userId},#{userName},#{productImagePath},#{productCode},#{productName},#{orderAmount})
 </insert>
-<select id="select" resultType="com.human.dto.ProductDto">
-select * from shopProduct where productCode=#{ProductCode}
+<select id="selectAll" resultType="com.human.dto.CartDto">
+select * from cart order by cartId
 </select>
-<select id="selectAll" resultType="com.human.dto.ProductDto">
-select * from shopProduct order by productCode
-</select>
-
-<delete id="delete">
-delete from shopProduct where productCode=#{ProductCode}
+<delete id="deleteCart">
+delete from cart where cartId=#{cartId}
+</delete>
+<delete id="deleteProduct">
+delete from cart where productCode=#{productCode}
 </delete>
 <update id="update">
-update shopProduct set productImagePath=#{productImagePath},productName=#{productName},productPrice=#{productPrice},productDetail=#{productDetail},
-manufacture=#{manufacture},category=#{category},stockAmount=#{stockAmount},status=#{status}
- where productCode=#{productCode}
+update cart set productImagePath=#{productImagePath},productName=#{productName},orderAmount=#{orderAmount}
+ where cartId=#{cartId}
 </update>
-
+<select id="selectMaxId" resultType="Integer">
+select max(cartId) as cartId from cart
+</select>
 <!-- <select id="selectAllCustomerHobby" resultType="com.human.dto.CustomerHobbyDto">
 select customer.id,name,height,birthday,hobby
  from customer,hobby where customer.id=hobby.id(+)

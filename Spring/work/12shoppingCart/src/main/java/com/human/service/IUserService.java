@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.human.dto.UserDto;
 
 public interface IUserService {
+	public UserDto login(@Param("id")String id, @Param("pw")String pw) throws Exception;
 	public void insert(UserDto dto) throws Exception;
 	public List<UserDto> selectAll() throws Exception;
 	public UserDto select(String id) throws Exception;

@@ -17,6 +17,7 @@ public class userServiceImpl implements IUserService {
 	@Override
 	public void insert(UserDto dto) throws Exception {
 		IUserDao dao = sqlSession.getMapper(IUserDao.class);
+		System.out.println(dto);
 		dao.insert(dto);
 	}
 
@@ -42,6 +43,13 @@ public class userServiceImpl implements IUserService {
 	public void delete(String id) throws Exception {
 		IUserDao dao = sqlSession.getMapper(IUserDao.class);
 		dao.delete(id);
+	}
+
+	@Override
+	public UserDto login(String id, String pw) throws Exception {
+		IUserDao dao=sqlSession.getMapper(IUserDao.class);
+		UserDto dto = dao.login(id, pw);
+		return dto;
 	}
 
 }

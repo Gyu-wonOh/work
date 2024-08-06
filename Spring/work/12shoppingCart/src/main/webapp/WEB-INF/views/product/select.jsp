@@ -32,6 +32,7 @@
 		<td>${productDto.status}</td>
 	</tr>
 </table><br>
+<a href="/ex/Cart/insert?userId=${userDto.id}&userName=${userDto.userName}&productCode=${productDto.productCode}&productName=${productDto.productName}&productImagePath=${productDto.productImagePath}"><button>장바구니 담기</button></a>
 <a href="/ex/product/update?productCode=${productDto.productCode}"><button>수정</button></a>
 <a href="/ex/product/delete?productCode=${productDto.productCode}"><button>삭제</button></a>
 <a href="/ex/product/selectAll"><button>목록</button></a>

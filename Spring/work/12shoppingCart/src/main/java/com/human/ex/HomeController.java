@@ -36,9 +36,9 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/my", method = RequestMethod.GET)
-	public String home2(Model model) {
-		model.addAttribute("myString", "helloWorld");
-		return "home2";
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public String main(Model model) {
+		System.out.println("main Page");
+		return "/main";
 	}	
 }
