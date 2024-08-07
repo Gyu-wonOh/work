@@ -24,10 +24,23 @@ if(result=='success'){
 </script>
 </head>
 <body>
+<%String id= (String)session.getAttribute("id"); %>
 <div id='head'>
 	<table>
 		<tr>
-			<td>Home</td><td></td><td>로그인</td>
+			<td><a href="/ex/main">home</a></td>
+			<td>
+				<%if(id!=null){ %>
+					<%=id%>님
+			</td>	
+			<td>
+				<form action="/login/logout">
+				<input type="submit" value="logout">
+				</form>
+				<%}else{%>
+				<a href="/login/login">로그인</a>&nbsp;
+				<%}%>
+			</td>
 		</tr>
 	</table>
 </div>
@@ -45,17 +58,14 @@ if(result=='success'){
 	</tr>
 	<c:forEach items="${list }" var="cartDto">
 	<tr>
-		<td>
-			<a href='/ex/Cart/read?id=${cartDto.cartId}'>
-			${cartDto.cartId }</a>
-		</td>
-		<td>${cartDto.userId}</td>
-		<td>${cartDto.productCode}</td>
+		<td>${cartDto.cartId }</td>
+		<td>${cartDto.userId }</td>
+		<td>${cartDto.productCode }</td>
 		<td>${cartDto.orderAmount}</td>
 	</tr>
 	</c:forEach>
 </table>
-<a href="/ex/user/insert">장바구니추가</a>
+<a href="/ex/main">메인페이지</a>
 
 </div>
 </body>

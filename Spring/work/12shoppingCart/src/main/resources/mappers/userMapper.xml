@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.human.dao.IUserDao">
 <select id="login" resultType="com.human.dto.UserDto">
-select id, pw from shopuser
+select id, pw from shopuser where id=#{id}and pw=#{pw}
 </select>
 <insert id="insert">
 insert into shopuser

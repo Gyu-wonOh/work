@@ -52,4 +52,13 @@ public class cartServiceImpl implements ICartService {
 		dao.deleteCart(cartId);
 	}
 
+	@Override
+	public List<CartDto> selectUser(String id) throws Exception {
+		ICartDao dao = sqlSession.getMapper(ICartDao.class);
+		System.out.println(dao);
+		List<CartDto> dtos = dao.selectUser(id);
+		System.out.println(dtos);
+		return dtos;
+	}
+
 }

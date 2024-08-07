@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +42,18 @@ public class CartController {
 		model.addAttribute("list",dto);
 		return "Cart/selectAll";
 	}
-	@RequestMapping(value= "/Cart/insert",method =RequestMethod.GET)
+	@RequestMapping(value= "/Cart/add",method =RequestMethod.GET)
 	public String addCart(CartDto dto) throws Exception {
 		System.out.println("add to Cart :"+ dto);
 		cartService.insert(dto);
-		return "Cart/selectAll";
+		return "redirect:/Cart/selectId";
 	}
-	
+	@RequestMapping(value= "/Cart/selectId",method =RequestMethod.GET)
+	public String selectId(HttpSession session, Model model) throws Exception {
+		String id = (String)session.getAttribute("id");
+		System.out.println("cartList :"+ id);
+		List<CartDto>dtos=cartService.selectUser(id);
+		model.addAttribute("list",dtos);
+		return "Cart/selectId";
+	}
 }

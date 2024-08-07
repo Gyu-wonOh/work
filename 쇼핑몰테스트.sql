@@ -53,4 +53,14 @@ commit;
 drop sequence cartId_seq;
 create sequence cartId_seq;
 
+insert into cart values(cartId_seq.nextval,'kkk','P00001','1');
+insert into cart values(cartId_seq.nextval,'kk1','P00001','2');
+select * from cart;
+select *from cart where userId='kk1';
+commit;
 select id, pw from shopuser;
+select id, pw from shopuser where id='kkk' and pw='1234';
+delete shopuser where id= 'admin';
+select * from cart order by cartId;
+commit;
+select * from cart where userId='kk1' order by cartId;

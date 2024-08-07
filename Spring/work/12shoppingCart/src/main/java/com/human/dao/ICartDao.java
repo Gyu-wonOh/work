@@ -11,6 +11,7 @@ import com.human.dto.UserDto;
 public interface ICartDao {
 	public void insert(CartDto dto) throws Exception;
 	public List<CartDto> selectAll() throws Exception;
+	public List<CartDto> selectUser(String id) throws Exception;
 	public void deleteCart(int cartId) throws Exception;
 	public void deleteProduct(String productCode) throws Exception;
 	public void update(CartDto dto) throws Exception;

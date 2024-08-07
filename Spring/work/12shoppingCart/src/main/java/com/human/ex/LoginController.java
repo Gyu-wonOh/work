@@ -35,13 +35,27 @@ public class LoginController {
 		return "/login/login";
 	}
 	@RequestMapping(value = "/login/login", method = RequestMethod.POST)
-	public String main(@Param("id")String id,@Param("pw")String pw)throws Exception {
+	public String main(@Param("id")String id,@Param("pw")String pw, HttpSession session)throws Exception {
 		System.out.println("login....\n"+id+"\n"+pw);
 			UserDto loginUserDto = userService.login(id,pw);
 		if(id!=null||pw!=null) {
-		 if(id.equals(loginUserDto.getId())&&pw.equals(loginUserDto.getPw()));
-		 return "redirect:/main";
+		 if(id.equals(loginUserDto.getId())&&pw.equals(loginUserDto.getPw())){
+			 session.setAttribute("id",id);
+			 session.setMaxInactiveInterval(600);
+			 System.out.println(session);
+			 return "redirect:/login/member";	 
+		 }else {
+			 System.out.println("fail to login");
+		 }
 		}
+		 return "/login/login";
+	}
+	@RequestMapping(value = "/login/logout", method = RequestMethod.GET)
+	public String main(HttpSession session)throws Exception {
+		String userId = (String)session.getAttribute("id");
+		System.out.println("logout\n"+userId);
+		session.getAttribute(userId);
+		session.invalidate();
 		 return "/login/login";
 	}
 	@RequestMapping(value = "/login/join", method = RequestMethod.GET)
@@ -53,5 +67,15 @@ public class LoginController {
 		System.out.println("join....\n"+dto);
 		userService.insert(dto);
 		return "/login/complete";
-	}	
+	}
+	@RequestMapping(value = "/login/complete", method = RequestMethod.GET)
+	public String complete(Model model)throws Exception {
+		System.out.println("complete");
+		return "/login/complete";
+	}
+	@RequestMapping(value = "/login/member", method = RequestMethod.GET)
+	public String member(HttpSession session, Model model)throws Exception {
+		System.out.println("member");
+		return "/login/member";
+	}
 }

@@ -11,6 +11,9 @@ values(cartId_seq.nextval,#{userId},#{userName},#{productImagePath},#{productCod
 <select id="selectAll" resultType="com.human.dto.CartDto">
 select * from cart order by cartId
 </select>
+<select id="selectUser" resultType="com.human.dto.CartDto">
+select * from cart where userId=#{id} order by cartId
+</select>
 <delete id="deleteCart">
 delete from cart where cartId=#{cartId}
 </delete>
