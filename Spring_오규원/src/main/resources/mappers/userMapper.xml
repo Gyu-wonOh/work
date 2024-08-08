@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.dao.IUserDao">
+<select id="login" resultType="com.human.dto.UserDto">
+select id, pw from shopuser where id=#{id}and pw=#{pw}
+</select>
+<insert id="insert">
+insert into shopuser
+values(#{id},#{pw},#{name},#{gender},#{birthday},#{email},#{phoneNumber},#{address})
+</insert>
+<select id="select" resultType="com.human.dto.UserDto">
+select * from shopuser where id=#{id}
+</select>
+<select id="selectAll" resultType="com.human.dto.UserDto">
+select * from shopuser order by id
+</select>
+
+<delete id="delete">
+delete from shopuser where id=#{id}
+</delete>
+<update id="update">
+update shopuser set pw=#{pw},email=#{email},phoneNumber=#{phoneNumber}
+ where id=#{id}
+</update>
+<update id="updateCart">
+update shopuser set cartCode=#{cartCode}
+ where id=#{id}
+</update>
+<!-- <select id="selectAllUserProduct" resultType="com.human.dto.UserProductDto">
+select user.id,name,
+ from user,product where user.productCode=product.productCode(+)
+ </select> -->
+<!-- 
+매퍼에 없는 클래스를 요청하면 404에러가 난다
+-->
+
+</mapper>

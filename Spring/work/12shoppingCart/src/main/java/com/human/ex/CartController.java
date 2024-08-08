@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +44,9 @@ public class CartController {
 		return "Cart/selectAll";
 	}
 	@RequestMapping(value= "/Cart/add",method =RequestMethod.GET)
-	public String addCart(CartDto dto) throws Exception {
-		System.out.println("add to Cart :"+ dto);
-		cartService.insert(dto);
+	public String addCart(@Param("userId")String userId,@Param("productCode")String productCode, @Param("orderAmount")int orderAmount) throws Exception {
+		System.out.println("add to Cart \nuserID:"+ userId+"\nproductCode:"+productCode+"\norderAmount:"+orderAmount);
+		cartService.insert(userId,productCode,orderAmount);
 		return "redirect:/Cart/selectId";
 	}
 	@RequestMapping(value= "/Cart/selectId",method =RequestMethod.GET)

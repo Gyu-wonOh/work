@@ -79,7 +79,7 @@ if(result=='success'){
 			<form action="/ex/Cart/add">
 				<input type='number' name='orderAmount'>
 				<br>
-				<input type='hidden' name='userId' value='${productDto.productCode}'>
+				<input type='hidden' name='userId' value=<%=id %>>
 				<input type='hidden' name='productCode' value='${productDto.productCode}'>
 				<input type='submit' id='add' value='장바구니 추가'>
 			</form>

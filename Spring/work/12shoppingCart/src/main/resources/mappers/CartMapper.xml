@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.human.dao.ICartDao">
 <insert id="insert">
 insert into Cart
-values(cartId_seq.nextval,#{userId},#{userName},#{productImagePath},#{productCode},#{productName},#{orderAmount})
+values(cartId_seq.nextval,#{userId},#{productCode},#{orderAmount})
 </insert>
 <select id="selectAll" resultType="com.human.dto.CartDto">
 select * from cart order by cartId
