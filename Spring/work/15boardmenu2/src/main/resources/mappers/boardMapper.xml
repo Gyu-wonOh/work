@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.human.dao.BoardDao">
 <insert id="create">
 	insert into board(bGroupKind,bId,bName,bTitle,bContent,bGroup)
-	values(#{bGroup},bid.nextval,#{bName},#{bTitle},#{bContent},bId.nextval)
+	values(#{bGroupKind},bId.nextval,#{bName},#{bTitle},#{bContent},bId.nextval)
 </insert>
 <select id="read" resultType="com.human.dto.BoardDto">
 	select* from board where bId=#{bId}

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.human.dto.BoardDto;
 import com.human.service.IBoardService;
@@ -36,13 +37,14 @@ public class BoardController {
 		service.regist(board);
 		rttr.addFlashAttribute("msg","success");
 		
-		return "redirect: /board/listAll";
+		return "redirect: /ex/board/listAll";
 	}
-	@RequestMapping(value="/listAll", method = RequestMethod.POST)
+	@RequestMapping(value="/listAll", method = RequestMethod.GET)
 	public void listAll(@RequestParam(value="bGroupKind",required=false)String bGroupKind,Model model) throws Exception {
 		logger.info(bGroupKind);
 		if(bGroupKind==null) {
 			model.addAttribute("list",service.listAll());
+			
 		}else {
 			model.addAttribute("list",service.listMenu(bGroupKind));
 		}
@@ -54,6 +56,35 @@ public class BoardController {
 		BoardDto board = service.read(bId);
 		service.bHitUpdate(bId);
 	}
-	/*@RequestMapping(value="/bLike"),method =RequestMethod.GET)
-	public String bLike(@RequestMapping)*/
+	@RequestMapping(value="/bLike",method =RequestMethod.GET)
+	public String bLike(@RequestParam("bId") int bId, Model model) throws Exception{
+		logger.info("blike......................"+bId);
+		service.bLike(bId);
+		return "forward:/board/listAll";
+	}
+	@RequestMapping(value="/bHitUpdate", method= RequestMethod.GET)
+	public String bHitUpdate(@RequestParam("Bid")int bId, RedirectAttributes rttr)throws Exception{
+		service.bHitUpdate(bId);
+		rttr.addFlashAttribute("msg", "success");
+		return "redirect: /board/listAll";
+	}
+	@RequestMapping(value="remove", method= RequestMethod.POST)
+	public String remove(@RequestParam("bId") int bId,RedirectAttributes rttr) throws Exception{
+		service.remove(bId);
+		rttr.addFlashAttribute("msg","success");
+		return "redirect:/board/listAll";
+	}
+	@RequestMapping(value="/modify", method= RequestMethod.GET)
+	public void modifyGET (int bId, Model model)throws Exception{
+		model.addAttribute(service.read(bId));
+	}
+	@RequestMapping(value = "modify", method = RequestMethod.POST)
+	public String modifyPOST(BoardDto board, RedirectAttributes rttr) throws Exception {
+		logger.info("mod post.............................");
+		
+		service.modify(board);
+		rttr.addFlashAttribute("msg","success");
+		
+		return "redirect: /board/listAll";
+	}
 }

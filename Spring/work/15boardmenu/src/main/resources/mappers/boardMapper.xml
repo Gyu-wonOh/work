@@ -12,12 +12,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     0, #{bGroup}, #{bStep}, #{bIndent}, 'Y', 0, 0
 )
 </insert> -->
-<insert id="create">INSERT INTO board (
-     bGroupKind,bId, bName, bTitle, bContent,bGroup
-    
-) VALUES (
-     #{bGroupKind},bId.nextval, #{bName}, #{bTitle}, #{bContent}, bId.nextval
-)
+<insert id="create">
+INSERT INTO board (bGroupKind,bId, bName, bTitle, bContent,bGroup) 
+VALUES (#{bGroupKind},bId.nextval, #{bName}, #{bTitle}, #{bContent}, bId.nextval)
 </insert>
 <!-- <insert id="reply">
 insert into board(

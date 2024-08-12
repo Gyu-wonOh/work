@@ -64,7 +64,7 @@ $(document).ready(function(){
 		작성자 <input type="text"
 			name="bName" style="width:100%" value="${boardDto.bName}"
 			readonly="readonly">
-		<h2>
+		</h2>
 
 <!-- /.box-body -->
 <div class="box-footer">

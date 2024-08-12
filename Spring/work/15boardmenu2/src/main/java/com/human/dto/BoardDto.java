@@ -6,14 +6,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class BoardDto {
 	private String  bGroupKind;
-	private int bid;
+	private int bId;
 	private String bName;
-	private String btitle;
+	private String bTitle;
 	private String bContent;
 	private String bEtc;
-	@DateTimeFormat(pattern="yyyy-mm-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm")
 	private Date bWriteTime;
-	@DateTimeFormat(pattern="yyyy-mm-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm")
 	private Date bUpdateTime;
 	private int bHit;
 	private int bGroup;
@@ -28,11 +28,11 @@ public class BoardDto {
 	public void setbGroupKind(String bGroupKind) {
 		this.bGroupKind = bGroupKind;
 	}
-	public int getBid() {
-		return bid;
+	public int getbId() {
+		return bId;
 	}
-	public void setBid(int bid) {
-		this.bid = bid;
+	public void setbId(int bId) {
+		this.bId = bId;
 	}
 	public String getbName() {
 		return bName;
@@ -40,11 +40,11 @@ public class BoardDto {
 	public void setbName(String bName) {
 		this.bName = bName;
 	}
-	public String getBtitle() {
-		return btitle;
+	public String getbTitle() {
+		return bTitle;
 	}
-	public void setBtitle(String btitle) {
-		this.btitle = btitle;
+	public void setbTitle(String bTitle) {
+		this.bTitle = bTitle;
 	}
 	public String getbContent() {
 		return bContent;
@@ -114,10 +114,10 @@ public class BoardDto {
 	}
 	@Override
 	public String toString() {
-		return "boardDto [bGroupKind=" + bGroupKind + ", bid=" + bid + ", bName=" + bName + ", btitle=" + btitle
+		return "BoardDto [bGroupKind=" + bGroupKind + ", bId=" + bId + ", bName=" + bName + ", bTitle=" + bTitle
 				+ ", bContent=" + bContent + ", bEtc=" + bEtc + ", bWriteTime=" + bWriteTime + ", bUpdateTime="
 				+ bUpdateTime + ", bHit=" + bHit + ", bGroup=" + bGroup + ", bStep=" + bStep + ", bIndent=" + bIndent
 				+ ", bDelete=" + bDelete + ", bLike=" + bLike + ", bDislike=" + bDislike + "]";
 	}
-	
+
 }
