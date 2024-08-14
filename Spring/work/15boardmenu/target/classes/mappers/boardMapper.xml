@@ -43,7 +43,7 @@ select * from board where bId = #{bId}
 </select>
 
 <select id="menuKind" resultType="String">
-<![CDATA[ select distinct bGroupKind from board ]]>
+<![CDATA[select distinct bGroupKind from board]]>
 </select>
 
 

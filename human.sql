@@ -82,6 +82,7 @@ select bGroupKind, bId.nextval, bName, bTitle, bContent, bWriteTime,bid.currval 
 --insert into board(bgroupkind,bid.nextval,bname,btitle,bcontent,bwritetime,bgroup);
 --select bgroupkind,bid.nextval,bname,btitle,bcontent,bwritetime,bid.currval from board where bid=bgroup;
 commit;
+select * from board;
 
 SELECT *
 FROM board
@@ -142,4 +143,5 @@ insert into authorities values('admin','ROLE_ADMIN');
 commit;
 select * from users;
 select * from authorities;
-
+select * from board;
+delete board where bId=101;

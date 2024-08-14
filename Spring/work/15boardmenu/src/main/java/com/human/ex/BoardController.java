@@ -60,13 +60,13 @@ public class BoardController {
   }
 
   @RequestMapping(value = "/listAll", method = RequestMethod.GET)
-  public void listAll(@RequestParam(value="bGroupKind", required = false)String bGrouopKind,Model model) throws Exception {
+  public void listAll(@RequestParam(value="bGroupKind", required = false)String bGroupKind,Model model) throws Exception {
 	
-    logger.info(bGrouopKind);
-    if(bGrouopKind==null) {
+    logger.info(bGroupKind);
+    if(bGroupKind==null) {
     	model.addAttribute("list", service.listAll());
     }else {
-    	model.addAttribute("list", service.listMenu(bGrouopKind));
+    	model.addAttribute("list", service.listMenu(bGroupKind));
     }
     	model.addAttribute("category",service.menuKind());
   }
