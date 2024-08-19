@@ -10,7 +10,7 @@ import com.reservation.dao.AuthoritiesDao;
 import com.reservation.dto.AuthoritiesDto;
 
 @Service
-public class AuthoritiesServiceImpl implements AuthoritiesService {
+public class AuthoritiesServiceImpl implements IAuthoritiesService {
 
 	@Autowired
 	private SqlSession sqlSession;

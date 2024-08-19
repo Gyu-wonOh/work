@@ -3,6 +3,9 @@ package com.reservation.dto;
 import java.util.Arrays;
 
 public class BusinessPlaceInfoDto {
+	// (특정 사업장 특정 사업자)의 업소 소개와 이미지들
+	
+	
 /*
  * create table business_place_info (
     email varchar2(255) not null,   --사업자이메일 ┐
@@ -20,6 +23,9 @@ public class BusinessPlaceInfoDto {
     img_path9  varchar2(255)
     );
  */
+	
+	//사업장정보   email, business_regi_num 복합키 fk
+	
 	private String email;
 	private String business_regi_num;
 	private String place_info;

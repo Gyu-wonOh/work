@@ -15,7 +15,7 @@ import com.reservation.dto.UserDto;
 //실제 구현부
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 	@Autowired
 	private SqlSession sqlSession;
 

@@ -8,18 +8,22 @@
 <main>
 <h4>데이터 입력</h4>
 <form action="/ex/user/insert" method="post">
-	이메일:<input type="text" name="email"><input type="button" id="checkid" value="중복검사" /><div class="console"></div>
+	이메일:<input type="text" id="email" name="email"><input type="button" id="checkid" value="중복검사" /><div class="console"></div>
+	<button type="button" id="emailBtn">인증번호 발송</button><br>
+	이메일 인증번호:<input type="text" id="emailAuth" name="emailAuth"><button type="button" id="emailAuthBtn">이메일 인증</button><br>
 	비밀번호:<input type="text" name="password"><br>
 	유저명:<input type="text" name="name"><br>
 	전화번호:<input type="text" name="phone"><br>
 	<input type="hidden" name="enable" value="1"><br>
 	<input type="submit" value="등록"><br>
 </form>
+	<input type="text" path="random" id="random" value="${random }" />
 </main>
 
 
 
-		<!-- 사용자 스크립트 블록 -->
+<script src="../resources/js/authemail.js"></script><!-- 이메일 인증코드 관련-->
+		
 		
 		<script type="text/javascript">
 			$(function() {
@@ -67,7 +71,7 @@
 					});
 					*/
 					 $.ajax({
-					        url: '/ex/userrest/emailcheck', // 서버에서 정의한 URL
+					        url: '/ex/userrest/emailcheck', // 이메일 중복 체크
 					        type: 'GET', // HTTP 메서드
 					        data: {
 					            email: input_value // 서버로 보낼 파라미터

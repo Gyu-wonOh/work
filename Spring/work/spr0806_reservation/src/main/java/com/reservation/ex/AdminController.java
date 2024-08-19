@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.reservation.service.UserService;
+import com.reservation.service.IUserService;
 
 
 @Controller
@@ -19,7 +19,7 @@ public class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 	@Autowired
-	private UserService uService;
+	private IUserService uService;
 	
 	@RequestMapping(value = "/admin/admin", method = RequestMethod.GET)
 	public String admin(HttpSession session, Model model) throws Exception {

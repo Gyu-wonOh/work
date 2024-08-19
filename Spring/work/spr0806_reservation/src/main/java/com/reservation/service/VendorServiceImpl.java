@@ -11,13 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 import com.reservation.dao.AuthoritiesDao;
 import com.reservation.dao.VendorDao;
 import com.reservation.dto.AuthoritiesDto;
+import com.reservation.dto.BusinessPlaceInfoDto;
 import com.reservation.dto.VendorDto;
 
 @Service
-public class VendorServiceImpl implements VendorService{
+public class VendorServiceImpl implements IVendorService{
 	
 	@Autowired
 	private SqlSession sqlSession;
+
 
 	@Transactional(isolation=Isolation.SERIALIZABLE)
 	@Override
@@ -79,7 +81,24 @@ public class VendorServiceImpl implements VendorService{
 		return dao.selectBusiness_regi_num(business_regi_num);
 	}
 
-		
+	@Override
+	public ArrayList<VendorDto> selectAllVendorByBusinessType(String business_type) throws Exception {
+		VendorDao dao = sqlSession.getMapper(VendorDao.class);
+		return dao.selectAllVendorByBusinessType(business_type);
+	}
+
+	@Override
+	public ArrayList<VendorDto> selectAllVendorByBasicAddress(String basic_address) throws Exception {
+		VendorDao dao = sqlSession.getMapper(VendorDao.class);
+		return dao.selectAllVendorByBasicAddress(basic_address);
+	}
+
+	@Override
+	public BusinessPlaceInfoDto selectOneBusinessPlaceInfo(String email, String business_regi_num) {
+		VendorDao dao = sqlSession.getMapper(VendorDao.class);
+		return dao.selectOneBusinessPlaceInfo(email, business_regi_num);
+	}
+
 		
 		
 }

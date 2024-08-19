@@ -15,7 +15,7 @@ $(function() {
         let openDate = $("#datepicker").val();
 
         $.ajax({
-            url: '/ex/user/scheduleselect',
+            url: '/ex/userrest/scheduleselect',
             method: 'POST',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
@@ -26,8 +26,8 @@ $(function() {
             }),
             success: function(response) {
                 // 응답 처리
-                console.log(response);
-                updateTimeSlots(response);
+                console.log(response.message);
+                updateTimeSlots(response.dto);
             },
             error: function(xhr, status, error) {
                 console.error('Failed to fetch data:', error);
@@ -53,27 +53,13 @@ $(function() {
         
         const times = response.times;
 
-        // 버튼 상태 업데이트
-        /*
-        $('.time-slot').each(function(index) {
-            const slotStatus = times.charAt(index); // times 문자열의 해당 위치에서 상태 가져오기
-            if (slotStatus === '1') {
-                $(this).removeClass('unavailable')
-                .addClass('available'); // 예약 가능한 버튼 스타일
-            } else {
-                $(this).removeClass('available')
-                .addClass('unavailable'); // 예약 불가능 버튼 스타일
-            }
-        });
-        */
         $('.time-slot').each(function(index) {
             const slotStatus = times.charAt(index); // times 문자열의 해당 위치에서 상태 가져오기
             if (slotStatus === '1') {
                 $(this)
                     .removeClass('unavailable')
                     .addClass('available')
-                    .attr('data-value', '0') // 기본값을 0으로 설정
-                    //.off('click')  // 기존 클릭 이벤트 제거
+                    .attr('data-value', '0') 
                     .on('click', function() {
                         const currentValue = $(this).attr('data-value');
                         if (currentValue === '0') {
@@ -109,7 +95,7 @@ $(function() {
             timeValues.push($(this).attr('data-value'));
         });
 
-        let userEmail = "${sessionScope.loginEmail}";
+        let userEmail = $("#loginEmail").val();
         let vendorEmail = $("#vendorEmail").val();
         let businessRegiNum = $("#vendorBusiness_regi_num").val();
         let reservationDate = $("#datepicker").val();
@@ -120,11 +106,11 @@ $(function() {
         let detailAddress = "testdetailAddress";
 
         let reservationNumber = generateReservationNumber();
-        alert(reservationNumber)
-        alert(timeValues.join(''))
-/*
+        //alert(reservationNumber)
+        //alert(timeValues.join(''))
+
         $.ajax({
-            url: '/ex/user/reservation',
+            url: '/ex/userrest/scheduleinsert',
             method: 'POST',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
@@ -142,13 +128,14 @@ $(function() {
                 detail_address: detailAddress
             }),
             success: function(response) {
+            	console.log(response)
                 alert('예약이 성공적으로 등록되었습니다!');
             },
             error: function(xhr, status, error) {
                 console.error('예약 등록 실패:', error);
             }
         });
-        */
+        
     });
 
     function generateReservationNumber() {

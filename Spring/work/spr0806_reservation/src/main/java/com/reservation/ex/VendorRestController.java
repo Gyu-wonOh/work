@@ -5,27 +5,55 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.reservation.dto.BusinessPlaceInfoDto;
 import com.reservation.dto.VendorDto;
-import com.reservation.service.BusinessPlaceInfoService;
-import com.reservation.service.VendorService;
+import com.reservation.dto.VendorReservationDto;
+import com.reservation.service.IBusinessPlaceInfoService;
+import com.reservation.service.IVendorReservationService;
+import com.reservation.service.IVendorService;
 
 @RestController
 public class VendorRestController {
 
 	@Autowired
-	private VendorService vendorService;
+	private IVendorService vendorService;
 	
 	@Autowired
-	private BusinessPlaceInfoService businessPlaceInfo;
+	private IBusinessPlaceInfoService businessPlaceInfo;
 	
+	@Autowired
+	private IVendorReservationService vRService;
 	
 
+	@RequestMapping(value = "/vendorrest/myonemonth", method = RequestMethod.GET)
+	public List<VendorReservationDto> selectOneVendorsMyOneMonthReservation(
+			@RequestParam String month, HttpSession session) throws Exception {
+		System.out.println("VendorRestController - /vendorrest/myonemonth");
+		
+		String email = (String)session.getAttribute("loginEmail");
+		String business_regi_num = (String)session.getAttribute("loginBusiness_regi_num");
+		String open_date = month;
+		System.out.println(email + "   " + business_regi_num+"  " + open_date);
+		List<VendorReservationDto> list = new ArrayList<>();
+		list = vRService.selectAllOneVendorsMyOneMonthReservations(email, business_regi_num, open_date);
+		
+		return list;
+	}
+	
+	
+	
+	
+	
 	@RequestMapping("/vendorrest/test")
 	public BusinessPlaceInfoDto selectVendorBusinessPlaceInfo(String email, String business_regi_num) throws Exception {
 		System.out.println("VendorRestController - /vendorrest/test");
@@ -33,9 +61,10 @@ public class VendorRestController {
 		//BusinessPlaceInfoDto dto = businessPlaceInfo.selectTest("vendor", "gsgs252511");
 		email = "vendor";
 		business_regi_num = "gsgs252511";
-		BusinessPlaceInfoDto dto = businessPlaceInfo.selectVendorBusinessPlaceInfo(email, business_regi_num);
+		//BusinessPlaceInfoDto dto = businessPlaceInfo.selectVendorBusinessPlaceInfo(email, business_regi_num);
 		
-		return dto;
+		//return dto;
+		return null;
 	}
 	
 	

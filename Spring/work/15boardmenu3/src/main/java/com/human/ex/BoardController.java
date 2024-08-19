@@ -43,12 +43,13 @@ public class BoardController {
 	 public String register(Model model) throws Exception{
 		 logger.info("register............");
 	
-		 return "/ex/board/register";
+		 return "/board/register";
 	 }
 	 @RequestMapping(value="/register", method = RequestMethod.POST)
-	 public String registerDB(BoardDto dto,Model model) throws Exception{
+	 public String registerDB(BoardDto dto,Model model,RedirectAttributes rttr) throws Exception{
+		 System.out.println(dto);
 		 boardService.create(dto);
-		 model.addAttribute("msg","success");
-		 return "redirect:/listAll";
+		 rttr.addFlashAttribute("msg", "success");
+		 return "redirect:/board/listAll";
 	 }
 }

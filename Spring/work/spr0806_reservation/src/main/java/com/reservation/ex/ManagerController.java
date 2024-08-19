@@ -11,8 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.reservation.service.UserService;
+import com.reservation.dto.BusinessPlaceInfoDto;
+import com.reservation.service.IBusinessPlaceInfoService;
+import com.reservation.service.IUserService;
 
 @Controller
 public class ManagerController {
@@ -20,10 +23,13 @@ public class ManagerController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
-	private UserService uService;
+	private IUserService uService;
+
+	@Autowired
+	private IBusinessPlaceInfoService bPIService;
 	
 	@RequestMapping(value = "/manager/manager", method = RequestMethod.GET)
-	public String member(HttpSession session, Model model) throws Exception {
+	public String manager(HttpSession session, Model model) throws Exception {
 		System.out.println("ManagerController - /manager/manager");
 
 		String email = (String)session.getAttribute("loginEmail");
@@ -34,7 +40,6 @@ public class ManagerController {
 		return "/manager/manager";
 	}
 
-	
 	
 	
 	

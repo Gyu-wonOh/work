@@ -38,19 +38,20 @@
                     <a href="#contact">Contact</a>
                 </c:when>
                 <c:when test="${sessionScope.loginAuthority == '사업자회원'}">
-                    <a href="#home">vendor Home</a>
-                    <a href="#about">About</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
+                    <a href="${pageContext.request.contextPath}/vendor/shopinfo">샵정보등록/수정</a>
+                    <a href="${pageContext.request.contextPath}/vendor/serviceiteminsert">샵메뉴등록</a>
+                    <a href="${pageContext.request.contextPath}/vendor/monthlyschedule">월별스케줄목록</a>
+                    <a href="${pageContext.request.contextPath}/vendor/scheduleinsert">일일스케줄등록</a>
+                    <a href="#contact">예약요청(주문)목록</a>
                 </c:when>
                 <c:when test="${sessionScope.loginAuthority == '일반회원'}">
-                    <a href="#home">member Home</a>
-                    <a href="#about">About</a>
+                    <a href="${pageContext.request.contextPath}/member/searchplace">(샵검색→샵리스트→)</a>
+                    <a href="#about">(샵세부정보→샵스케줄확인)</a>
                     <a href="#services">Services</a>
                     <a href="#contact">Contact</a>
                 </c:when>
                 <c:otherwise>
-                    <a href="#home">default Home</a>
+                    <a href="#home">비회원메뉴</a>
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
                     <a href="#contact">Contact</a>
@@ -72,7 +73,9 @@
         </li>
     </ul>
 </nav>
-
+<input type="hidden" id="loginEmail" value="${sessionScope.loginEmail}">
+<input type="hidden" id="loginName" value="${sessionScope.loginName}">
+<input type="hidden" id="loginPhone" value="${sessionScope.loginPhone}">
         </div>
     </header>
 <!-- <img src="../resources/imgs/fwr.jpg"></img> -->

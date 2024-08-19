@@ -9,7 +9,12 @@
 Member 페이지<br>
 회원과 사업자와 매니저가 들어 올 수 있습니다. (로그인 된 모든 종류의 계정)<br><br>
 
-<a href="../user/membertovendor">사업자 회원 전환</a><br><br>
+
+<br><br><br><br><br><br>
+<a href="../member/membertovendor">사업자 회원 전환</a>
+
+
+
 
 <form:form action="${pageContext.request.contextPath}/user/logout" method="POST">
     <input type="submit" value="로그아웃" />

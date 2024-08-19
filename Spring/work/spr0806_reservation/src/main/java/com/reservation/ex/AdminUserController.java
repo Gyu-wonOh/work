@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reservation.dto.UserDto;
-import com.reservation.service.UserService;
+import com.reservation.service.IUserService;
 
 @Controller
 public class AdminUserController {
@@ -20,7 +20,7 @@ public class AdminUserController {
     PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private UserService service;
+	private IUserService service;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminUserController.class);
 	

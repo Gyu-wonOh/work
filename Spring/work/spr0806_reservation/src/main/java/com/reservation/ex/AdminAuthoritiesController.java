@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reservation.dto.AuthoritiesDto;
-import com.reservation.service.AuthoritiesService;
+import com.reservation.service.IAuthoritiesService;
 
 @Controller
 public class AdminAuthoritiesController {
 	
 	@Autowired
-	private AuthoritiesService service;
+	private IAuthoritiesService service;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminAuthoritiesController.class);
 	

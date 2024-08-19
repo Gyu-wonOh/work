@@ -14,12 +14,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.reservation.dto.UserDto;
-import com.reservation.service.UserService;
+import com.reservation.service.IUserService;
 
 public class LoginRedirectHandler implements AuthenticationSuccessHandler {
 	
 	@Autowired
-	private UserService uService;
+	private IUserService uService;
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,

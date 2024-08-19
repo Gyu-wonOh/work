@@ -104,6 +104,6 @@ body {
 }
 
 .header-placeholder {
-    height: 60px; /* header의 높이와 동일하게 설정 */
+    height: 90px; /* header의 높이와 동일하게 설정   60->90임시수정       */
 }
 

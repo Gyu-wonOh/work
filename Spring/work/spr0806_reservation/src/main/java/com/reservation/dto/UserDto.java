@@ -1,6 +1,10 @@
 package com.reservation.dto;
 
 public class UserDto {
+	//회원정보
+	
+	
+	
 	private String email;
 	private String password;
 	private String name;

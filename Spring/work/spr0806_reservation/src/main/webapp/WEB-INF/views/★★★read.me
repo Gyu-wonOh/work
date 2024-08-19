@@ -96,7 +96,7 @@ commit;
 --===0812 추가======================================================================================================
 --=================================================================================================================
 
-drop table vendor_reservation;
+drop table vendor_reservation;		//
 create table vendor_reservation (
     email varchar2(255) not null,   --사업자이메일 ┐
     business_regi_num varchar2(20), --사업자번호　 ┴ 복합키 
@@ -113,19 +113,19 @@ create table vendor_reservation (
 --id="insert"   (사업자가 등록)
 --insert into vendor_reservation values(#{email}, #{business_regi_num}, #[open_date}, #{times}, #{status_flag})
 
---id="selectAllVendorsReservation" (사업자가 전체조회)
+--id="selectAllVendorsReservation" (사업자가 전체조회. 자기가 등록한 스케줄 조절하려고 할때)
 --select * from vendor_reservation where email=#{email} and business_regi_num=#[business_regi_num} order by open_date 
 
---id="selectAllEnableVendorsReservation" (비회원,일반회원이 전체조회)    ↙useremail아님
+--id="selectAllEnableVendorsReservation" (비회원,일반회원이 전체조회. 예약날짜 고르려고 할때.주단위 월단위등 쿼리 추가 필요함)    ↙useremail아님
 --select * from vendor_reservation where email=#{email} and business_regi_num=#{business_regi_num} and status_flag not in '0' order by open_date 
 
---id="selectOneVendorsReservation" (비회원,일반회원이 해당일 조회)    ↙useremail아님
+--id="selectOneVendorsReservation" (비회원,일반회원이 해당일 조회.  해당일을 예악하려고 해당일의 예약가능시간대를 조회하려고 할 때)    ↙useremail아님
 --select * from vendor_reservation where email=#{email} and business_regi_num=#{business_regi_num} and open_date=#{open_date} and status_flag not in '0'
 
---id="closeDay"  (해당일 주문 막기)
+--id="closeDay"  (해당일 주문 막기. 사업자가 해당일의 status를 0으로 수정하기 위해 자기정보(이메일,업자번호)+날짜로 조회 )
 --update vendor_reservation set status_flag='0' where email=#{email} and business_regi_num=#{business_regi_num} and open_date=#{open_date}
 
---id="openDay"  (해당일 주문 열기)
+--id="openDay"  (해당일 주문 열기  위와 같음. 추 후 쿼리에 직접적으로 0,1이 들어간 부분을 파라미터처리해서 위아래 쿼리를 하나로 묶을 여지가 있음 )
 --update vendor_reservation set status_flag='1' where email=#{email} and business_regi_num=#{business_regi_num} and open_date=#{open_date}
 
 --id="openDateTimesUpdate"  (해당일 주문시간대 수정)
@@ -158,7 +158,7 @@ create table user_reservation (
 
 //user_reservation Mapper 등록해야할 sql
 
---id="newOrder"  주문발생sql
+--id="newOrder"  신규주문발생sql
 /*
 insert into user_reservation values ( 
     #{reservation_number}, #{user_email},
@@ -166,13 +166,16 @@ insert into user_reservation values (
     #{times}, #{service_name}, #{service_price}, #{zipcode}, #{basic_address}, #{detail_address}, '1')
 */
 --id="tryCancelOrder"   이용자 주문취소요청 sql
---update user_reservation set status=#{status} where reservation_number = #{reservation_number}
+--update user_reservation set status=#{status} where reservation_number=#{reservation_number}
 
---id="selectAllMyOrder"  내 모든 주문 보기
+--id="selectAllMyOrders"  내 모든 주문 보기 (추후 과거/미래 년단위/6개월단위/월단위 등 변경 여지 있음)
 --select * from user_reservation where user_email=#{user_email}
 
 --id="selectOneMyOrder"  내 주문 하나 보기
 --select * from user_reservation where user_email=#{user_email} and reservation_number = #{reservation_number}
+
+--id="changeOrdersStatus"   주문 상태 변경
+--update user_reservation set status=#{status} where reservation_number=#{reservation_number}
 
 
 --=================================================================================================================
@@ -197,11 +200,17 @@ create table service_items (
 --id="insertMyItem"     (사업자가 자기가 서비스(시술 등)할 아이템(메뉴하나) 등록함)
 --insert into service_items (item_id.nextval, #{email}, #{business_regi_num}, #{service_name}, #{service_description}, #{required_time}, #{service_price}, '1' );
 
---id="selectMyItems"
+--id="selectAllMyItems"
 /*
 select * from service_items where email=#{email} and business_regi_num=#{business_regi_num}
 order by item_status desc , item_id
 */
+--id="selectOneMyItem"
+/*
+select * from service_items where email=#{email} and business_regi_num=#{business_regi_num} and item_id=#{item_id}
+order by item_status desc , item_id
+*/
+
 --id="updateMyItem"
 /*
 update service_items set 
@@ -210,7 +219,7 @@ update service_items set
     where item_id=#{item_id}
 */
 --id="deleteMyItem"
---update service_items set item_status='0' where email=#{email} and business_regi_num=#{business_regi_num}
+--update service_items set item_status='0' where email=#{email} and business_regi_num=#{business_regi_num} and item_id=#{item_id}
 
     
     
@@ -245,4 +254,24 @@ insert into business_place_info values(
 */
 
 --=================================================================================================================
-  
+--=================================================================================================================
+--=================================================================================================================
+--=================================================================================================================
+--=================================================================================================================
+--=================================================================================================================
+--=================================================================================================================
+--=================================================================================================================
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+-- 무엇이든 작업하면 작업자 이름,날짜 적기!!!!!!!!!!!!!
+--=================================================================================================================
+--=================================================================================================================
+--=================================================================================================================

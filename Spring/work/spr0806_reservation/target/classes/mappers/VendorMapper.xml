@@ -29,6 +29,11 @@ values (
 select * from vendor
 </select>
 
+<select id="selectOneVendorEmailBusinessRegiNum" resultType="VendorDTO">
+select * from vendor where email=#{email} and business_regi_num=#{business_regi_num}
+</select>
+
+
 <select id="selectEmail" resultType="VendorDTO">
 select * from vendor where email=#{email}
 </select>
@@ -45,4 +50,18 @@ business_regi_num=#{business_regi_num}, business_name=#{business_name}, zipcode=
 <delete id="delete">
 delete vendor where email=#{email}
 </delete>
+
+
+<select id="selectAllVendorByBusinessType" resultType="VendorDTO">
+select * from vendor where business_type = #{business_type}
+</select>
+
+<select  id="selectAllVendorByBasicAddress" resultType="VendorDTO">
+select * from vendor where basic_address like '%' || #{basic_address} || '%'
+</select>
+
+
+
+
+
 </mapper>

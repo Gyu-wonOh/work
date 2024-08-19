@@ -1,12 +1,16 @@
 package com.reservation.ex;
 
 import java.util.Locale;
+import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +24,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.reservation.dto.UserDto;
 import com.reservation.dto.VendorDto;
 import com.reservation.dto.VendorReservationDto;
-import com.reservation.service.UserService;
-import com.reservation.service.VendorReservationService;
-import com.reservation.service.VendorService;
+import com.reservation.service.IUserService;
+import com.reservation.service.IVendorReservationService;
+import com.reservation.service.IVendorService;
+import com.reservation.service.MailService;
 
 
 @Controller
@@ -32,13 +37,14 @@ public class UserController {
     PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private UserService uService;
+	private IUserService uService;
 
 	@Autowired
-	private VendorService vService;
+	private IVendorService vService;
 	
 	@Autowired
-	private VendorReservationService vRService;
+	private IVendorReservationService vRService;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
@@ -91,10 +97,12 @@ public class UserController {
 	@RequestMapping(value = "/user/insert", method = RequestMethod.GET)
 	public String userInsert(Locale locale, Model model) {
 		System.out.println("UserController - /user/insert(get)");
+		int ran = new Random().nextInt(900000) + 100000;
+		model.addAttribute("random", ran);
 		return "/user/insert";
 	}
 	
-	
+
 
 	@RequestMapping(value = "/user/insert", method = RequestMethod.POST)
 	public String insertDB(UserDto dto, RedirectAttributes rttr) throws Exception{
@@ -107,22 +115,6 @@ public class UserController {
 	}
 	
 	
-	
-	@RequestMapping(value = "/user/membertovendor", method = RequestMethod.GET)	//user의 권한에서 vendor로 변환하려는것이기때문에 일단 UserController에 넣어둠
-	public String userMembertovendor(Locale locale, Model model) {
-		System.out.println("UserController - /user/membertovendor(get)");
-		return "/user/membertovendor";
-	}
-	
-	
-	@RequestMapping(value = "/user/membertovendor", method = RequestMethod.POST)	//user의 권한에서 vendor로 변환하는것이기때문에 일단 UserController에 넣어둠
-	public String userMembertovendorDB(VendorDto dto, RedirectAttributes rttr) throws Exception{
-		System.out.println("UserController - /user/membertovendor(post)");
-		vService.insert(dto); 		// 일반user vendor전환시,  vendor table에  vendor 정보 insert되고  
-		System.out.println(dto);	// authorities table에  ROLE_MEMBER가  ROLE_VENDOR 로 update 됨     VeendorServiceImpl구현부. 트렌젝션 처리 o
-		rttr.addAttribute("vendor",true);
-		return "redirect:/user/logout";	// 그냥 로그아웃 땡 돼서 뭔가 좀 부자연스러움. 사업자회원전환되엇으니 새로 로그인하라고 보여줘야함
-	}
 
 	@RequestMapping(value = "/user/scheduleselect", method = RequestMethod.GET)
 	public String userScheduleselect(Locale locale, Model model) {
@@ -132,6 +124,11 @@ public class UserController {
 	
 	
 	
+	
+	
+	
+	
+	/*
 	//이건 여기서 처리할게 아니라 rest에서 해야될듯
 	@RequestMapping(value = "/user/scheduleselect", method = RequestMethod.POST)
 	@ResponseBody
@@ -143,6 +140,6 @@ public class UserController {
 		
 		return vRService.selectOneVendorsReservation(dto);
 	}
-	
+	*/
 	
 }

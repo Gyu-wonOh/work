@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class VendorReservationDto {
+	// 특정 사업자 특정 사업자의  어떤 날에 영업가능 시간대를 등록
+	
 /*
  * create table vendor_reservation (
     email varchar2(255) not null,   --사업자이메일 ┐

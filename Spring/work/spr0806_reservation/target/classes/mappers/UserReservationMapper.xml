@@ -7,31 +7,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <insert id="newOrder">
 insert into user_reservation values ( 
-    #{reservation_number}, #{user_email},
-    #{vendor_email}, #{business_regi_num}, #{reservation_date}, 
-    #{times service_name}, #{service_price}, #{zipcode}, 
-    #{basic_address}, #{detail_address}, '1')
+	#{reservation_number}, #{user_email}, #{user_name}, #{user_phone},
+    #{vendor_email}, #{business_regi_num}, #{vendor_name}, #{vendor_phone},
+    #{zipcode}, #{basic_address}, #{detail_address},
+    #{reservation_date}, #{reservation_use_date}, #{times}, 
+    #{total_service_name}, #{total_service_price}, #{total_required_time},
+    #{user_request_memo}, '1')
+    
 </insert>
-<!-- 
-<select id="selectAll" resultType="UserReservationDto">
-select * from vendor
-</select>
 
-<select id="selectEmail" resultType="UserReservationDto">
-select * from vendor where email=#{email}
-</select>
 
-<select id="selectBusiness_regi_num" resultType="UserReservationDto">
-select * from vendor where business_regi_num=#{business_regi_num}
-</select>
-
-<update id="update">
-update vendor set 
-business_regi_num=#{business_regi_num}, business_name=#{business_name}, zipcode=#{zipcode}, basic_address=#{basic_address}, detail_address=#{detail_address}, business_type=#{business_type} where email=#{email}
+<update id="tryCancelOrder">
+update user_reservation set status='4' where reservation_number=#{reservation_number}
 </update>
 
-<delete id="delete">
-delete vendor where email=#{email}
-</delete>
+<select id="selectAllMyOrders">
+select * from user_reservation where user_email=#{user_email}
+</select>
+
+<select id="selectOneMyOrder">
+select * from user_reservation where reservation_number = #{reservation_number}
+</select>
+
+<update id="changeOrdersStatus">
+update user_reservation set status=#{status} where reservation_number=#{reservation_number}
+</update>
+
+
+
+
+
+<!--
+dto 수정 이전 sql 
+<insert id="newOrder">
+insert into user_reservation values ( 
+    #{reservation_number}, #{user_email},
+    #{vendor_email}, #{business_regi_num}, #{reservation_date}, 
+    #{times}, #{service_name}, #{service_price}, #{zipcode}, 
+    #{basic_address}, #{detail_address}, '1')
+</insert>
+
  -->
 </mapper>
