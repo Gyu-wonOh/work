@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	update board set bLike=bLike+1 where bId=#{bId}
 </update>
 <update id="bDislike">
-	update board set bDislike=bDisLsike+1 where bId=#{bId}
+	update board set bDislike=bDisLike+1 where bId=#{bId}
 </update>
 
 <delete id="delete">

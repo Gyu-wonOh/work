@@ -26,6 +26,6 @@ public interface IBoardDao {
 	
 	public List<BoardDto> listMenu(@Param("bGroupKind")String bGroupKind) throws Exception;
 	
-	public String menuKind() throws Exception;
+	public List<String> menuKind() throws Exception;
 	
 }

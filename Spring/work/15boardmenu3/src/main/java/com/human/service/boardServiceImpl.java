@@ -70,9 +70,10 @@ public class boardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public String menuKind() throws Exception {
+	public List<String> menuKind() throws Exception {
 		IBoardDao dao = sqlSession.getMapper(IBoardDao.class);
-		return dao.menuKind();
+		List<String> dtos=dao.menuKind();
+		return dtos;
 	}
 
 }

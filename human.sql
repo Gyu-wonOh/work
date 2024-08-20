@@ -145,3 +145,5 @@ select * from users;
 select * from authorities;
 select * from board;
 delete board where bId=101;
+
+select * from board;
