@@ -13,10 +13,10 @@ public class BoardServiceImpl implements IBoardService {
 	@Autowired
 	SqlSession sqlSession;
 	@Override
-	public BoardDto listAll() throws Exception {
+	public List<BoardDto> listAll() throws Exception {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		
-		return dao.listAll();
+		List<BoardDto> dtos = dao.listAll();
+		return dtos;
 	}
 
 	@Override

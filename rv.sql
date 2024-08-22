@@ -234,3 +234,4 @@ create sequence bId;
 
 select * from board;
 
+select * from board where bId =5;

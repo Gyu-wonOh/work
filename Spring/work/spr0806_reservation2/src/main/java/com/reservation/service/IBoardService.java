@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.reservation.dto.BoardDto;
 
 public interface IBoardService {
-	public BoardDto listAll() throws Exception;
+	public List<BoardDto> listAll() throws Exception;
 	public List<String> listMenu() throws Exception;
 	public void create(BoardDto dto) throws Exception;
 	public BoardDto read(Integer bId) throws Exception;

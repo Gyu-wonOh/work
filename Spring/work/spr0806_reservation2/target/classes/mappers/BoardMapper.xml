@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.reservation.dao.BoardDao">
 <insert id= "create">
-insert into board(bGroupKind, bName, bTitle, bContent,bGroup) values(#{bGroupKind},bId.nextval,
+insert into board(bGroupKind,bId, bName, bTitle, bContent,bGroup) values(#{bGroupKind},bId.nextval,
 #{bName},#{bTitle},#{bContent},bId.nextval)
 </insert>
 <select id="read" resultType="com.reservation.dto.BoardDto">
@@ -18,6 +18,7 @@ update board set bGroupKind=#{bGroupKind},bTitle=#{bTitle},bContent=#{bContent} 
 update board set bHit=bHit+1 where bId=#{bId}
 </update>
 <update id="bLike">update board set bLike=bLike+1 where bId=#{bId}</update>
+<update id="bDislike">update board set bDislike=bDislike+1 where bId=#{bId}</update>
 <delete id="delete">delete from board where bId=#{bId}</delete>
 <select id="listAll" resultType="com.reservation.dto.BoardDto">
 <![CDATA[select * from board where bId>0 order by bId desc, bWriteTime desc]]>

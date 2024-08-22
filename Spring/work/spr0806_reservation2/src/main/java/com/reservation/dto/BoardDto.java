@@ -9,7 +9,7 @@ public class BoardDto {
 	private int bId;
 	private String bName;
 	private String bTitle;
-	private String bConents;
+	private String bContent;
 	private String bEtc;
 	@DateTimeFormat(pattern="yyyy-MM-dd'T' HH:mm")
 	private Date bWriteTime;
@@ -19,9 +19,9 @@ public class BoardDto {
 	private int bGroup;
 	private int bStep;
 	private int bIndent;
-	private int bDelete;
-	private int blike;
-	private int disLike;
+	private String bDelete;
+	private int bLike;
+	private int bDislike;
 	public String getbGroupKind() {
 		return bGroupKind;
 	}
@@ -46,11 +46,11 @@ public class BoardDto {
 	public void setbTitle(String bTitle) {
 		this.bTitle = bTitle;
 	}
-	public String getbConents() {
-		return bConents;
+	public String getbContent() {
+		return bContent;
 	}
-	public void setbConents(String bConents) {
-		this.bConents = bConents;
+	public void setbContent(String bContent) {
+		this.bContent = bContent;
 	}
 	public String getbEtc() {
 		return bEtc;
@@ -94,31 +94,32 @@ public class BoardDto {
 	public void setbIndent(int bIndent) {
 		this.bIndent = bIndent;
 	}
-	public int getbDelete() {
+	public String getbDelete() {
 		return bDelete;
 	}
-	public void setbDelete(int bDelete) {
+	public void setbDelete(String bDelete) {
 		this.bDelete = bDelete;
 	}
-	public int getBlike() {
-		return blike;
+	public int getbLike() {
+		return bLike;
 	}
-	public void setBlike(int blike) {
-		this.blike = blike;
+	public void setbLike(int bLike) {
+		this.bLike = bLike;
 	}
-	public int getDisLike() {
-		return disLike;
+	public int getbDislike() {
+		return bDislike;
 	}
-	public void setDisLike(int disLike) {
-		this.disLike = disLike;
+	public void setbDislike(int bDislike) {
+		this.bDislike = bDislike;
 	}
 	@Override
 	public String toString() {
-		return "boardDto [bGroupKind=" + bGroupKind + ", bId=" + bId + ", bName=" + bName + ", bTitle=" + bTitle
-				+ ", bConents=" + bConents + ", bEtc=" + bEtc + ", bWriteTime=" + bWriteTime + ", bUpdateTime="
+		return "BoardDto [bGroupKind=" + bGroupKind + ", bId=" + bId + ", bName=" + bName + ", bTitle=" + bTitle
+				+ ", bContent=" + bContent + ", bEtc=" + bEtc + ", bWriteTime=" + bWriteTime + ", bUpdateTime="
 				+ bUpdateTime + ", bHit=" + bHit + ", bGroup=" + bGroup + ", bStep=" + bStep + ", bIndent=" + bIndent
-				+ ", bDelete=" + bDelete + ", blike=" + blike + ", disLike=" + disLike + "]";
+				+ ", bDelete=" + bDelete + ", bLike=" + bLike + ", bDislike=" + bDislike + "]";
 	}
 	
+
 	
 }
