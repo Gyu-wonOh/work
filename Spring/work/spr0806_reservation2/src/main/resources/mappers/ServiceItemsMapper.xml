@@ -53,4 +53,12 @@ update service_items set
 update service_items set item_status='0' where email=#{email} and business_regi_num=#{business_regi_num}
 </delete>
 
+<!-- 만든이:김하겸 , 관련 이미지,파일업로드 매퍼 구문 -->
+<insert id="insertItemImg"
+		parameterType="com.reservation.dto.ImageDto">
+		INSERT INTO images (fileName, fileType, filePath, fileSize, upload_time,
+		image_data)
+		VALUES (#{fileName}, #{fileType}, #{filePath}, #{fileSize}, #{upload_time},
+		#{image_data})
+	</insert>
 </mapper>

@@ -193,13 +193,17 @@ footer {
 						<tr>
 							<td>${boardDto.bGroupKind}</td>
 							<td>${boardDto.bId}</td>
-							<td><a href="/ex/board/read?bId=${boardDto.bId}">${boardDto.bTitle}</a></td>
+							<td>
+								<c:forEach begin="1" end="${boardDto.bIndent }">&nbsp;&nbsp;&nbsp;</c:forEach>
+								<c:if test="${boardDto.bIndent!=0 }">re:</c:if>
+								<a href="/ex/board/read?bId=${boardDto.bId}">${boardDto.bTitle }</a>
+							</td>
 							<td>${boardDto.bName}</td>
 							<td>${boardDto.bWriteTime}</td>
 							<td>${boardDto.bHit}</td>
 							<td>${boardDto.bLike}</td>
 							<td>${boardDto.bDislike}</td>
-							<td>${boardDto.bGroupKind}</td>
+							<td>${boardDto.bGroup}</td>
 							<td>${boardDto.bStep}</td>
 						</tr>
 					</c:forEach>

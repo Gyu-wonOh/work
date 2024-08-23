@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reservation.dto.BoardDto;
 import com.reservation.service.IBoardService;
@@ -76,5 +77,24 @@ public class BoardController {
 		System.out.println("delete....."+bId);
 		boardService.delete(bId);
 		return "redirect:/board/listAll";
+	}
+	
+	
+	@RequestMapping(value = "board/reply", method = RequestMethod.GET)
+	public String replyGet(@RequestParam("bId") int bId, Model model) throws Exception {
+		System.out.println("reply....."+bId);
+		model.addAttribute(boardService.read(bId));
+		BoardDto dto=boardService.read(bId);
+		System.out.println(dto);
+		return"/board/register_reply";
+	}
+	
+	@RequestMapping(value="board/reply", method=RequestMethod.POST)
+	public String replyPost(@RequestParam("bId") int bId, Model model,BoardDto dto, RedirectAttributes rttr) throws Exception {		
+		System.out.println("reply....."+dto);
+		boardService.updateReply(dto);
+		boardService.reply(dto); // 답글 작성
+	    
+	    return "redirect:/board/listAll";
 	}
 }

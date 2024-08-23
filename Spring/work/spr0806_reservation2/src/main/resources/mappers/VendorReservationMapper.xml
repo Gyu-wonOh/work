@@ -3,6 +3,8 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- 사업자 한명의 스케줄이 등록되는 테이블
+not in 0 , =1 정리필요 -->
 <mapper namespace="com.reservation.dao.VendorReservationDao">
 
 <insert id="insert"> 
@@ -17,7 +19,7 @@ select * from vendor_reservation
    order by open_date 
 </select>
 
-
+<!-- 어떤 사업자의 영업중인 특정 일을 조회 (해당 일의 예약 가능한 시간대를 조회하기 위한 목적) -->
 <select id="selectOneVendorsReservation" parameterType="VendorReservationDto" resultType="VendorReservationDto">
     SELECT * FROM vendor_reservation 
     WHERE email = #{email} 

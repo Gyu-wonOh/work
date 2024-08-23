@@ -37,7 +37,6 @@ public class MailServiceImpl implements MailService{
 			helper.setFrom(from);
 			helper.setTo(to);
 
-			System.out.println("11");
  			// 첨부 파일 처리
 			if (filePath != null) {
 				File file = new File(filePath);
@@ -46,7 +45,6 @@ public class MailServiceImpl implements MailService{
 				}
 			}
 
-			System.out.println("22");
  			// 첨부 파일 처리 다른방법(이건 확인함)
 			// FileSystemResource file = new FileSystemResource(new File("D:/load.gif"));
 			// helper.addAttachment("load.gif", file);
@@ -58,7 +56,6 @@ public class MailServiceImpl implements MailService{
 			// helper.addInline("emailPic.png", file);
 
  			javaMailSender.send(message);
- 			System.out.println("33");
 			return true;
 		} catch (MessagingException e) {
 			e.printStackTrace();

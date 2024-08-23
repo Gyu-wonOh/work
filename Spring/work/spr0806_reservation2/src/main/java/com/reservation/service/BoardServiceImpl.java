@@ -83,4 +83,16 @@ public class BoardServiceImpl implements IBoardService {
 		return dtos;
 	}
 
+	@Override
+	public void updateReply(BoardDto dto) throws Exception {
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		dao.replyUpdate(dto);
+	}
+
+	@Override
+	public void reply(BoardDto dto) throws Exception {
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		dao.reply(dto);
+	}
+
 }

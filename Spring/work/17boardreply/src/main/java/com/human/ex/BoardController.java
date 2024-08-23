@@ -53,9 +53,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/reply", method=RequestMethod.POST)
-	public String replyPost(@RequestParam("bId") int bId, Model model, BoardDto board,BoardDto vo, RedirectAttributes rttr) throws Exception {		
-		BoardDto originalBoard = service.read(bId); // 원본 글 정보를 가져옴
-		service.replyUpdate(vo);
+	public String replyPost(@RequestParam("bId") int bId, Model model, BoardDto board, RedirectAttributes rttr) throws Exception {		
+		service.replyUpdate(board);
 		service.reply(board); // 답글 작성
 	    
 	    return "redirect:/board/listAll";

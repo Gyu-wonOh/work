@@ -6,6 +6,14 @@
 <%@include file="../include/header.jsp"%>
 <div class="header-placeholder"></div>
 <main>
+name : ${vendorInfo.name } <br>
+phone : ${vendorInfo.phone } <br>
+business_name : ${vendorInfo.business_name } <br>
+vendorInfo.zipcode : ${vendorInfo.zipcode } <br>
+vendorInfo.basic_address : ${vendorInfo.basic_address } <br>
+vendorInfo.detail_address : ${vendorInfo.detail_address } <br>
+vendorInfo.business_type : ${vendorInfo.business_type } <br>
+
 
     장소 정보<br>
 

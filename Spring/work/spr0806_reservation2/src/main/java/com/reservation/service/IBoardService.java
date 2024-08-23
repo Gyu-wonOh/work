@@ -18,4 +18,7 @@ public interface IBoardService {
 	public void bDislike(int bId) throws Exception;
 	public List<BoardDto> listMenu(@Param("bGroupKind")String bGroupKind);
 	public List<String> menuKind();
+	
+	public void updateReply(BoardDto dto) throws Exception;
+	public void reply(BoardDto dto) throws Exception;
 }

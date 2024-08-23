@@ -4,8 +4,8 @@ $(function(){
 		//alert($("#random").val())
 		$.ajax({
 			beforeSend: function(){
-				//loadingBarStart();
 				alert('메일전송시작');
+				///loadingBarShow();
 			},
 			type:"get",
 			url: "/ex/createEmailCheck",
@@ -19,7 +19,8 @@ $(function(){
  			중 '&'는 하나의 파라미터가 끝나고 다음 파라미터가 온다는 의미이다.
 			그런데 다음과 같이 job의 값에 &가 포함된다면 시스템은 job의 값을 제대로 인식할수 없게 된다. */
 			success : function(data){
-					alert("인증번호가 발송되었습니다. 인증번호를 입력해주세요.");
+				///loadingBarHide();
+				alert("인증번호가 발송되었습니다. 인증번호를 입력해주세요.");
 			},
 			error: function(data){
 				alert("에러가 발생했습니다.");
@@ -36,7 +37,7 @@ $(function(){
 		
 		$.ajax({
 			beforeSend: function(){
-				//loadingBarStart();
+				///loadingBarShow();
 				alert('인증번호 확인 시작');
 			},
 			type:"get",
@@ -49,15 +50,14 @@ $(function(){
 					alert("인증번호를 잘못 입력하셨습니다.")
 				}
 			},
-			complete: function(){
-				//loadingBarEnd();
+			complete: function(data){
 				console.log(data)
-				//alert('?');
 			},
 			error:function(data){
 				console.log(data)
 				//alert("에러가 발생했습니다.");
 			}
 		});
+		///loadingBarHide();
 	});
 });

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.reservation.dto.ImageDto;
 import com.reservation.dto.ServiceItemsDto;
 
 public interface ServiceItemsDao {
@@ -19,6 +20,8 @@ public interface ServiceItemsDao {
 	public void updateMyItem(ServiceItemsDto dto) throws Exception;
 	
 	public void deleteMyItem(String email, String business_regi_num) throws Exception;
+	
+	public void insertItemImg(ImageDto dto) throws Exception;
 	
 
 	

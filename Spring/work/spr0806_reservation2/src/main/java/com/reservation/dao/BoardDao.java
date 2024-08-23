@@ -19,4 +19,6 @@ public interface BoardDao {
 	public List<BoardDto> listMenu(@Param("bGroupKind")String bGroupKind);
 	public List<String> menuKind();
 	
+	public void reply(BoardDto dto) throws Exception;
+	public void replyUpdate(BoardDto dto) throws Exception; 
 }

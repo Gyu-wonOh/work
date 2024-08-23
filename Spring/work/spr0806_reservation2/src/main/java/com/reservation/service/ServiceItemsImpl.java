@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.reservation.dao.ServiceItemsDao;
+import com.reservation.dto.ImageDto;
 import com.reservation.dto.ServiceItemsDto;
 
 @Service
@@ -49,6 +50,12 @@ public class ServiceItemsImpl implements IServiceItemsService {
 	public void deleteMyItem(String email, String business_regi_num) throws Exception {
 		ServiceItemsDao dao = sqlSession.getMapper(ServiceItemsDao.class);
 		dao.deleteMyItem(email, business_regi_num);
+	}
+
+	@Override
+	public void insertItemImg(ImageDto dto) throws Exception {
+		ServiceItemsDao dao = sqlSession.getMapper(ServiceItemsDao.class);
+		dao.insertItemImg(dto);
 	}
 
 

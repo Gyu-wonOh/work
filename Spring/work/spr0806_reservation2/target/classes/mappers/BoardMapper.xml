@@ -21,7 +21,7 @@ update board set bHit=bHit+1 where bId=#{bId}
 <update id="bDislike">update board set bDislike=bDislike+1 where bId=#{bId}</update>
 <delete id="delete">delete from board where bId=#{bId}</delete>
 <select id="listAll" resultType="com.reservation.dto.BoardDto">
-<![CDATA[select * from board where bId>0 order by bId desc, bWriteTime desc]]>
+<![CDATA[select * from board where bId>0 order by bGroup desc, bStep asc]]>
 </select>
 <select id="listMenu" resultType="com.reservation.dto.BoardDto">
 <![CDATA[select * from board where bId>0 and bGroupKind=#{bGroupKind} order by bId desc, bWriteTime desc]]>
@@ -29,4 +29,16 @@ update board set bHit=bHit+1 where bId=#{bId}
 <select id="menuKind" resultType="String">
 <![CDATA[select distinct bGroupKind from board]]>
 </select>
+
+<insert id="reply">
+    INSERT INTO board (
+        bGroupKind, bId, bName, bTitle, bContent, bGroup,bStep,bIndent
+    ) VALUES (
+        #{bGroupKind}, bId.nextval, #{bName}, #{bTitle}, #{bContent}, #{bGroup} ,#{bStep}+1,#{bIndent}+1
+    )
+    
+</insert>
+<update id="replyUpdate">
+update board set bStep = bStep+1 where bGroup = #{bGroup} and bStep > #{bStep}
+</update>
 </mapper>

@@ -189,6 +189,7 @@ button:hover {
 				<button type="submit" class="btn-list">전체글 보기</button>
 				<button type="submit" class="btn-like">좋아요</button>
 				<button type="submit" class="btn-dislike">싫어요</button>
+				<button type="submit" class="btn-reply">답글</button>
 			</div>
 		</div>
 		
