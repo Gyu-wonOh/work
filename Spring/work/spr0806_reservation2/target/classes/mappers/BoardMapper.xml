@@ -24,7 +24,7 @@ update board set bHit=bHit+1 where bId=#{bId}
 <![CDATA[select * from board where bId>0 order by bGroup desc, bStep asc]]>
 </select>
 <select id="listMenu" resultType="com.reservation.dto.BoardDto">
-<![CDATA[select * from board where bId>0 and bGroupKind=#{bGroupKind} order by bId desc, bWriteTime desc]]>
+<![CDATA[select * from board where bId>0 and bGroupKind=#{bGroupKind} order by bGroup desc, bStep asc]]>
 </select>
 <select id="menuKind" resultType="String">
 <![CDATA[select distinct bGroupKind from board]]>

@@ -38,46 +38,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<sql id='search'>
-    <if test="searchType!=null">
-        <if test="searchType == '-----'.toString()">
-            and (
-                bGroupkind LIKE '%' || #{keyword} || '%'
-                or bId LIKE '%' || #{keyword} || '%'
-                or bContent LIKE '%' || #{keyword} || '%'
-                or bName LIKE '%' || #{keyword} || '%'
-            )
-        </if>
-        <if test="searchType == '카테고리'.toString()">
-            and bGroupKind like '%'|| #{keyword}||'%'
-        </if>
-        <if test="searchType == '작성자'.toString()">
-            and bName like '%'|| #{keyword}||'%'
-        </if>
-        <if test="searchType == 'bGroup'.toString()">
-            and bGroup like '%'|| #{keyword}||'%'
-        </if>
-    </if>
+		<if test="searchType!=null">
+			<if test="searchType == '-----'.toString()">
+				and (
+				bGroupkind LIKE '%' || #{keyword} || '%'
+				or bId LIKE
+				'%' || #{keyword} || '%'
+				or bContent LIKE '%' || #{keyword} || '%'
+				or
+				bName LIKE '%' || #{keyword} || '%'
+				)
+			</if>
+			<if test="searchType == '카테고리'.toString()">
+				and bGroupKind like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == '작성자'.toString()">
+				and bName like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'bGroup'.toString()">
+				and bGroup like '%'|| #{keyword}||'%'
+			</if>
+		</if>
 	</sql>
-		<sql id='category'>
-    <if test="categoryType!=null">
-            and bGroupKind = #{bGroupKind}
-    </if>
+	<sql id='category'>
+		<if test="categoryType!=null">
+			and bGroupKind = #{bGroupKind}
+		</if>
 	</sql>
-	<select id="listSearch" resultType="com.human.dto.BoardDto" >
+	<select id="listSearch" resultType="com.human.dto.BoardDto">
 	
 	<![CDATA[SELECT *
 FROM board
 WHERE 1=1]]>
-<include refid="category"/>
-<include refid="search"/>
+		<include refid="category" />
+		<include refid="search" />
 <![CDATA[ORDER BY bGroup DESC, bStep ASC
 OFFSET (#{page} - 1) * #{perPageNum} ROWS
 FETCH NEXT #{perPageNum} ROWS ONLY]]>
-</select>
+	</select>
 	<select id="listSearchCount" resultType="int">
 <![CDATA[ select count(bId) from board where 1=1 ]]>
 		<include refid="search" />
-		<include refid="category"/>
+		<include refid="category" />
 <![CDATA[ and bId > 0 ]]>
 	</select>
 	<!-- bGroupKind, bId, bTitle, bName, bwritetime,bHit, bLike, bGroup,bStep,bIndent -->

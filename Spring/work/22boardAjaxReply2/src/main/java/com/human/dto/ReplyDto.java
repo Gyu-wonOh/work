@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class replyDto {
+public class ReplyDto {
 	private int rId;
 	private int bId;
 	private String rContent;
