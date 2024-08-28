@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.reservation.dao.ReservationItemsDao">
-
+<!-- 예약 주문 발생시 주문 당시 item의 정보를 저장하기 위해 만듬 -->
 <insert id="insert">
 insert into reservation_items (
 	reservation_number,
@@ -26,6 +26,7 @@ insert into reservation_items (
 	#{service_price} )
 </insert>
 
+<!-- 해당 주문번호로 어떤 item들을 예약했는지 검색  -->
 <select id="selectAllOneOrderItems" resultType="ReservationItemsDto">
 select * from reservation_items where reservation_number = #{reservation_number}
 </select>
