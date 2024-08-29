@@ -40,7 +40,7 @@ public class BoardController {
 		return "redirect:/board/listAll";
 		
 	}
-	@RequestMapping(value="reply", method = RequestMethod.GET)
+	@RequestMapping(value="/reply", method = RequestMethod.GET)
 	public void replyGET(@RequestParam("bId") int bId, Model model)throws Exception{
 		logger.info("register get................");
 		model.addAttribute(service.read(bId));
@@ -51,28 +51,23 @@ public class BoardController {
 		service.replyUpdate(dto);
 		return "redirect:/board/listAll";
 	}
-	@RequestMapping(value = "/listAll", method = RequestMethod.POST )
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET )
 	public void listAll (@RequestParam(value="bGroupKind",required=false) String bGroupKind,BoardVo vo, Model model)throws Exception {
 		logger.info("show all list............");
-		System.out.println("--list pm"+vo);
 		
 		if(bGroupKind==null) {
 			List<BoardDto> searchList = service.listSearchCriteria(vo);
 			model.addAttribute("list",searchList);
+			System.out.println("null"+searchList);
 		}else {
 			model.addAttribute("list", service.listMenu(bGroupKind));
 			List<BoardDto> searchList = service.listSearchCriteria(vo);
 			model.addAttribute("list",searchList);
+			System.out.println("not null"+searchList);
 		}
+		
 		model.addAttribute("category",service.menuKind());
 		vo.setTotalCount(service.listSearchCount(vo));
-		model.addAttribute("bGroupKind",vo.getPage());
-		model.addAttribute("page",vo.getPage());
-		model.addAttribute("perPageNum",vo.getPerPageNum());
-		model.addAttribute("searchType",vo.getSearchType());
-		model.addAttribute("keyword",vo.getKeyword());
-		model.addAttribute("categoryType",vo.getCategoryType());
-		
 	}
 	@RequestMapping(value="/read", method= RequestMethod.GET)
 	public void read(@RequestParam("bId") int bId, Model model)throws Exception{

@@ -56,7 +56,7 @@ public class BoardVo {
 	private void calcData() {
 		totalStartPage=1;
 		totalEndPage=(int)Math.ceil(totalCount/(double)perPageNum);
-		endPage= (int)(//ceil) 올림 floor 내림 round 반올림
+		endPage= (int)(//ceil 올림 floor 내림 round 반올림
 				Math.ceil(page/(double)displayPageNum)*displayPageNum);
 		startPage=endPage-displayPageNum+1;
 		if(totalEndPage< endPage) {
@@ -137,7 +137,18 @@ public class BoardVo {
 				+ categoryType + "]";
 	}
 	
-	public String makeSearch(int Page) {
+	public String makeSearch() {
+		UriComponents u=UriComponentsBuilder.newInstance()
+				.queryParam("bGroupKind", bGroupKind)
+				.queryParam("page", page)
+				.queryParam("perPageNum", perPageNum)
+				.queryParam("searchType", searchType)
+				.queryParam("keyword", keyword)
+				.build();
+		return u.toUriString();		
+	}
+	
+	public String makeSearch(int page) {
 		UriComponents u = UriComponentsBuilder.newInstance()
 			.queryParam("bGroupKind",bGroupKind)
 			.queryParam("page",page)
