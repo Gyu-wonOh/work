@@ -82,6 +82,12 @@ public class BoardController {
 		service.bLike(bId);
 		return "forward:/board/listAll";
 	}
+	@RequestMapping (value="bDisLike",method =RequestMethod.GET)
+	public String bDislike(@RequestParam("bId") int bId, Model model) throws Exception{
+		logger.info("bDislike........"+bId);
+		service.bDislike(bId);
+		return "forward:/board/listAll";
+	}
 	@RequestMapping(value="bHitUpdate", method = RequestMethod.GET)
 	public String bHitUpdate(@RequestParam("bId") int bId, RedirectAttributes rttr)throws Exception{
 		service.bHitUpdate(bId);
@@ -92,7 +98,7 @@ public class BoardController {
 	public String remove(@RequestParam("bId")int bId,RedirectAttributes rttr) throws Exception{
 		service.remove(bId);
 		rttr.addFlashAttribute("msg","success");
-		return "redirect:board/listAll";
+		return "redirect:/board/listAll";
 	}
 	@RequestMapping(value="/modify", method = RequestMethod.GET)
 	public void modifyGET(int bId, Model model) throws Exception{

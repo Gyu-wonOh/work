@@ -65,6 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<update id="bHitUpdate">update board set bHit=bHit+1 where bId=#{bId}</update>
 	<update id="bLike">update board set bLike=bLike+1 where bId=#{bId}</update>
+	<update id="bDislike">update board set bDislike=bDislike+1 where bId=#{bId}</update>
 	<delete id="delete">delete from board where bId=#{bId}</delete>
 	<select id="listAll" resultType="com.human.dto.BoardDto">
 		<![CDATA[select * from board where bId>0 order by bGroup desc,bStep, asc]]>

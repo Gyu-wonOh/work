@@ -13,7 +13,7 @@
 		top:20%;
 		left:50%;
 		margin-top:-50px;
-		magin-left:-150px;
+		margin-left:-150px;
 		padding:10px;
 		z-index:1000; 
 	}
@@ -205,35 +205,33 @@ $(document).ready(function() {
 	})
 	
 	$(".btnList").on("click",function(){
-		fObject.attr("method","get");
-		fObject.attr("action","/ex/sboard/list");
-		fObject.submit();
+		 window.location.href = "/ex/board/listAll";
 	})	
 	
 	$(".btnRemove").on("click",function(){
-		fObject.attr("action","/ex/sboard/remove");
+		fObject.attr("action","/ex/board/remove");
 		fObject.submit();
 	})
 	
 	$(".btnModify").on("click",function(){
 		fObject.attr("method","get");
-		fObject.attr("action","/ex/sboard/modify");
+		fObject.attr("action","/ex/board/modify");
 		fObject.submit();
 	})
 	
 	$(".btnReply").on("click",function(){
 		fObject.attr("method","get");	
-		fObject.attr("action","/ex/sboard/writeRep");
+		fObject.attr("action","/ex/board/writeRep");
 		fObject.submit();
 	})
 	
 	$(".btnLike").on("click",function(){
-		fObject.attr("action","/ex/sboard/like");
+		fObject.attr("action","/ex/board/like");
 		fObject.submit();
 	})
 	
 	$(".btnDislike").on("click",function(){
-		fObject.attr("action","/ex/sboard/dislike");
+		fObject.attr("action","/ex/board/dislike");
 		fObject.submit();
 	})
 	

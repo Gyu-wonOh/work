@@ -15,6 +15,7 @@ public interface IBoardService {
 	public void bHitUpdate(int bId)throws Exception;
 	
 	public void bLike(int bId) throws Exception;
+	public void bDislike(int bId) throws Exception;
 	public void updateReply (BoardDto dto) throws Exception;
 	public List<BoardDto> listMenu(String bGroupKind) throws Exception;
 	public void reply (BoardDto dto) throws Exception;

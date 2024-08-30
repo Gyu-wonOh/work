@@ -100,4 +100,10 @@ public class BoardServiceImpl implements IBoardService {
 		return dao.listSearchCount(vo);
 	}
 
+	@Override
+	public void bDislike(int bId) throws Exception {
+		BoardDao dao= sqlSession.getMapper(BoardDao.class);
+		dao.bDislike(bId);
+	}
+
 }

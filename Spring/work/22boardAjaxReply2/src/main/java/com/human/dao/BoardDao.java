@@ -12,6 +12,7 @@ public interface BoardDao {
 	public void delete(Integer bId) throws Exception;
 	public List<BoardDto> listAll() throws Exception;
 	public void bLike(int bId) throws Exception;
+	public void bDislike(int bId) throws Exception;
 	public void bHitUpdate(int bId) throws Exception;
 	public void updateReply(BoardDto dto)throws Exception;
 	public List<BoardDto> listMenu(String bGroupKind) throws Exception;

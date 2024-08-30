@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 댓글삭제 -->
 	<delete id="boardDelete">
-		update reply set rDelete="Y" where rId=#{rId}
+		update reply set rDelete='Y' where rId=#{rId}
 	</delete>
 	
 	<!-- 부모 댓글 정보 가져오기 -->
@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 해당 글의 댓글 count -->
 	<select id="replyCount" resultType="int">
-		<![CDATA[select count (rId) from reply where bId and rDelete="N"]]>
+		<![CDATA[select count (rId) from reply where bId=#{bId} and rDelete='N']]>
 	</select>
 	
 </mapper>

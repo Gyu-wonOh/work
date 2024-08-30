@@ -93,7 +93,7 @@ public class ReplyController {
 		return entity;
 	}
 
-	@RequestMapping(value = "/{rId", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{rId}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> remove(@PathVariable("rId") int rId) {
 		ResponseEntity<String> entity = null;
 		try {
