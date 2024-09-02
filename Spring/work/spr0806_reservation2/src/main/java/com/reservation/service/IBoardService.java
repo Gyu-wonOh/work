@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.reservation.vo.BoardVo;
 import com.reservation.dto.BoardDto;
 
 public interface IBoardService {
@@ -21,4 +22,9 @@ public interface IBoardService {
 	
 	public void updateReply(BoardDto dto) throws Exception;
 	public void reply(BoardDto dto) throws Exception;
+	
+	public List<BoardDto> listSearchCriteria(BoardVo vo) throws Exception;
+	public void replyUpdate(BoardDto dto)throws Exception;
+	public int listSearchCount(BoardVo vo)throws Exception;
+
 }

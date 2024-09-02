@@ -1,5 +1,7 @@
 package com.reservation.ex;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reservation.dto.BoardDto;
 import com.reservation.service.IBoardService;
+import com.reservation.vo.BoardVo;
 
 @Controller
 public class BoardController {
@@ -17,13 +20,17 @@ public class BoardController {
 	private IBoardService boardService;
 	
 	@RequestMapping(value="/board/listAll", method=RequestMethod.GET)
-	public String listAll(@RequestParam(value="bGroupKind", required = false)String bGroupKind,Model model)throws Exception{
+	public String listAll(@RequestParam(value="bGroupKind", required = false)String bGroupKind,BoardVo vo,Model model)throws Exception{
 		 if(bGroupKind==null) {
-		    	model.addAttribute("list", boardService.listAll());
+			 List<BoardDto> searchList = boardService.listSearchCriteria(vo);
+				model.addAttribute("list",searchList);
 		    }else {
 		    	model.addAttribute("list", boardService.listMenu(bGroupKind));
+		    	List<BoardDto> searchList = boardService.listSearchCriteria(vo);
+		    	model.addAttribute("list",searchList);
 		    }
 		    	model.addAttribute("category",boardService.menuKind());
+		    	vo.setTotalCount(boardService.listSearchCount(vo));
 		return "board/listAll";
 	}
 	@RequestMapping(value="/board/register", method=RequestMethod.GET)
@@ -48,15 +55,17 @@ public class BoardController {
 		return "board/read";
 	}
 	@RequestMapping(value="/board/like", method=RequestMethod.GET)
-	public String like(@RequestParam("bId") int bId,Model model)throws Exception{
+	public String like(@RequestParam("bId") int bId,Model model,RedirectAttributes rttr)throws Exception{
 		System.out.println("like...."+bId);
 		boardService.bLike(bId);
-		return "redirect:/board/read";
+		rttr.addFlashAttribute("msg","like");
+		return "redirect:/board/listAll";
 	}
 	@RequestMapping(value="/board/dislike", method=RequestMethod.GET)
-	public String dislike(@RequestParam("bId") int bId,Model model)throws Exception{
+	public String dislike(@RequestParam("bId") int bId,Model model,RedirectAttributes rttr)throws Exception{
 		System.out.println("dislike...."+bId);
 		boardService.bDislike(bId);
+		rttr.addFlashAttribute("msg","disike");
 		return "redirect:/board/listAll";
 	}
 	@RequestMapping(value="/board/modify", method=RequestMethod.GET)

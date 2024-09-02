@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="true"%>
 <!DOCTYPE html>
@@ -13,23 +13,204 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+	var bId = "${boardDto.bId}";
+	var page = 1;
 	$(document).ready(function(){
-		var formObj=$("form[role='form']");
+		var formObj=$(".form");
 		console.log(formObj);
+		getPageList(page);
 		
-		$(".btn-update").on("click",function(){
-			formObj.attr("action","/ex/board/modify?");
-			formObj.attr("method","get");
-			formObj.submit();
+	function getPageList(page) {
+		$.ajax({
+			type : 'GET',
+			url : '/ex/replies/' + bId + '/' + page,
+			dataType : 'json',
+			success : function(data) {
+			console.log(data);
+			var str = "";
+			$(data.list).each(function() {
+				var indent = this.rIndent * 30;
+				str += "<div data-rId='"+this.rId+"' class='replyLi' style='margin-left:"+indent+"px'>"
+				+ this.rId + ":"
+				+ this.rName
+				+ "<br>"
+				+ this.rContent
+				+ "<br><button>수정/삭제</button></div>"
+				+ "<div data-rId='"+this.rId+"' class='reReplyLi' style='margin-left:"+indent+"px'>"
+				+ "<button>댓글</button></div>"
+			});
+			$("#replies").html(str);
+				var pagination = "";
+				if (data.pageMaker.prev) {
+					pagination += "<a href='"
+							+ (data.pageMaker.startPage - 1)
+							+ "'> &laquo; </a>";
+				}
+				for (var i = data.pageMaker.startPage; i <= data.pageMaker.endPage; i++) {
+					var strClass = data.pageMaker.page == i ? 'class="active"'
+							: '';
+					pagination += "<a" + strClass + " href='" + i + "'>"
+							+ i + "</a>";
+				}
+				if (data.pageMaker.next) {
+					pagination += "<a href='"
+							+ (data.pageMaker.endPage + 1)
+							+ "'>&raquo; </a>";
+				}
+				console.log(str)
+				$(".pagination").html(pagination);
+				},
+				error : function(xhr, status, error) {
+					console.error("Error: ", error);
+				}
 		});
-		$(".btn-delete").on("click",function(){
-			formObj.attr("action","/ex/board/remove");
-			formObj.attr("method","get");
-			formObj.submit();
+		}
+		/* 댓글 mod 수정/삭제 버튼 .on(click 이벤트시 replyLi button만 실행시켜라) */
+		$("#replies").on("click",".replyLi button",function() {
+			var rId = $(this).parent().attr(
+					"data-rId");
+			var rContent = $(this).parent()
+					.text();
+			$(".modal-title").html(rId);
+			$("#modContent").val(rContent);
+			$("#modDiv").show("slow");
 		});
-		$(".btn-list").on("click",function(){
-			self.location="/ex/board/listAll";
+		/* 댓글 창닫기 버튼 */
+		$("#closeBtn").on("click", function() {
+			$("#modDiv").hide("slow");
 		});
+		/* 댓글 수정 버튼 */
+		$("#replyModBtn").on("click", function() {
+			var rId = $(".modal-title").html();
+			var rContent = $("#modContent").val();
+
+			$.ajax({
+				type : 'PUT',
+				url : '/ex/replies/' + rId,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				data : JSON.stringify({
+					rContent : rContent
+				}),
+				dataType : 'text',
+				success : function(result) {
+					if (result == 'SUCCESS') {
+						alert("수정되었습니다.");
+						$("#modDiv").hide("slow");
+						getPageList(page);
+					}
+				}
+			});
+		});
+		$("#replies").on("click",".reReplyLi button",function() {
+			var rId = $(this).parent().attr("data-rId");
+			$(".re-modal-title").html(rId);
+			$("#reReplyMod").show("slow");
+		})
+
+		$("#reReplyCloseBtn").on("click", function() {
+			$("#reReplyMod").hide("slow");
+		})
+
+		/* 대댓글 등록버튼 */
+		$("#reReplyAddBtn").on("click", function() {
+			var rId = $(".re-modal-title").html();
+			var rName = $("#reReplyName").val();
+			var rContent = $("#reReplyText").val();
+
+			$.ajax({
+				type : 'POST',
+				url : '/ex/replies/' + rId,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				dataType : 'text',
+				data : JSON.stringify({
+					bId : bId,
+					rContent : rContent,
+					rName : rName,
+					rId : rId,
+				}),
+				success : function(result) {
+					if (result == 'SUCCESS') {
+						alert("댓글이 등록됐습니다.");
+						$("#reReplyMod").hide("slow");
+						getPageList(page);
+					}
+				},
+				error : function(xhr, status, error) {
+					console.error("Error: ", error);
+				}
+			});
+		});
+		/* 댓글 등록 버튼 */
+		$("#replyAddBtn").on("click", function() {
+			var rName = $("#newReplyWriter").val();
+			var rContent = $("#newReplyText").val();
+
+			$.ajax({
+				type : 'POST',
+				url : '/ex/replies',
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				dataType : "text",
+				data : JSON.stringify({
+					bId : bId,
+					rContent : rContent,
+					rName : rName
+				}),
+				success : function(result) {
+					if (result == 'SUCCESS') {
+						alert("댓글이 등록됐습니다.");
+						getPageList(page);
+					}
+				},
+				error : function(xhr, status, error) {
+					console.error("Error: ", error);
+				}
+			});
+		});
+
+		/* 댓글삭제 버튼 */
+		$("#replyDelBtn").on("click", function() {
+			var rId = $(".modal-title").html();
+			$.ajax({
+				type : 'delete',
+				url : '/ex/replies/' + rId,
+				headers : {
+					"Content-Type" : "application/json"
+				},
+				dataType : 'text',
+				success : function(result) {
+					if (result == 'SUCCESS') {
+						alert("삭제 되었습니다.");
+						$("#modDiv").hide("slow");
+						getPageList(page);
+					}
+				}
+			});
+		});
+		
+	$(".pagination").on("click", "a", function(event) {
+		event.preventDefault();
+		page = $(this).attr("href");
+		getPageList(page);
+	});
+	$(".btn-update").on("click",function(){
+		formObj.attr("action","/ex/board/modify?");
+		formObj.attr("method","get");
+		formObj.submit();
+	});
+	$(".btn-delete").on("click",function(){
+		formObj.attr("action","/ex/board/remove");
+		formObj.attr("method","get");
+		formObj.submit();
+	});
+	$(".btn-list").on("click",function(){
+		self.location="/ex/board/listAll";
+	});
 	$(".btn-like").on("click",function(){
 		formObj.attr("action","/ex/board/like");
 		formObj.attr("method","get");
@@ -50,6 +231,18 @@
 	})
 </script>
 <style>
+#modDiv, #reReplyMod {
+		width: 400px;
+		height: 150px;
+		background-color: gray;
+		position: fixed;
+		top: 20%;
+		left: 50%;
+		margin-top: -50px;
+		margin-left: -150px;
+		padding: 10px;
+		z-index: 1000;
+}
 body {
 	margin: 0;
 	font-family: Arial, sans-serif;
@@ -154,24 +347,31 @@ button:hover {
 	<div class="main">
 	
 		<div class="side">
-			<a href="/ex/board/listAll">All Category</a>
+			<a href="/ex/board/listAll" class="right">All Category</a><br>
+			<c:forEach items="${category}" var="item">
+				<a href="/ex/board/listAll?bGroupKind=${item }">${item}</a>
+				<br>
+			</c:forEach>
 		</div>
 		<div class="content">
-			<form role="form" method="post">
+			<form class="form" method="post">
 				<input type='hidden' name='bId' value="${boardDto.bId}">
+				<input type='hidden' name='page' value="${pageMaker.page }">
+				<input type='hidden' name='perPageNum' value="${pageMaker.perPageNum }">
+				<input type='hidden' name='searchType' value="${pageMaker.searchType }">
+				<input type='hidden' name='keyword' value="${pageMaker.keyword }">
 			</form>
 			<h1>게시글</h1>
 
 			<br>
 			<h2>
-				글 제목<input type="text" value='${boardDto.bTitle }'
-					readonly="readonly">
+				글 제목<input type="text" style="width: 100%" name='bTitle' 
+				value='${boardDto.bTitle }' readonly="readonly">
 			</h2>
 			<br>
 			<h2>
-				카테고리<input type="text" value='${boardDto.bGroupKind }'
-					readonly="readonly">
-			</h2>
+				카테고리 <input type="text" style="width: 100%" name='bGroupKind'
+					value='${boardDto.bGroupKind }' readonly="readonly">
 			<br>
 			<h2>
 				내용
@@ -181,8 +381,15 @@ button:hover {
 			<br>
 
 			<h2>
-				작성자<input type="text" value='${boardDto.bName }' readonly="readonly">
+				작성자<input type="text" name="bName" style="width: 100%" 
+				value='${boardDto.bName }' readonly="readonly">
 			</h2>
+			<c:if test="${not empty boardDto.bUpdateTime}">
+				<h2>
+					수정된 날짜 <input type="text" style="width: 100%" name='bUpdateTime'
+						value="${boardDto.bUpdateTime}" readonly="readonly">
+				</h2>
+			</c:if>
 			<div class="btn-container">
 				<button type="submit" class="btn-update">수정</button>
 				<button type="submit" class="btn-delete">삭제</button>
@@ -191,10 +398,49 @@ button:hover {
 				<button type="submit" class="btn-dislike">싫어요</button>
 				<button type="submit" class="btn-reply">답글</button>
 			</div>
+			<!-- 댓글입력창 -->
+			<h2>Reply</h2>
+			<div>
+				<div>
+					작성자: <input type="text" id="newReplyWriter" />
+				</div>
+				<br>
+				<div>
+					내용: <input type="text" id="newReplyText" />
+				</div>
+				<br>
+				<button id="replyAddBtn">댓글등록</button>
+				<br>
+			</div>
+
+			<ul id="replies"></ul>
+			<div class="pagination"></div>
+			<!-- Mod 버튼 댓글이 달려있지 않으면 display:none 상태이다. -->
+			<div id='modDiv' style="display: none">
+				<div class="modal-title"></div>
+				<div>
+					내용: <input type="text" id='modContent'>
+				</div>
+				<div>
+					<button type="button" id="replyModBtn">수정</button>
+					<button type="button" id="replyDelBtn">삭제</button>
+					<button type="button" id="closeBtn">창닫기</button>
+				</div>
+			</div>
+			<div id='reReplyMod' style="display: none">
+				<div class="re-modal-title"></div>
+				<div>
+					작성자: <input type='text' id='reReplyName'>
+				</div>
+				<div>
+					내용: <input type='text' id='reReplyText'>
+				</div>
+				<div>
+					<button type='button' id='reReplyAddBtn'>등록</button>
+					<button type='button' id='reReplyCloseBtn'>창 닫기</button>
+				</div>
+			</div>
 		</div>
-		
-		
 	</div>
-	
 </body>
 </html>

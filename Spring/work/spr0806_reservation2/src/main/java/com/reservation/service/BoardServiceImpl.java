@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.reservation.dao.BoardDao;
 import com.reservation.dto.BoardDto;
+import com.reservation.vo.BoardVo;
 @Service
 public class BoardServiceImpl implements IBoardService {
 	@Autowired
@@ -93,6 +94,24 @@ public class BoardServiceImpl implements IBoardService {
 	public void reply(BoardDto dto) throws Exception {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		dao.reply(dto);
+	}
+
+	@Override
+	public List<BoardDto> listSearchCriteria(BoardVo vo) throws Exception {
+		BoardDao dao= sqlSession.getMapper(BoardDao.class);
+		return dao.listSearch(vo);
+	}
+
+	@Override
+	public void replyUpdate(BoardDto dto) throws Exception {
+		BoardDao dao= sqlSession.getMapper(BoardDao.class);
+		dao.replyUpdate(dto);
+	}
+
+	@Override
+	public int listSearchCount(BoardVo vo) throws Exception {
+		BoardDao dao= sqlSession.getMapper(BoardDao.class);
+		return dao.listSearchCount(vo);
 	}
 
 }

@@ -108,6 +108,7 @@ $(document).ready(function() {
 	$("#replies").on("click",".reReplyLi button",function(){
 		var rId=$(this).parent().attr("data-rId");
 		$(".re-modal-title").html(rId);
+	
 		$("#reReplyMod").show("slow");
 	})
 	

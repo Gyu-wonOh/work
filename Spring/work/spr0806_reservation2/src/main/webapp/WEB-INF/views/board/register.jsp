@@ -114,7 +114,7 @@
                     <option value="자유게시판">자유게시판</option>
                 </select>
                 <h2>내용</h2>
-                <textarea name="bContents" rows="8" placeholder="내용을 입력하세요."></textarea>
+                <textarea name="bContent" rows="8" placeholder="내용을 입력하세요."></textarea>
                 <h2>작성자</h2>
                 <input type="text" name="bName" placeholder="작성자">
                 <input type="submit" value="글쓰기">

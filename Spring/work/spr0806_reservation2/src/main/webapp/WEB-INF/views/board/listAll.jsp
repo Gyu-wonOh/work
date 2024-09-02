@@ -150,6 +150,41 @@ footer {
 	left: 0;
 }
 </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	var result = '${msg}';
+	if (result == 'success') {
+		alert("처리가 완료되었습니다.");
+	}
+	if (result== 'like') {
+		alert("좋아요가 +1 되었습니다.")
+	}
+	if (result== 'disLike') {
+		alert("싫어요가 +1 되었습니다.")
+	}
+	$(document).ready(function(){
+		$(".btn").on("click", function(){
+			location.href="/ex/board/register"
+		});
+		$('#searchBtn').on("click",function(event){
+			  alert("listAll"+'${boardVo.makePage(1)}'
+					  +'&searchType='+$("select option:selected").val()
+					  +"&keyword="+$('#keywordInput').val());
+			  
+			  window.location.href= "listAll"+'${boardVo.makePage(1)}'
+			  +'&searchType='+$("select option:selected").val()
+			  +"&keyword="+$('#keywordInput').val();
+	  })
+	  $('.writeBtn').on("click",function(event){
+		  location.href="/ex/board/register";
+	  });
+		$('#newBtn').on("click",function(event){
+		  self.location="register";
+	  });
+	});
+		  
+</script>
 </head>
 <body>
 	<header class="header">
@@ -174,9 +209,26 @@ footer {
 		</div>
 
 		<div class="content">
+		<c:if test = "${empty param.bGroupKind }">
 		<h1>게시판</h1>
+		</c:if>
+		<c:if test = "${not empty param.bGroupKind }">
+			${param.bGroupKind }
+		</c:if>
 			<div class="row">
 				<table>
+					<div>
+						<select name="searchType">
+							<option value="----"<c:out value="${boardVo.searchType eq '----'? 'selected':'' }"/>>----</option>
+							<option value="카테고리" <c:out value="${boardVo.searchType eq '카테고리'? 'selected':'' }"/>>카테고리</option>
+							<option value="작성자" <c:out value="${boardVo.searchType eq '작성자'? 'selected':'' }"/>>작성자</option>
+						</select>
+						<!-- input 에 text를 입력하면 value로 설정된 pageMaker에 keyword의 값이 id 값으로 들어간다.
+						입력 값이  쿼리 스트링에 들어간다. -->
+						<input type="text" name="keyword" id="keywordInput" value="${boardVo.keyword }">
+						<button id="searchBtn">검색하기</button>
+						<button id="newBtn">새글</button>
+					</div>
 					<tr>
 						<th>카테고리</th>
 						<th>번호</th>
@@ -188,6 +240,7 @@ footer {
 						<th>싫어요</th>
 						<th>그룹 종류</th>
 						<th>단계</th>
+						<th style="width: 60px">bIndent</th>
 					</tr>
 					<c:forEach items="${list}" var="boardDto">
 						<tr>
@@ -199,18 +252,46 @@ footer {
 								<a href="/ex/board/read?bId=${boardDto.bId}">${boardDto.bTitle }</a>
 							</td>
 							<td>${boardDto.bName}</td>
-							<td>${boardDto.bWriteTime}</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardDto.bWriteTime }"/></td>
 							<td>${boardDto.bHit}</td>
 							<td>${boardDto.bLike}</td>
 							<td>${boardDto.bDislike}</td>
 							<td>${boardDto.bGroup}</td>
 							<td>${boardDto.bStep}</td>
+							<td>${boardDto.bIndent }</td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
 			<div class="btn-container">
 				<button id="btn-create" onclick="location.href='/ex/board/register'">글쓰기</button>
+				<div class="pagination">
+				<c:if test="${boardVo.page !=1}">
+					<a href='listAll${boardVo.makeSearch(1)}'>&lt;&lt;&lt;</a>
+				</c:if>
+				<!-- 앞의 page 모양을 클릭하면 pageMaker.startPage에 -1을 처리해준다. -->
+				<c:if test="${boardVo.prev }">
+					<a href='listAll${boardVo.makeSearch(boardVo.startPage-1)}'>&lt;&lt;</a>
+				</c:if>
+				<c:if test="${boardVo.page !=1 }">
+					<a href ='listAll${boardVo.makeSearch(boardVo.page-1)}'>&lt;</a>
+				</c:if>
+				<c:forEach begin="${boardVo.startPage }" end="${boardVo.endPage}" var="idx">
+					<a href='listAll${boardVo.makeSearch(idx)}'
+					<c:out value="${boardVo.page==idx? 'class=active':'' }"/>>
+					${idx}
+					</a>
+				</c:forEach>
+				<c:if test="${boardVo.page != boardVo.totalEndPage}">
+	    		<a href='listAll${boardVo.makeSearch(boardVo.page+1)}'>&gt;</a>
+		    	</c:if>
+		    	<c:if test="${boardVo.next }">
+		    		<a href='listAll${boardVo.makeSearch(boardVo.endPage+1)}'>&gt;&gt;</a>
+		    	</c:if>
+		    	<c:if test="${boardVo.page != boardVo.totalEndPage}">
+		    		<a href='listAll${boardVo.makeSearch(boardVo.totalEndPage)}'>&gt;&gt;&gt;</a>
+		    	</c:if>
+			</div>
 			</div>
 		</div>
 	</div>
