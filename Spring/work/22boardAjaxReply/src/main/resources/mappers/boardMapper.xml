@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</sql>
 	<sql id='category'>
-		<if test="categoryType!=null">
+		<if test="bGroupKind!=null">
 			and bGroupKind = #{bGroupKind}
 		</if>
 	</sql>
