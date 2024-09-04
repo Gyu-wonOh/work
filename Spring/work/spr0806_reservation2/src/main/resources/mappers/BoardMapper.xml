@@ -70,14 +70,14 @@ update board set bStep = bStep+1 where bGroup = #{bGroup} and bStep > #{bStep}
 		</if>
 	</sql>
 	<select id="listSearch" resultType="com.reservation.dto.BoardDto">
-		<![CDATA[select * from board where 1=1 ]]>
+		<![CDATA[select * from board where 1=1]]>
 		<include refid="category"/>
 		<include refid="search"/>
 		<![CDATA[order by bGroup desc,bStep asc offset (#{page}-1)*#{perPageNum} rows fetch next
 		#{perPageNum} rows only]]>
 	</select>
 	<select id="listSearchCount" resultType="int">
-		<![CDATA[select count(bId) from board where 1=1 ]]>
+		<![CDATA[select count(bId) from board where 1=1]]>
 		<include refid="search"/>
 		<include refid="category"/>
 		<![CDATA[and bId>0]]>

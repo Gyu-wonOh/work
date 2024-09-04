@@ -60,7 +60,7 @@ public class BoardController {
 			model.addAttribute("list",searchList);
 			System.out.println("null"+searchList);
 		}else {
-//			model.addAttribute("list", service.listMenu(bGroupKind));
+			model.addAttribute("list", service.listMenu(bGroupKind));
 			List<BoardDto> searchList = service.listSearchCriteria(vo);
 			model.addAttribute("list",searchList);
 			System.out.println("not null"+searchList);

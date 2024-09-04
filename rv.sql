@@ -234,22 +234,4 @@ create sequence bId;
 
 select * from board;
 
-drop table reply;
-CREATE TABLE reply (
-rId NUMBER PRIMARY KEY,
-bId NUMBER NOT NULL,
-rContent VARCHAR2(1000) NOT NULL,
-rName VARCHAR2(100) NOT NULL,
-rWriteTime date DEFAULT sysdate,
-rUpdateTime date,
-rEtc VARCHAR2(1000),
-rGroup NUMBER NOT NULL,
-rStep NUMBER DEFAULT 0,
-rIndent NUMBER DEFAULT 0,
-rDelete CHAR(1) DEFAULT 'N'
-);
-
-select * from reply;
-
-drop sequence rid;
-CREATE SEQUENCE rId;
+select * from board where bId =5;
