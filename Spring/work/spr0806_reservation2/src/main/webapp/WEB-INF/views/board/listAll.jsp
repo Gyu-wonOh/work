@@ -191,7 +191,14 @@ footer {
 		<div class="header-content">
 			<div class="logo">MyWebSite</div>
 			<nav class="nav-menu">
+<<<<<<< HEAD
 				<a href="/ex/board/listAll">All Category</a> <a href="#">공지사항</a>
+=======
+				<a href="/ex/board/listAll">All Category</a> 
+				<c:forEach items="${category}" var="item">
+					<a href="/ex/board/listAll?bGroupKind=${item}&categoryType=${item}">${item}</a>
+				</c:forEach>
+>>>>>>> d96d816b52fc09bdfee2be8c588419abef337195
 				<!-- Add more menu items here -->
 			</nav>
 		</div>
@@ -202,7 +209,11 @@ footer {
 			<div class="side-content">
 				<a href="/ex/board/listAll" class="right">All Category</a><br>
 				<c:forEach items="${category}" var="item">
+<<<<<<< HEAD
 					<a href="/ex/board/listAll?bGroupKind=${item}">${item}</a>
+=======
+					<a href="/ex/board/listAll?bGroupKind=${item}&categoryType=${item}">${item}</a>
+>>>>>>> d96d816b52fc09bdfee2be8c588419abef337195
 					<br>
 				</c:forEach>
 			</div>
@@ -213,7 +224,11 @@ footer {
 		<h1>게시판</h1>
 		</c:if>
 		<c:if test = "${not empty param.bGroupKind }">
+<<<<<<< HEAD
 			${param.bGroupKind }
+=======
+			<h1>${param.bGroupKind }</h1>
+>>>>>>> d96d816b52fc09bdfee2be8c588419abef337195
 		</c:if>
 			<div class="row">
 				<table>
