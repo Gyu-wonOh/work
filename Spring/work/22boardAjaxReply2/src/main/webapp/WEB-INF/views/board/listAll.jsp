@@ -57,7 +57,7 @@
 		<div class="side">
 			<a href="/ex/board/listAll" class="right">All Category</a><br>
 			<c:forEach items="${category }" var="item">
-				<a href="/ex/board/listAll?bGroupKind=${item }">${item}</a><br>
+				<a href="/ex/board/listAll?bGroupKind=${item }&categoryType=${item}">${item}</a><br>
 			</c:forEach>
 		</div>
 
@@ -129,12 +129,15 @@
 				<c:if test="${boardVo.page !=1 }">
 					<a href ='listAll${boardVo.makeSearch(boardVo.page-1)}'>&lt;</a>
 				</c:if>
-				<c:forEach begin="${boardVo.startPage }" end="${boardVo.endPage}" var="idx">
-					<a href='listAll${boardVo.makeSearch(idx)}'
-					<c:out value="${boardVo.page==idx? 'class=active':'' }"/>>
-					${idx}
-					</a>
-				</c:forEach>
+				<c:forEach begin="${boardVo.startPage}" end="${boardVo.endPage}" var="idx">
+			        <c:set var="pageUrl" value="listAll${boardVo.makePage(idx)}"/>
+			        <c:if test="${not empty boardVo.bGroupKind}">
+			            <c:set var="pageUrl" value="${pageUrl}&categoryType=${boardVo.bGroupKind}"/>
+			        </c:if>
+			        <a href="${pageUrl}" <c:out value="${boardVo.page == idx ? 'class=active' : '' }"/>>
+			            ${idx}
+			        </a>
+			    </c:forEach>
 				<c:if test="${boardVo.page != boardVo.totalEndPage}">
 	    		<a href='listAll${boardVo.makeSearch(boardVo.page+1)}'>&gt;</a>
 		    	</c:if>
