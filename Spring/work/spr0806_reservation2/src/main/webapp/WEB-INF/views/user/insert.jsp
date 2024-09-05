@@ -8,12 +8,15 @@
 <main>
 <h4>데이터 입력</h4>
 <form action="/ex/user/insert" method="post">
-	이메일:<input type="text" id="email" name="email"><input type="button" id="checkid" value="중복검사" /><div class="console"></div>
+	이메일:<input type="text" id="email" name="email"><input type="button" id="checkemail" value="중복검사" /><div class="console"></div>
 	<button type="button" id="emailBtn">인증번호 발송</button><br>
 	이메일 인증번호:<input type="text" id="emailAuth" name="emailAuth"><button type="button" id="emailAuthBtn">이메일 인증</button><br>
-	비밀번호:<input type="text" name="password"><br>
+	비밀번호:<input type="text" id="password" name="password" pattern="[A-Za-z0-9]{4,20}" maxlength="20" required/><br>
+	비밀번호 확인:<input type="text" id="password2" name="password2" pattern="[A-Za-z0-9]{4,20}" maxlength="20" required/><label id="pwWarning">비밀번호가 다릅니다</label><br>
 	유저명:<input type="text" name="name"><br>
-	전화번호:<input type="text" name="phone"><br>
+	전화번호:<input type="text" id="phone" name="phone"><input type="button" id="checkphone" value="중복검사" /><div class="consolep"></div>
+	<button type="button" id="phoneBtn">전화번호 인증번호 발송</button><br>
+	전화번호 인증번호:<input type="text" id="phoneAuth" name="phoneAuth"><button type="button" id="phoneAuthBtn">전화번호 인증</button><br>
 	<input type="hidden" name="enable" value="1"><br>
 	<input type="submit" value="등록"><br>
 </form>
@@ -27,8 +30,9 @@
 		
 		<script type="text/javascript">
 			$(function() {
-				/** id속성이 "checkid"인 요소에 대한 "click"이벤트 정의 */
-				$("#checkid").click(function() {
+
+				
+				$("#checkemail").click(function() {
 					// 사용자 입력값 얻어오기
 					var input_value = $("input[name='email']").val();
 
@@ -95,9 +99,100 @@
 					            $(".console").html("<span style='color:red'>서버 요청에 실패했습니다.</span>");
 					        }
 					    });
-					
 				});
+
+				//비밀번호 검증
+				$("#password2").keyup(function (){
+	                var pw1 = $("#password").val();
+	                var pw2 = $("#password2").val();
+	                if(pw1==pw2){
+	                    $("#pwWarning").hide();
+	                    $("#password2").css("background-color", "white");
+	                } else {
+	                    $("#pwWarning").show();
+	                    $("#password2").css("background-color", "red");
+	                }
+	            });
+				
+				
 			});
+			
+			
+			
+			
+			
+			
+
+					$("#phoneChk").click(function(){
+					    alert('인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오.');
+					    var phone = $("#phone").val();
+					    $.ajax({
+					        type:"POST", // post 형식으로 발송
+					        url:"/shop/member/sendSMS1.do", // controller 위치
+					        data: {phone:phone}, // 전송할 데이터
+					        cache : false,
+					        success:function(data){
+					            if(data == "error"){ //실패시 
+					                alert("휴대폰 번호가 올바르지 않습니다.")
+					            }else{            //성공시        
+					                alert("휴대폰 전송이  됨.")
+					                code2 = data; // 성공하면 데이터저장
+					            }
+					        }
+					        
+					    });
+					});
+					
+				
+				
+					$("#checkphone").click(function() {
+						var input_value = $("input[name='phone']").val();
+
+						if (!input_value) {
+							alert("전화번호를 입력하세요.");
+							$("input[name='phone']").focus();/*focus()는 선택시 활성화되는것*/
+							return false;//기본이벤트 막음 
+						}
+						
+						 var url = "/ex/userrest/phonecheck";
+
+						 $.ajax({
+						        url: '/ex/userrest/phonecheck', // 전화번호 중복 체크
+						        type: 'GET', // HTTP 메서드
+						        data: {
+						            phone: input_value // 서버로 보낼 파라미터
+						        },
+						        success: function(response) {
+						        	console.log(response);
+						            // 서버에서 반환된 JSON 데이터를 파싱
+						            var result = response.result;
+						            console.log(result);
+						            // result가 "true"인지 "false"인지 판단하여 사용자에게 메시지 표시
+						            if (result === "true") {
+						                $(".consolep").html("<span style='color:blue'>사용할 수 있는 전화번호입니다.</span>");
+						            } else if (result === "false") {
+						                $(".consolep").html("<span style='color:red'>사용할 수 없는 전화번호입니다.</span>");
+						            } else {
+						                $(".consolep").html("<span style='color:gray'>알 수 없는 결과입니다.</span>");
+						            }
+						        },
+						        error: function(xhr, status, error) {
+						            console.error("AJAX 요청 실패: ", status, error);
+						            $(".consolep").html("<span style='color:red'>서버 요청에 실패했습니다.</span>");
+						        }
+						    });
+				
+				});
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</script>
 		
 

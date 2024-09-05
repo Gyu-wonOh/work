@@ -18,6 +18,9 @@
 <c:if test="${param.member != null}">
         <p>회원 가입 되었습니다. 로그인 해 주세요.</p>
 </c:if>
+<c:if test="${param.update != null}">
+        <p>회원정보가 수정되었습니다. 로그인 해 주세요.</p>
+</c:if>
 <h3>아이디와 비밀번호를 입력해주세요.</h3>
 <c:url value="/login" var="loginUrl" />
 <form name="frmLogin" action="${loginUrl}" method="POST">

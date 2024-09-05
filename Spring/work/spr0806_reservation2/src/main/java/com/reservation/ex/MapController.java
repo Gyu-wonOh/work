@@ -71,6 +71,8 @@ public class MapController {
 
 		return markerList;
 	}
+	
+	
 
 
 	// recontroller에 넣을경우 변환 가능

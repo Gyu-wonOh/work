@@ -37,6 +37,7 @@ public class VendorDto {
 		this.detail_address = detail_address;
 		this.business_type = business_type;
 	}
+	
 	public String getEmail() {
 		return email;
 	}

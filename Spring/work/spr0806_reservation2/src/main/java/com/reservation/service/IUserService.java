@@ -12,7 +12,13 @@ public interface IUserService {
 
 	public UserDto selectEmail(String email) throws Exception;
 	
+	public UserDto selectPhone(String phone) throws Exception;
+	
 	public void update(UserDto dto) throws Exception;
+	
+	public void mUpdate(UserDto dto) throws Exception;
+
+	public void updateEnable(Integer enable, String email) throws Exception;
 	
 	public void delete(String email) throws Exception;
 }

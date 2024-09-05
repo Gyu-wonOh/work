@@ -1,12 +1,12 @@
 
 --=================================================================================================================
 --=================================================================================================================
---ÀüÃ¼ ³»¿ë sql developer¿¡ º¹ºÙ
+--ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ sql developerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 --=================================================================================================================
 --=================================================================================================================
 /*
-À©µµ¿ìÅ°+R
-cmd ¿ìÅ¬¸¯ °ü¸®ÀÚ±ÇÇÑ ½ÇÇà
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°+R
+cmd ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 sqlplus /nolog
 conn sys as sysdba;
 create user c##reser identified by vation;
@@ -16,19 +16,19 @@ show user;
 exit
 exit
 
-sql developer ½ÇÇà
-Á¢¼Ó ¹Ø¿¡ ³ì»ö ½ÊÀÚ°¡ ¾ÆÀÌÄÜ Å¬¸¯
+sql developer ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½
 Name : reservation
-»ç¿ëÀÚ ÀÌ¸§ : c##reser
-ºñ¹Ð¹øÈ£ : vation
-ºñ¹Ð¹øÈ£ ¿À¸¥ÂÊ¿¡ ÀúÀå Ã¼Å©¹Ú½º Ã¼Å©
-Å×½ºÆ® ´­·¯¼­ »óÅÂ¿¡ ¼º°ø ¶ß´Â°Å È®ÀÎÇÏ°í ÀúÀå
-reservation¿¡ Á¢¼Ó ÇÏ°í ÀÌÇÏ ½ÇÇà
+ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ : c##reser
+ï¿½ï¿½Ð¹ï¿½È£ : vation
+ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ú½ï¿½ Ã¼Å©
+ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß´Â°ï¿½ È®ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
+reservationï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 */
 
 --=================================================================================================================
 --=================================================================================================================
---=======À§ ³»¿ë ¸ÕÀú ÀÛ¾÷ ÈÄ ÀÌÇÏ ÁøÇà===============================================================================
+--=======ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½===============================================================================
 --=================================================================================================================
 --=================================================================================================================
 drop table users;
@@ -49,64 +49,64 @@ create table authorities(
 drop table vendor;
 create table vendor (
     email varchar2(255) not null,   --fk, email(id)
-    business_regi_num varchar2(20), --»ç¾÷ÀÚµî·Ï¹øÈ£
-    business_name varchar2(255),    --»ç¾÷¸í(°£ÆÇ)
-    zipcode varchar2(10),           --¿ìÆí¹øÈ£
-    basic_address varchar2(255),    --±âº»ÁÖ¼Ò
-    detail_address varchar2(255),   --»ó¼¼ÁÖ¼Ò
-    business_type varchar2(255)     --¾÷Á¾ÄÚµå
+    business_regi_num varchar2(20), --ï¿½ï¿½ï¿½ï¿½Úµï¿½Ï¹ï¿½È£
+    business_name varchar2(255),    --ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+    zipcode varchar2(10),           --ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    basic_address varchar2(255),    --ï¿½âº»ï¿½Ö¼ï¿½
+    detail_address varchar2(255),   --ï¿½ï¿½ï¿½Ö¼ï¿½
+    business_type varchar2(255)     --ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
     );
 
 drop table vendor_reservation;
 create table vendor_reservation (
-    email varchar2(255) not null,   --»ç¾÷ÀÚÀÌ¸ÞÀÏ ¦¤
-    business_regi_num varchar2(20), --»ç¾÷ÀÚ¹øÈ£¡¡ ¦ª º¹ÇÕÅ° 
-    open_date date,                 --¿¹¾àµî·Ï ³â¿ùÀÏ (¿¹¾àÀ» ¹Þ°Ú´Ù´Â)
-    times varchar2(50),             --¿¹¾àµî·Ï ½Ã°£48°³´ÜÀ§
-    status_flag varchar2(4),         --ÇØ´ç³â¿ùÀÏ ¿¹¾à ºñÈ°¼ºÈ­(¼öÁ¤Áß,¿¹¾àºÒ°¡)/È°¼ºÈ­(¼öÁ¤¿Ï·á,¿¹¾à°¡´É)µî »óÅÂ. ¼öÁ¤ÁßÀÌ¶ó¸é ÀÏ¹ÝÀ¯Àú°¡ ¿¹¾àÀ» ¸øÇÔ
+    email varchar2(255) not null,   --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½
+    business_regi_num varchar2(20), --ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° 
+    open_date date,                 --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ°Ú´Ù´ï¿½)
+    times varchar2(50),             --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½48ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    status_flag varchar2(4),         --ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ò°ï¿½)/È°ï¿½ï¿½È­(ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½,ï¿½ï¿½ï¿½à°¡ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     constraint vendor_reservation_unique
         unique (email, business_regi_num, open_date)
 );
 
 drop table user_reservation;
 create table user_reservation (
-    reservation_number varchar2(20) not null,   --¿¹¾à(ÁÖ¹®)¹øÈ£ pk (³â¿ùÀÏ½ÃºÐÃÊms)
-    user_email varchar2(255) not null,          --À¯ÀúÀÌ¸ÞÀÏ fk (¿¹¾ÇÀÚ)    (users)
-    user_name varchar2(255) not null,           --À¯ÀúÀÌ¸§ (¿¹¾ÇÀÚ)         (users)
-    user_phone  varchar2(20) not null,          --¿¹¾à ´ç½Ã À¯ÀúÀÇ ÀüÈ­¹øÈ£ (¿¹¾ÇÀÚ)    (users)
-    vendor_email varchar2(255) not null,        --»ç¾÷ÀÚÀÌ¸ÞÀÏ ¦¤                (vendor)
-    business_regi_num varchar2(20),             --»ç¾÷ÀÚ¹øÈ£¡¡ ¦ª º¹ÇÕÅ° fk       (vendor)
-    vendor_name  varchar2(255) not null,        --¿¹¾à ´ç½Ã »ç¾÷ÀÚÀÇ ÀÌ¸§ (»ç¾÷ÀÚ)    (vendor)
-    vendor_phone  varchar2(20) not null,        --¿¹¾à ´ç½Ã »ç¾÷ÀÚÀÇ ÀüÈ­¹øÈ£ (»ç¾÷ÀÚ)    (vendor)
-    zipcode varchar2(10),                       --¿¹¾à ´ç½Ã ÀÌ¿ë ¿¹Á¤ Àå¼Ò ¿ìÆí¹øÈ£(vendor)
-    basic_address varchar2(255),                --¿¹¾à ´ç½Ã ÀÌ¿ë ¿¹Á¤ Àå¼Ò ±âº»ÁÖ¼Ò(vendor)
-    detail_address varchar2(255),               --¿¹¾à ´ç½Ã ÀÌ¿ë ¿¹Á¤ Àå¼Ò »ó¼¼ÁÖ¼Ò(vendor)
-    reservation_date date,                      --¿¹¾à ¹ß»ý ³â¿ùÀÏ
-    reservation_use_date date,                  --ÀÌ¿ë ¿¹Á¤ ³â¿ùÀÏ
-    times varchar2(50),                         --ÀÌ¿ë ¿¹Á¤ ½Ã°£ 48°³´ÜÀ§
-    total_service_name varchar2(4000),          --¿¹¾à ´ç½Ã ÀÌ¿ë ¿¹Á¤ ¼­ºñ½º ÀÌ¸§µé(service_items)     --¼öÁ¤ÇØ¾ßÇÔ
-    total_service_price number,                 --¿¹¾à ´ç½Ã ÀÌ¿ë ¿¹Á¤ ¼­ºñ½º °¡°Ý ÃÑ ÇÕ (service_items)
-    total_required_time number,                 --¿¹¾à ´ç½Ã ÀÌ¿ë ¿¹Á¤ Á¦°ø(ÇÊ¿ä)½Ã°£ ÃÑ ÇÕ (service_items)
-    user_request_memo varchar2(4000),           --À¯Àú ¿äÃ»»çÇ× ¸Þ¸ð. ÁÖ¹®ÀÚ¿Í ¹æ¹®ÀÚ°¡ ´Ù¸¦¶§ ¿¬¶ôÃ³¸¦ Àû´Â´Ù°Å³ª ±âÅ¸ ¿äÃ»»çÇ× µî
-    status varchar2(50)                         --ÁÖ¹® »óÅÂ. 1ÀÔ±Ý´ë±â/2ÀÔ±Ý¿Ï·á/3ÀÌ¿ë¿Ï·á/
-                                                --       4ÀÌ¿ëÀÚÃë¼Ò(È¸¿ø¿äÃ»,»ç¾÷ÀÚ½ÂÀÎÇÊ¿ä)/
-                                                --       5»ç¾÷ÀÚÃë¼Ò(»ç¾÷ÀÚ¿äÃ»,È¸¿ø½ÂÀÎºÒÇÊ¿ä)/6È¯ºÒ´ë±â/7È¯ºÒ¿Ï·á µî »óÅÂ
+    reservation_number varchar2(20) not null,   --ï¿½ï¿½ï¿½ï¿½(ï¿½Ö¹ï¿½)ï¿½ï¿½È£ pk (ï¿½ï¿½ï¿½ï¿½Ï½Ãºï¿½ï¿½ï¿½ms)
+    user_email varchar2(255) not null,          --ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ fk (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)    (users)
+    user_name varchar2(255) not null,           --ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)         (users)
+    user_phone  varchar2(20) not null,          --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)    (users)
+    vendor_email varchar2(255) not null,        --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½                (vendor)
+    business_regi_num varchar2(20),             --ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° fk       (vendor)
+    vendor_name  varchar2(255) not null,        --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½)    (vendor)
+    vendor_phone  varchar2(20) not null,        --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½)    (vendor)
+    zipcode varchar2(10),                       --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È£(vendor)
+    basic_address varchar2(255),                --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½âº»ï¿½Ö¼ï¿½(vendor)
+    detail_address varchar2(255),               --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¼ï¿½(vendor)
+    reservation_date date,                      --ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+    reservation_use_date date,                  --ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+    times varchar2(50),                         --ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 48ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    total_service_name varchar2(4000),          --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½(service_items)     --ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
+    total_service_price number,                 --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ (service_items)
+    total_required_time number,                 --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ê¿ï¿½)ï¿½Ã°ï¿½ ï¿½ï¿½ ï¿½ï¿½ (service_items)
+    user_request_memo varchar2(4000),           --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½. ï¿½Ö¹ï¿½ï¿½Ú¿ï¿½ ï¿½æ¹®ï¿½Ú°ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Â´Ù°Å³ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    status varchar2(50)                         --ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½. 1ï¿½Ô±Ý´ï¿½ï¿½/2ï¿½Ô±Ý¿Ï·ï¿½/3ï¿½Ì¿ï¿½Ï·ï¿½/
+                                                --       4ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(È¸ï¿½ï¿½ï¿½ï¿½Ã»,ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½)/
+                                                --       5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½Ã»,È¸ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½Ê¿ï¿½)/6È¯ï¿½Ò´ï¿½ï¿½/7È¯ï¿½Ò¿Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     );
 
 
--- ÁÖ¹®½Ã ÁÖ¹®¹øÈ£¿Í ÁÖ¹®ÇÑ ¾ÆÀÌÅÛÀÇ id¿Í ÁÖ¹®´ç½Ã ¾ÆÀÌÅÛµéÀÇ µ¥ÀÌÅÍµéÀÌ º¹»çÀúÀåµÇ¾î 
--- ÀÌÈÄ ¾ÆÀÌÅÛµéÀÌ ¼öÁ¤µÇ¾îµµ ÁÖ¹®³»¿ª¿¡´Â ¿µÇâÀÌ ¾øÀ½
--- 3°³ ¿¹¾àÇßÀ¸¸é 3Çà insert¿¡ reservation_number 3°³ ´Ù °°°í ÀÌÇÏ ³»¿ëÀº °¢°¢ ´Ù¸§
+-- ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ 
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾îµµ ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+-- 3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ insertï¿½ï¿½ reservation_number 3ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½
 drop table reservation_items;
 create table reservation_items (
-    reservation_number varchar2(20) not null,   --ÁÖ¹®¹øÈ£ user_reservation fk
-    item_id number not null,                    --service_items              º¹»çÀúÀå
-    email varchar2(255) not null,               --ÁÖ¹®´ç½Ã »ç¾÷ÀÚÀÇ ÀÌ¸ÞÀÏ         º¹»çÀúÀå
-    business_regi_num varchar2(20) not null,    --ÁÖ¹®´ç½Ã »ç¾÷ÀÚÀÇ »ç¾÷ÀÚ¹øÈ£       º¹»çÀúÀå
-    service_name varchar2(255),                 --ÁÖ¹®´ç½Ã ¼­ºñ½º ÀÌ¸§(service_items)      º¹»çÀúÀå
-    service_description varchar2(255),          --ÁÖ¹®´ç½Ã ¼³¸í (service_items)           º¹»çÀúÀå
-    required_time number,                       --ÁÖ¹®´ç½Ã Á¦°ø(ÇÊ¿ä)½Ã°£ (¸îÄ­Â¥¸®ÀÎÁö)  º¹»çÀúÀå
-    service_price number                       --ÁÖ¹®´ç½Ã ¼­ºñ½º °¡°Ý(service_items)               º¹»çÀúÀå
+    reservation_number varchar2(20) not null,   --ï¿½Ö¹ï¿½ï¿½ï¿½È£ user_reservation fk
+    item_id number not null,                    --service_items              ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    email varchar2(255) not null,               --ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½         ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    business_regi_num varchar2(20) not null,    --ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£       ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    service_name varchar2(255),                 --ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½(service_items)      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    service_description varchar2(255),          --ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (service_items)           ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    required_time number,                       --ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ê¿ï¿½)ï¿½Ã°ï¿½ (ï¿½ï¿½Ä­Â¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    service_price number                       --ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(service_items)               ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 );
 
 
@@ -115,25 +115,25 @@ CREATE SEQUENCE item_id;
 drop table service_items;
 create table service_items (
     item_id number not null,         --pk 
-    email varchar2(255) not null,   --»ç¾÷ÀÚÀÌ¸ÞÀÏ ¦¤
-    business_regi_num varchar2(20) not null, --»ç¾÷ÀÚ¹øÈ£¡¡ ¦ª º¹ÇÕÅ°
-    service_name varchar2(255),             --»óÇ°¸í
-    service_description varchar2(255),      --¼³¸í
-    required_time number,                   --Á¦°ø(ÇÊ¿ä)½Ã°£ (¸îÄ­Â¥¸®ÀÎÁö)
-    service_price number,                   --°¡°Ý
-    item_status varchar2(10) default '1' not null                --item »óÅÂ, (»ç¿ë°¡´É ¿©ºÎ µî)  (1:»ç¿ë, 0:¹Ì»ç¿ë µî)
+    email varchar2(255) not null,   --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½
+    business_regi_num varchar2(20) not null, --ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°
+    service_name varchar2(255),             --ï¿½ï¿½Ç°ï¿½ï¿½
+    service_description varchar2(255),      --ï¿½ï¿½ï¿½ï¿½
+    required_time number,                   --ï¿½ï¿½ï¿½ï¿½(ï¿½Ê¿ï¿½)ï¿½Ã°ï¿½ (ï¿½ï¿½Ä­Â¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    service_price number,                   --ï¿½ï¿½ï¿½ï¿½
+    item_status varchar2(10) default '1' not null                --item ï¿½ï¿½ï¿½ï¿½, (ï¿½ï¿½ë°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)  (1:ï¿½ï¿½ï¿½, 0:ï¿½Ì»ï¿½ï¿½ ï¿½ï¿½)
     );
 
 drop table business_place_info;
 create table business_place_info (
-    email varchar2(255) not null,   --»ç¾÷ÀÚÀÌ¸ÞÀÏ ¦¤
-    business_regi_num varchar2(20), --»ç¾÷ÀÚ¹øÈ£¡¡ ¦ª º¹ÇÕÅ°
-    place_info varchar2(4000),      --¾÷¼Ò ¼Ò°³
-    img_path0  varchar2(255),       --ÀÌ¹ÌÁö ÀúÀå °æ·Î
-    img_path1  varchar2(255),       --ÀÌ°Å ¹º°¡ Á» ¾Æ´Ñ°Å°°À½ 10°³¾¿ ÁÖ··ÁÖ·· ´Þ°íÀÖ´Â°Å
-    img_path2  varchar2(255),       --imgpath¸¸ µû·Î »«´ÙÇØµµ
-    img_path3  varchar2(255),       --¾îÂ÷ÇÇ °Å±â¿¡ ¿Ü·¡Å°·Î ÀÌ¸ÞÀÏ+»ç¾÷ÀÚ¹øÈ£ ÀÖ¾î¾ßÇÏ´Ï
-    img_path4  varchar2(255),       --ÀÏ´Ü ÀÌ·¸°Ô¤¡¤¡
+    email varchar2(255) not null,   --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½
+    business_regi_num varchar2(20), --ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°
+    place_info varchar2(4000),      --ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+    img_path0  varchar2(255),       --ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    img_path1  varchar2(255),       --ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Æ´Ñ°Å°ï¿½ï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ ï¿½Ö·ï¿½ï¿½Ö·ï¿½ ï¿½Þ°ï¿½ï¿½Ö´Â°ï¿½
+    img_path2  varchar2(255),       --imgpathï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½
+    img_path3  varchar2(255),       --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±â¿¡ ï¿½Ü·ï¿½Å°ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£ ï¿½Ö¾ï¿½ï¿½ï¿½Ï´ï¿½
+    img_path4  varchar2(255),       --ï¿½Ï´ï¿½ ï¿½Ì·ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½
     img_path5  varchar2(255),
     img_path6  varchar2(255),
     img_path7  varchar2(255),
@@ -143,12 +143,12 @@ create table business_place_info (
 
 --=================================================================================================================
 --=================================================================================================================
---=======À§ ³»¿ë ¸ÕÀú ÀÛ¾÷ ÈÄ ÀÌÇÏ ÁøÇà===============================================================================
+--=======ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½===============================================================================
 --=================================================================================================================
 --=================================================================================================================
---¿©±â±îÁö ÇÏ°í sts·Î ±¸µ¿ ÈÄ http://localhost:ÀÚ±âÆ÷Æ®/ex/user/insert ¿¡¼­ 
---¾Æ·¡ ±âº» 4°¡Áö °èÁ¤ °¡ÀÔ (ºñ¹Ð¹øÈ£ 1111 ÅëÀÏ)
--- (ÀÌ¸ÞÀÏ/ºñ¹Ð¹øÈ£/ÀÌ¸§/ÀüÈ­¹øÈ£)
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ stsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ http://localhost:ï¿½Ú±ï¿½ï¿½ï¿½Æ®/ex/user/insert ï¿½ï¿½ï¿½ï¿½ 
+--ï¿½Æ·ï¿½ ï¿½âº» 4ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½Ð¹ï¿½È£ 1111 ï¿½ï¿½ï¿½ï¿½)
+-- (ï¿½Ì¸ï¿½ï¿½ï¿½/ï¿½ï¿½Ð¹ï¿½È£/ï¿½Ì¸ï¿½/ï¿½ï¿½È­ï¿½ï¿½È£)
 -- admin/1111/1/1
 -- manager/1111/1/1
 -- vendor/1111/1/1
@@ -158,7 +158,7 @@ create table business_place_info (
 -- vendor3/1111/1/1
 -- vendor4/1111/1/1
 -- vendor5/1111/1/1
--- À§ °èÁ¤ °¡ÀÔ ÈÄ ÀÌÇÏ sql developer ¿¡¼­ ½ÇÇà
+-- ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ sql developer ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 update authorities set authority='ROLE_ADMIN' where email='admin';
@@ -169,33 +169,33 @@ update authorities set authority='ROLE_VENDOR' where email='vendor3';
 update authorities set authority='ROLE_VENDOR' where email='vendor4';
 update authorities set authority='ROLE_VENDOR' where email='vendor5';
 update authorities set authority='ROLE_MANAGER' where email='manager';
-insert into vendor values('vendor', 'gsgs252511', 'GS25 ºÎÆò´ë¸²Á¡', '21404', 'ÀÎÃµ ºÎÆò±¸ °æ¿ø´ë·Î 1360', '´ë¸²ºôµù 1Ãþ', 'ÆíÀÇÁ¡');
-insert into vendor values('vendor1', '11111',      'CU ºÎÆòºÏºÎ¿ªÁ¡',   '21389', 'ÀÎÃµ ºÎÆò±¸ °æ¿ø´ë·Î 1367', '1Ãþ', 'ÆíÀÇÁ¡');
-insert into vendor values('vendor2', '22222',      'ÀÌ¸¶Æ®24 ºÎÆòÁ¦ÀÏÁ¡',   '21404', 'ÀÎÃµ ºÎÆò±¸ ±¤Àå·Î4¹ø±æ 32', '', 'ÆíÀÇÁ¡');
-insert into vendor values('vendor3', '33333',      '¼¤ÇªÈ£ÅÚ ',        '21404', 'ÀÎÃµ ºÎÆò±¸ ±¤Àå·Î4¹ø±æ 23', '', 'È£ÅÚ');
-insert into vendor values('vendor4', '44444', 'Åä¿äÄÚÀÎÈ£ÅÚ ÀÎÃµºÎÆòÁ¡', '21404', 'ÀÎÃµ ºÎÆò±¸ ±¤Àå·Î 10', '', 'È£ÅÚ');
-insert into vendor values('vendor5', '55555', '½ÅÀÇÀÇ¿ø ºÎÆòÁ¡',        '21389', 'ÀÎÃµ ºÎÆò±¸ °æ¿ø´ë·Î 1355', '¼º¿ìºôµù 4Ãþ', 'º´¿ø');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor','gsgs252511', '~~~ÆíÀÇÁ¡ gs25 ºÎÆò´ë¸²Á¡~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor1','11111', 'ÆíÀÇÁ¡ cu cu cu ~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor2','22222', 'ÀÌ¸¶Æ® ÆíÀÇÁ¡ Â§Ä¿ÇÇ ¸ÀÀÖÀ½~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor3','33333', '¸°½º´Â ¾ÈÁÖ´Â ÀÌ»óÇÑ È£ÅÚ~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor4','44444', 'ÀÏ¿äÄÚÀÎÀº ¾ÈÅ¸´Â È£ÅÚ~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor5','55555', 'º´À» ´Ù½º¸®´Â ½ÅÀÇ ÀÇ¿ø~~~');
-update users set name='À±¿µÀÚ' , phone='01063188216' where email='admin';
-update users set name='ÀÌÈ¸¿ø' , phone='01063188216' where email='member';
-update users set name='±èº¥¶Ç' , phone='01063188216' where email='vendor';
-update users set name='º¥´õ¸í1' , phone='01063188216' where email='vendor1';
-update users set name='º¥´õ¸í2' , phone='01063188216' where email='vendor2';
-update users set name='º¥´õ¸í3' , phone='01063188216' where email='vendor3';
-update users set name='º¥´õ¸í4' , phone='01063188216' where email='vendor4';
-update users set name='º¥´õ¸í5' , phone='01063188216' where email='vendor5';
-update users set name='¼Û½ÇÀå' , phone='01063188216' where email='manager';
-insert into service_items values(item_id.nextval, 'vendor5', '55555', 'º´¿øÀåÀÇ ÀÜ¼Ò¸®', '´Ü°Å Â§°Å ÁÙÀÌ½Ã°í ¿îµ¿ÇÏ½Ã°í', 1, 20000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5º´¿ø¸Þ´ºÁ¦¸ñ1', '5º´¿ø¸Þ´º¼³¸í', 2, 50000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5³ëÃâ±ÝÁö', 'status0 º¸ÀÌ¸é ¾ÈµÇ´Â ¸Þ´º', 2, 50000, '0' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5º´¿ø¸Þ´ºÁ¦¸ñ2', '5º´¿ø¸Þ´º¼³¸í2', 1, 20000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5º´¿ø¸Þ´ºÁ¦¸ñ3', '5º´¿ø¸Þ´º¼³¸í3', 2, 30000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5º´¿ø¸Þ´ºÁ¦¸ñ4', '5º´¿ø¸Þ´º¼³¸í4', 3, 40000, '1' );
+insert into vendor values('vendor', 'gsgs252511', 'GS25 ï¿½ï¿½ï¿½ï¿½ë¸²ï¿½ï¿½', '21404', 'ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1360', 'ï¿½ë¸²ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into vendor values('vendor1', '11111',      'CU ï¿½ï¿½ï¿½ï¿½ÏºÎ¿ï¿½ï¿½ï¿½',   '21389', 'ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1367', '1ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into vendor values('vendor2', '22222',      'ï¿½Ì¸ï¿½Æ®24 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',   '21404', 'ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ 32', '', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into vendor values('vendor3', '33333',      'ï¿½ï¿½ÇªÈ£ï¿½ï¿½ ',        '21404', 'ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ 23', '', 'È£ï¿½ï¿½');
+insert into vendor values('vendor4', '44444', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '21404', 'ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 10', '', 'È£ï¿½ï¿½');
+insert into vendor values('vendor5', '55555', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',        '21389', 'ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1355', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 4ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor','gsgs252511', '~~~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ gs25 ï¿½ï¿½ï¿½ï¿½ë¸²ï¿½ï¿½~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor1','11111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ cu cu cu ~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor2','22222', 'ï¿½Ì¸ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Â§Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor3','33333', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ È£ï¿½ï¿½~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor4','44444', 'ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ È£ï¿½ï¿½~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor5','55555', 'ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¿ï¿½~~~');
+update users set name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' , phone='01063188216' where email='admin';
+update users set name='ï¿½ï¿½È¸ï¿½ï¿½' , phone='01063188216' where email='member';
+update users set name='ï¿½èº¥ï¿½ï¿½' , phone='01063188216' where email='vendor';
+update users set name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1' , phone='01063188216' where email='vendor1';
+update users set name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2' , phone='01063188216' where email='vendor2';
+update users set name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3' , phone='01063188216' where email='vendor3';
+update users set name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4' , phone='01063188216' where email='vendor4';
+update users set name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5' , phone='01063188216' where email='vendor5';
+update users set name='ï¿½Û½ï¿½ï¿½ï¿½' , phone='01063188216' where email='manager';
+insert into service_items values(item_id.nextval, 'vendor5', '55555', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¼Ò¸ï¿½', 'ï¿½Ü°ï¿½ Â§ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½Ã°ï¿½ ï¿½îµ¿ï¿½Ï½Ã°ï¿½', 1, 20000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½1', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½', 2, 50000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'status0 ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½Þ´ï¿½', 2, 50000, '0' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½2', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½2', 1, 20000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½3', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½3', 2, 30000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½4', '5ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½4', 3, 40000, '1' );
 select * from service_items;
 commit;
 --=================================================================================================================
@@ -210,7 +210,7 @@ select * from vendor_reservation;
 
 
 
---°Ô½ÃÆÇ Å×ÀÌºí
+--ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
 drop table board;
 
 CREATE TABLE board (
@@ -234,4 +234,4 @@ create sequence bId;
 
 select * from board;
 
-select * from board where bId =5;
+select sum(total_service_price) from user_reservation;

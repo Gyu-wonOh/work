@@ -152,6 +152,33 @@ public class UserRestController {
 		return result;
 	}
 
+	//전화번호 중복 체크
+		@RequestMapping(value = "/userrest/phonecheck", method = RequestMethod.GET)
+		public Map userPhoneCheck(String phone)  {
+			System.out.println("UserRestController - /userrest/phonecheck " + phone);
+			
+			Map<String, String> result = new HashMap<>();
+			UserDto checkDto =null;
+			try {
+				checkDto = userService.selectPhone(phone);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			System.out.println("UserRestController - /userrest/phonecheck    input phone : " + phone + " , return dto : " + checkDto);
+			if(checkDto == null) {
+				result.put("result", "true");
+				System.out.println("result : true 중복이 아님");
+			}else {
+				result.put("result", "false");
+				System.out.println("result : false 중복임");
+			}
+			
+			return result;
+		}
+		
+	
 	@RequestMapping("/userrest/selectall")
 	public List<UserDto> sendUserList() throws Exception {
 		System.out.println("UserRestController - /userrest/selectall ");

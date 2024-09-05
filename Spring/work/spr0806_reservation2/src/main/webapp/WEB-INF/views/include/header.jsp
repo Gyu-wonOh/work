@@ -9,7 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
-	<link rel="stylesheet" href="../resources/css/header.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
@@ -26,8 +27,7 @@
         <li>
             <c:choose>
                 <c:when test="${sessionScope.loginAuthority == '관리자'}">
-                    <a href="#home">admin Home</a>
-                    <a href="#about">About</a>
+                    <a href="${pageContext.request.contextPath}/admin/selectAll">selectAll </a>
                     <a href="#services">Services</a>
                     <a href="#contact">Contact</a>
                 </c:when>
@@ -91,5 +91,5 @@ authority: ${sessionScope.loginAuthority }
     <li>${authority.authority}</li>
 </c:forEach>
  -->
-<script src="../resources/js/header.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
 

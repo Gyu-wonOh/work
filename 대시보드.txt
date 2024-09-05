@@ -1,0 +1,14 @@
+구성하기
+
+1. 테이블 구성 뽑아내기
+2. sql 작성하기
+ count/sum
+ - count
+select count(user_email) from user_reservation;
+select count(vendor_name) from user_reservation where vendor_name={vendor_name};
+select count(basic_address) from user_reservation where basic_address={basic_address};
+select count(detail_address) from user_reservation where detail_address={detail_address};
+select count(service_name) from user_reservation where service_name={service_name};
+select count(times_hhmm) from user_reservation where times_hhmm={times_hhmm};
+ - sum
+select sum(service_price) from user_reservation where service_name={service_name}; 

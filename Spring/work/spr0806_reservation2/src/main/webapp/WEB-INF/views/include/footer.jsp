@@ -4,7 +4,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page session="true" %>
-<link rel="stylesheet" href="../resources/css/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
 <footer>
 <c:choose>
 <c:when test="${sessionScope.loginAuthority == '일반회원'}">

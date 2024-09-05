@@ -9,71 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>메인 페이지</title>
 <link rel="stylesheet" href="/ex/resources/css/mainStyle.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-	$(document).ready(function() {
-		// 메뉴 토글 기능
-		function toggleMenu() {
-			var dropdownMenu = $("#dropdown-menu");
-			dropdownMenu.toggle();
-		}
-
-		// 메뉴 버튼 클릭 이벤트
-		$(".menu-button").click(toggleMenu);
-
-		// 검색 기능 AJAX
-		$(".search-form").submit(function(e) {
-			e.preventDefault(); // 폼의 기본 동작 중단
-			var searchQuery = $(this).find("input").val();
-			$.ajax({
-				url : "/ex/search", // 서버의 검색 처리 URL로 변경해야 함
-				method : "GET",
-				data : {
-					query : searchQuery
-				},
-				success : function(response) {
-					// 검색 결과를 표시할 HTML 업데이트
-					$(".content-container").html(response);
-				},
-				error : function() {
-					alert("검색에 실패했습니다.");
-				}
-			});
-		});
-
-		// 공지사항 AJAX 로드
-		function loadNotices() {
-			$.ajax({
-				url : "/ex/notices", // 공지사항 데이터를 가져올 URL로 변경해야 함
-				method : "GET",
-				success : function(response) {
-					$("section").html(response);
-				},
-				error : function() {
-					alert("공지사항 로드에 실패했습니다.");
-				}
-			});
-		}
-
-		// 사용자 정보 AJAX 로드
-		function loadUserInfo() {
-			$.ajax({
-				url : "/ex/userInfo", // 사용자 정보를 가져올 URL로 변경해야 함
-				method : "GET",
-				success : function(response) {
-					$("aside").html(response);
-				},
-				error : function() {
-					alert("사용자 정보 로드에 실패했습니다.");
-				}
-			});
-		}
-
-		// 페이지 로드 시 공지사항과 사용자 정보 로드
-		loadNotices();
-		loadUserInfo();
-	});
-</script>
 </head>
 <body>
 	<header>
@@ -81,8 +16,8 @@
 			<a href="#" class="logo">A</a>
 		</div>
 		<div class="header-center">
-			<form class="search-form">
-				<input type="text" placeholder="검색어를 입력하세요...">
+			<form class="search-form" action ="/ex/my/search" method="GET">
+				<input type="text" placeholder="검색어를 입력하세요..." id="search-input" name="query">
 				<button type="submit">검색</button>
 			</form>
 			<div class="icon-buttons">
@@ -105,7 +40,6 @@
 	</header>
 
 	<div class="content-container">
-		<!-- 슬라이더와 섹션, 사이드바는 AJAX로 로드된 콘텐츠로 대체됩니다. -->
 		<nav>
 			<div class="slider-container">
 				<div class="slider-wrapper">
@@ -126,7 +60,6 @@
 			<h2>지도 서비스</h2>
 			<button onclick="location.href='/ex/map/mapService'">지도 서비스로
 				이동</button>
-			<!-- 지도 서비스 페이지로 이동하는 버튼 -->
 		</section>
 		<section>
 			<h2>공지사항</h2>
@@ -137,6 +70,12 @@
 			<!-- 사용자 정보가 AJAX로 로드됩니다. -->
 		</aside>
 	</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../resources/js/menuToggle.js"></script> <!-- 메뉴 토글 함수 정의 파일 -->
+<script src="../resources/js/searchSubmit.js"></script>
+<script src="../resources/js/searchSuggestions.js"></script>
+<script src="../resources/js/loadData.js"></script>
+<script src="../resources/js/callMainFuction.js"></script> <!-- 함수 호출 파일 -->
 </body>
 </html>
-

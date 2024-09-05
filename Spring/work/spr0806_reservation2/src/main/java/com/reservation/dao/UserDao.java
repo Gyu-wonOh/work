@@ -2,6 +2,8 @@ package com.reservation.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.reservation.dto.UserDto;
 
 public interface UserDao {
@@ -12,8 +14,14 @@ public interface UserDao {
 
 	public UserDto selectEmail(String email) throws Exception;
 	
+	public UserDto selectPhone(String phone) throws Exception;
+	
 	public void update(UserDto dto) throws Exception;
+
+	public void updateEnable(@Param("enable")Integer enable, @Param("email")String email) throws Exception;
 	
 	public void delete(String email) throws Exception;
+
+	public void mUpdate(UserDto dto) throws Exception;
 	
 }

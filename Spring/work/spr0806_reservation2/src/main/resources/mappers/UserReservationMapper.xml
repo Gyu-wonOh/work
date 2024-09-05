@@ -33,8 +33,30 @@ select * from user_reservation where reservation_number = #{reservation_number}
 update user_reservation set status=#{status} where reservation_number=#{reservation_number}
 </update>
 
-
-
+<!-- 대시보드 기능 관련 추가 sql 만든이: 오규원 추가일자:0905-->
+<!-- - count -->
+<select id="count_email">
+select count(user_email) from user_reservation
+</select>
+<select id="countVendorName">
+select count(vendor_name) from user_reservation where vendor_name={vendor_name}
+</select>
+<select id="countBasicAddress">
+select count(basic_address) from user_reservation where basic_address={basic_address}
+</select>
+<select id="countDetailAddress">
+select count(detail_address) from user_reservation where detail_address={detail_address}
+</select>
+<select id="countServiceName">
+select count(service_name) from user_reservation where service_name={service_name}
+</select>
+<select id="countTimeshhmm">
+select count(times_hhmm) from user_reservation where times_hhmm={times_hhmm}
+</select>
+ <!-- - sum -->
+ <select id="sumServicePrice">
+select sum(service_price) from user_reservation where service_name={service_name}
+</select>
 
 
 <!--

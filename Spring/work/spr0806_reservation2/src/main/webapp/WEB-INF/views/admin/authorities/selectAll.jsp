@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true" %>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+
 	<style>
 #customers {
   font-family: Arial, Helvetica, sans-serif;
@@ -36,8 +36,8 @@ if (result == 'success') {
 	alert("처리가 완료되었습니다.");
 }
 </script>
-</head>
-<body>
+<div class="header-placeholder"></div>
+<main>
   <table id='customers' width=100% border="1">
 	<tr>
 		<th style="width: 10px">email</th>
@@ -51,5 +51,6 @@ if (result == 'success') {
 	</c:forEach>
     </table>
 	<a href="/ex/admin/authorities/insert">추가</a>
-</body>
-</html>
+	
+</main>
+<%@include file="/WEB-INF/views/include/footer.jsp"%>

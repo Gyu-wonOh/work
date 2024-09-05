@@ -1,14 +1,17 @@
 package com.reservation.ex;
 
-import java.awt.List;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,11 +19,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reservation.dto.MainDto;
+import com.reservation.dto.VendorDto;
 import com.reservation.service.IMainService;
+import com.reservation.service.IMapService;
+import com.reservation.service.IVendorService;
 
 //created by 김하겸
 //해당 컨트롤러는 메인페이지 뷰에서 오는 요청을 처리
@@ -31,11 +38,18 @@ public class MainController {
 	@Inject
 	private IMainService userService;
 
+	@Autowired
+	private IMapService service;
+
+	@Autowired
+	private IMapService mapService;
+
 	// getMapping으로 변환 필요
 	@RequestMapping(value = "/my/myPage", method = RequestMethod.GET)
 	public void myPage() {
 
 	}
+
 	@RequestMapping(value = "/main/main", method = RequestMethod.GET)
 	public void mainPage() {
 
@@ -69,17 +83,42 @@ public class MainController {
 	}
 
 	// 검색폼 처리 관련 메서드
-	@GetMapping("/ex/search")
-	public ArrayList<String> search(@RequestParam("query") String query) {
+	@RequestMapping(value = "/my/search", method = RequestMethod.GET)
+	public String search(@RequestParam("query") String query, Model model) throws Exception {
+		System.out.println("검색어는  " + query);
 		// 검색 폼에서 입력받은 쿼리로 게시판 관련 db에서 검색키워드가 포함된 글들을 추출해냄
-		ArrayList<String> results = new ArrayList<>();
+		ArrayList<VendorDto> results = mapService.selectPlace(query);
 		// userService.selectSearch(query);와 같은 로직으로 db에 접속해 해당 쿼리를 포함한 글들을 추출
 		// board 관련 기능이 완료됐을때 구현
-		results.add("검색 결과 1: " + query);
-		results.add("검색 결과 2: " + query);
-		results.add("검색 결과 3: " + query);
+		for (VendorDto dto : results) {
+			System.out.println(dto.getBusiness_name());
 
-		return results;
+		}
+
+		model.addAttribute("results", results);
+		return "/main/search";
+	}
+	
+	@GetMapping("/miniSearch")
+	@ResponseBody
+	public ArrayList<VendorDto> miniSearch(@RequestParam("query") String query) throws Exception {
+		System.out.println("미니서치 쿼리값 :" + query);
+		ArrayList<VendorDto> dtos = mapService.selectPlace(query);
+		for (VendorDto dto : dtos) {
+			System.out.println("키워드 검색 결과 리스트" + dto.getBusiness_name());
+		}
+		return dtos;
+	}
+
+	@GetMapping("/keyWord")
+	@ResponseBody
+	public ArrayList<VendorDto> resultKeword(@RequestParam("query") String query) throws Exception {
+		System.out.println("쿼리값 :" + query);
+		ArrayList<VendorDto> dtos = mapService.selectPlace(query);
+		for (VendorDto dto : dtos) {
+			System.out.println("키워드 검색 결과 리스트" + dto.getBusiness_name());
+		}
+		return dtos;
 	}
 
 	// 공지사항 노출 폼
@@ -106,4 +145,12 @@ public class MainController {
 		return userInfo;
 	}
 
+	@GetMapping("/searchSuggestions")
+	public ResponseEntity<List<String>> searchSuggestions(@RequestParam("query") String query) throws Exception {
+		List<VendorDto> vendorDtos = service.selectPlace(query);
+
+		List<String> businessNames = vendorDtos.stream().map(VendorDto::getBusiness_name).collect(Collectors.toList());
+
+		return ResponseEntity.ok(businessNames);
+	}
 }
