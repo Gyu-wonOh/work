@@ -1,6 +1,7 @@
 package com.reservation.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.reservation.dto.UserReservationDto;
 
@@ -20,5 +21,5 @@ public interface UserReservationDao {
 	public int countDetailAddress(String detail_address) throws Exception;
 	public int countServiceName(String service_name) throws Exception;
 	public int countTimeshhmm(String times_hhmm ) throws Exception;
-	public int sumServicePrice(String serviceName) throws Exception;
+	public List<UserReservationDto> sumServicePrice() throws Exception;
 }

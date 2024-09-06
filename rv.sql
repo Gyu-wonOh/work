@@ -1,12 +1,12 @@
 
 --=================================================================================================================
 --=================================================================================================================
---��ü ���� sql developer�� ����
+--??? ???? sql developer?? ????
 --=================================================================================================================
 --=================================================================================================================
 /*
-������Ű+R
-cmd ��Ŭ�� �����ڱ��� ����
+???????+R
+cmd ????? ????????? ????
 sqlplus /nolog
 conn sys as sysdba;
 create user c##reser identified by vation;
@@ -16,19 +16,19 @@ show user;
 exit
 exit
 
-sql developer ����
-���� �ؿ� ��� ���ڰ� ������ Ŭ��
+sql developer ????
+???? ??? ??? ????? ?????? ???
 Name : reservation
-����� �̸� : c##reser
-��й�ȣ : vation
-��й�ȣ �����ʿ� ���� üũ�ڽ� üũ
-�׽�Ʈ ������ ���¿� ���� �ߴ°� Ȯ���ϰ� ����
-reservation�� ���� �ϰ� ���� ����
+????? ??? : c##reser
+??��?? : vation
+??��?? ??????? ???? ????? ??
+???? ?????? ???��? ???? ??��? ?????? ????
+reservation?? ???? ??? ???? ????
 */
 
 --=================================================================================================================
 --=================================================================================================================
---=======�� ���� ���� �۾� �� ���� ����===============================================================================
+--=======?? ???? ???? ??? ?? ???? ????===============================================================================
 --=================================================================================================================
 --=================================================================================================================
 drop table users;
@@ -49,64 +49,64 @@ create table authorities(
 drop table vendor;
 create table vendor (
     email varchar2(255) not null,   --fk, email(id)
-    business_regi_num varchar2(20), --����ڵ�Ϲ�ȣ
-    business_name varchar2(255),    --�����(����)
-    zipcode varchar2(10),           --�����ȣ
-    basic_address varchar2(255),    --�⺻�ּ�
-    detail_address varchar2(255),   --���ּ�
-    business_type varchar2(255)     --�����ڵ�
+    business_regi_num varchar2(20), --?????????
+    business_name varchar2(255),    --?????(????)
+    zipcode varchar2(10),           --??????
+    basic_address varchar2(255),    --?????
+    detail_address varchar2(255),   --?????
+    business_type varchar2(255)     --???????
     );
 
 drop table vendor_reservation;
 create table vendor_reservation (
-    email varchar2(255) not null,   --������̸��� ��
-    business_regi_num varchar2(20), --����ڹ�ȣ�� �� ����Ű 
-    open_date date,                 --������ ����� (������ �ްڴٴ�)
-    times varchar2(50),             --������ �ð�48������
-    status_flag varchar2(4),         --�ش����� ���� ��Ȱ��ȭ(������,����Ұ�)/Ȱ��ȭ(�����Ϸ�,���డ��)�� ����. �������̶�� �Ϲ������� ������ ����
+    email varchar2(255) not null,   --?????????? ??
+    business_regi_num varchar2(20), --????????? ?? ????? 
+    open_date date,                 --?????? ????? (?????? ?????)
+    times varchar2(50),             --?????? ?��?48??????
+    status_flag varchar2(4),         --??????? ???? ??????(??????,??????)/????(???????,??????)?? ????. ?????????? ????????? ?????? ????
     constraint vendor_reservation_unique
         unique (email, business_regi_num, open_date)
 );
 
 drop table user_reservation;
 create table user_reservation (
-    reservation_number varchar2(20) not null,   --����(�ֹ�)��ȣ pk (����Ͻú���ms)
-    user_email varchar2(255) not null,          --�����̸��� fk (������)    (users)
-    user_name varchar2(255) not null,           --�����̸� (������)         (users)
-    user_phone  varchar2(20) not null,          --���� ��� ������ ��ȭ��ȣ (������)    (users)
-    vendor_email varchar2(255) not null,        --������̸��� ��                (vendor)
-    business_regi_num varchar2(20),             --����ڹ�ȣ�� �� ����Ű fk       (vendor)
-    vendor_name  varchar2(255) not null,        --���� ��� ������� �̸� (�����)    (vendor)
-    vendor_phone  varchar2(20) not null,        --���� ��� ������� ��ȭ��ȣ (�����)    (vendor)
-    zipcode varchar2(10),                       --���� ��� �̿� ���� ��� �����ȣ(vendor)
-    basic_address varchar2(255),                --���� ��� �̿� ���� ��� �⺻�ּ�(vendor)
-    detail_address varchar2(255),               --���� ��� �̿� ���� ��� ���ּ�(vendor)
-    reservation_date date,                      --���� �߻� �����
-    reservation_use_date date,                  --�̿� ���� �����
-    times varchar2(50),                         --�̿� ���� �ð� 48������
-    total_service_name varchar2(4000),          --���� ��� �̿� ���� ���� �̸���(service_items)     --�����ؾ���
-    total_service_price number,                 --���� ��� �̿� ���� ���� ���� �� �� (service_items)
-    total_required_time number,                 --���� ��� �̿� ���� ����(�ʿ�)�ð� �� �� (service_items)
-    user_request_memo varchar2(4000),           --���� ��û���� �޸�. �ֹ��ڿ� �湮�ڰ� �ٸ��� ����ó�� ���´ٰų� ��Ÿ ��û���� ��
-    status varchar2(50)                         --�ֹ� ����. 1�Աݴ��/2�ԱݿϷ�/3�̿�Ϸ�/
-                                                --       4�̿������(ȸ����û,����ڽ����ʿ�)/
-                                                --       5��������(����ڿ�û,ȸ�����κ��ʿ�)/6ȯ�Ҵ��/7ȯ�ҿϷ� �� ����
+    reservation_number varchar2(20) not null,   --????(???)??? pk (?????????ms)
+    user_email varchar2(255) not null,          --????????? fk (??????)    (users)
+    user_name varchar2(255) not null,           --??????? (??????)         (users)
+    user_phone  varchar2(20) not null,          --???? ??? ?????? ?????? (??????)    (users)
+    vendor_email varchar2(255) not null,        --?????????? ??                (vendor)
+    business_regi_num varchar2(20),             --????????? ?? ????? fk       (vendor)
+    vendor_name  varchar2(255) not null,        --???? ??? ??????? ??? (?????)    (vendor)
+    vendor_phone  varchar2(20) not null,        --???? ??? ??????? ?????? (?????)    (vendor)
+    zipcode varchar2(10),                       --???? ??? ??? ???? ??? ??????(vendor)
+    basic_address varchar2(255),                --???? ??? ??? ???? ??? ?????(vendor)
+    detail_address varchar2(255),               --???? ??? ??? ???? ??? ?????(vendor)
+    reservation_date date,                      --???? ??? ?????
+    reservation_use_date date,                  --??? ???? ?????
+    times varchar2(50),                         --??? ???? ?��? 48??????
+    total_service_name varchar2(4000),          --???? ??? ??? ???? ???? ?????(service_items)     --?????????
+    total_service_price number,                 --???? ??? ??? ???? ???? ???? ?? ?? (service_items)
+    total_required_time number,                 --???? ??? ??? ???? ????(???)?��? ?? ?? (service_items)
+    user_request_memo varchar2(4000),           --???? ??????? ???. ?????? ?��??? ????? ??????? ???��??? ??? ??????? ??
+    status varchar2(50)                         --??? ????. 1?????/2?????/3?????/
+                                                --       4????????(??????,???????????)/
+                                                --       5????????(???????,??????��????)/6?????/7????? ?? ????
     );
 
 
--- �ֹ��� �ֹ���ȣ�� �ֹ��� �������� id�� �ֹ���� �����۵��� �����͵��� ��������Ǿ� 
--- ���� �����۵��� �����Ǿ �ֹ��������� ������ ����
--- 3�� ���������� 3�� insert�� reservation_number 3�� �� ���� ���� ������ ���� �ٸ�
+-- ????? ???????? ????? ???????? id?? ?????? ????????? ????????? ?????????? 
+-- ???? ????????? ??????? ??????????? ?????? ????
+-- 3?? ?????????? 3?? insert?? reservation_number 3?? ?? ???? ???? ?????? ???? ???
 drop table reservation_items;
 create table reservation_items (
-    reservation_number varchar2(20) not null,   --�ֹ���ȣ user_reservation fk
-    item_id number not null,                    --service_items              ��������
-    email varchar2(255) not null,               --�ֹ���� ������� �̸���         ��������
-    business_regi_num varchar2(20) not null,    --�ֹ���� ������� ����ڹ�ȣ       ��������
-    service_name varchar2(255),                 --�ֹ���� ���� �̸�(service_items)      ��������
-    service_description varchar2(255),          --�ֹ���� ���� (service_items)           ��������
-    required_time number,                       --�ֹ���� ����(�ʿ�)�ð� (��ĭ¥������)  ��������
-    service_price number                       --�ֹ���� ���� ����(service_items)               ��������
+    reservation_number varchar2(20) not null,   --?????? user_reservation fk
+    item_id number not null,                    --service_items              ????????
+    email varchar2(255) not null,               --?????? ??????? ?????         ????????
+    business_regi_num varchar2(20) not null,    --?????? ??????? ???????       ????????
+    service_name varchar2(255),                 --?????? ???? ???(service_items)      ????????
+    service_description varchar2(255),          --?????? ???? (service_items)           ????????
+    required_time number,                       --?????? ????(???)?��? (??????????)  ????????
+    service_price number                       --?????? ???? ????(service_items)               ????????
 );
 
 
@@ -115,25 +115,25 @@ CREATE SEQUENCE item_id;
 drop table service_items;
 create table service_items (
     item_id number not null,         --pk 
-    email varchar2(255) not null,   --������̸��� ��
-    business_regi_num varchar2(20) not null, --����ڹ�ȣ�� �� ����Ű
-    service_name varchar2(255),             --��ǰ��
-    service_description varchar2(255),      --����
-    required_time number,                   --����(�ʿ�)�ð� (��ĭ¥������)
-    service_price number,                   --����
-    item_status varchar2(10) default '1' not null                --item ����, (��밡�� ���� ��)  (1:���, 0:�̻�� ��)
+    email varchar2(255) not null,   --?????????? ??
+    business_regi_num varchar2(20) not null, --????????? ?? ?????
+    service_name varchar2(255),             --?????
+    service_description varchar2(255),      --????
+    required_time number,                   --????(???)?��? (??????????)
+    service_price number,                   --????
+    item_status varchar2(10) default '1' not null                --item ????, (??�N?? ???? ??)  (1:???, 0:???? ??)
     );
 
 drop table business_place_info;
 create table business_place_info (
-    email varchar2(255) not null,   --������̸��� ��
-    business_regi_num varchar2(20), --����ڹ�ȣ�� �� ����Ű
-    place_info varchar2(4000),      --���� �Ұ�
-    img_path0  varchar2(255),       --�̹��� ���� ���
-    img_path1  varchar2(255),       --�̰� ���� �� �ƴѰŰ��� 10���� �ַ��ַ� �ް��ִ°�
-    img_path2  varchar2(255),       --imgpath�� ���� �����ص�
-    img_path3  varchar2(255),       --������ �ű⿡ �ܷ�Ű�� �̸���+����ڹ�ȣ �־���ϴ�
-    img_path4  varchar2(255),       --�ϴ� �̷��Ԥ���
+    email varchar2(255) not null,   --?????????? ??
+    business_regi_num varchar2(20), --????????? ?? ?????
+    place_info varchar2(4000),      --???? ???
+    img_path0  varchar2(255),       --????? ???? ???
+    img_path1  varchar2(255),       --??? ???? ?? ??????? 10???? ?????? ?????��?
+    img_path2  varchar2(255),       --imgpath?? ???? ???????
+    img_path3  varchar2(255),       --?????? ??? ?????? ?????+??????? ???????
+    img_path4  varchar2(255),       --??? ????????
     img_path5  varchar2(255),
     img_path6  varchar2(255),
     img_path7  varchar2(255),
@@ -143,12 +143,12 @@ create table business_place_info (
 
 --=================================================================================================================
 --=================================================================================================================
---=======�� ���� ���� �۾� �� ���� ����===============================================================================
+--=======?? ???? ???? ??? ?? ???? ????===============================================================================
 --=================================================================================================================
 --=================================================================================================================
---������� �ϰ� sts�� ���� �� http://localhost:�ڱ���Ʈ/ex/user/insert ���� 
---�Ʒ� �⺻ 4���� ���� ���� (��й�ȣ 1111 ����)
--- (�̸���/��й�ȣ/�̸�/��ȭ��ȣ)
+--??????? ??? sts?? ???? ?? http://localhost:??????/ex/user/insert ???? 
+--??? ?? 4???? ???? ???? (??��?? 1111 ????)
+-- (?????/??��??/???/??????)
 -- admin/1111/1/1
 -- manager/1111/1/1
 -- vendor/1111/1/1
@@ -158,7 +158,7 @@ create table business_place_info (
 -- vendor3/1111/1/1
 -- vendor4/1111/1/1
 -- vendor5/1111/1/1
--- �� ���� ���� �� ���� sql developer ���� ����
+-- ?? ???? ???? ?? ???? sql developer ???? ????
 
 
 update authorities set authority='ROLE_ADMIN' where email='admin';
@@ -169,33 +169,33 @@ update authorities set authority='ROLE_VENDOR' where email='vendor3';
 update authorities set authority='ROLE_VENDOR' where email='vendor4';
 update authorities set authority='ROLE_VENDOR' where email='vendor5';
 update authorities set authority='ROLE_MANAGER' where email='manager';
-insert into vendor values('vendor', 'gsgs252511', 'GS25 ����븲��', '21404', '��õ ���� ������ 1360', '�븲���� 1��', '������');
-insert into vendor values('vendor1', '11111',      'CU ����Ϻο���',   '21389', '��õ ���� ������ 1367', '1��', '������');
-insert into vendor values('vendor2', '22222',      '�̸�Ʈ24 ����������',   '21404', '��õ ���� �����4���� 32', '', '������');
-insert into vendor values('vendor3', '33333',      '��Ǫȣ�� ',        '21404', '��õ ���� �����4���� 23', '', 'ȣ��');
-insert into vendor values('vendor4', '44444', '�������ȣ�� ��õ������', '21404', '��õ ���� ����� 10', '', 'ȣ��');
-insert into vendor values('vendor5', '55555', '�����ǿ� ������',        '21389', '��õ ���� ������ 1355', '������� 4��', '����');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor','gsgs252511', '~~~������ gs25 ����븲��~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor1','11111', '������ cu cu cu ~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor2','22222', '�̸�Ʈ ������ §Ŀ�� ������~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor3','33333', '������ ���ִ� �̻��� ȣ��~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor4','44444', '�Ͽ������� ��Ÿ�� ȣ��~~~');
-insert into business_place_info(email, business_regi_num, place_info) values ('vendor5','55555', '���� �ٽ����� ���� �ǿ�~~~');
-update users set name='������' , phone='01063188216' where email='admin';
-update users set name='��ȸ��' , phone='01063188216' where email='member';
-update users set name='�躥��' , phone='01063188216' where email='vendor';
-update users set name='������1' , phone='01063188216' where email='vendor1';
-update users set name='������2' , phone='01063188216' where email='vendor2';
-update users set name='������3' , phone='01063188216' where email='vendor3';
-update users set name='������4' , phone='01063188216' where email='vendor4';
-update users set name='������5' , phone='01063188216' where email='vendor5';
-update users set name='�۽���' , phone='01063188216' where email='manager';
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '�������� �ܼҸ�', '�ܰ� §�� ���̽ð� ��Ͻð�', 1, 20000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5�����޴�����1', '5�����޴�����', 2, 50000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5�������', 'status0 ���̸� �ȵǴ� �޴�', 2, 50000, '0' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5�����޴�����2', '5�����޴�����2', 1, 20000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5�����޴�����3', '5�����޴�����3', 2, 30000, '1' );
-insert into service_items values(item_id.nextval, 'vendor5', '55555', '5�����޴�����4', '5�����޴�����4', 3, 40000, '1' );
+insert into vendor values('vendor', 'gsgs252511', 'GS25 ????��??', '21404', '??? ???? ?????? 1360', '?��???? 1??', '??????');
+insert into vendor values('vendor1', '11111',      'CU ?????��???',   '21389', '??? ???? ?????? 1367', '1??', '??????');
+insert into vendor values('vendor2', '22222',      '????24 ??????????',   '21404', '??? ???? ?????4???? 32', '', '??????');
+insert into vendor values('vendor3', '33333',      '?????? ',        '21404', '??? ???? ?????4???? 23', '', '???');
+insert into vendor values('vendor4', '44444', '?????????? ?????????', '21404', '??? ???? ????? 10', '', '???');
+insert into vendor values('vendor5', '55555', '??????? ??????',        '21389', '??? ???? ?????? 1355', '??????? 4??', '????');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor','gsgs252511', '~~~?????? gs25 ????��??~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor1','11111', '?????? cu cu cu ~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor2','22222', '???? ?????? �ר�?? ??????~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor3','33333', '?????? ????? ????? ???~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor4','44444', '????????? ????? ???~~~');
+insert into business_place_info(email, business_regi_num, place_info) values ('vendor5','55555', '???? ??????? ???? ???~~~');
+update users set name='??????' , phone='01063188216' where email='admin';
+update users set name='?????' , phone='01063188216' where email='member';
+update users set name='????' , phone='01063188216' where email='vendor';
+update users set name='??????1' , phone='01063188216' where email='vendor1';
+update users set name='??????2' , phone='01063188216' where email='vendor2';
+update users set name='??????3' , phone='01063188216' where email='vendor3';
+update users set name='??????4' , phone='01063188216' where email='vendor4';
+update users set name='??????5' , phone='01063188216' where email='vendor5';
+update users set name='?????' , phone='01063188216' where email='manager';
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '???????? ????', '??? ��?? ????��? ????��?', 1, 20000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5???????????1', '5???????????', 2, 50000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5???????', 'status0 ????? ???? ???', 2, 50000, '0' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5???????????2', '5???????????2', 1, 20000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5???????????3', '5???????????3', 2, 30000, '1' );
+insert into service_items values(item_id.nextval, 'vendor5', '55555', '5???????????4', '5???????????4', 3, 40000, '1' );
 select * from service_items;
 commit;
 --=================================================================================================================
@@ -210,7 +210,7 @@ select * from vendor_reservation;
 
 
 
---�Խ��� ���̺�
+--????? ?????
 drop table board;
 
 CREATE TABLE board (
@@ -235,3 +235,9 @@ create sequence bId;
 select * from board;
 
 select sum(total_service_price) from user_reservation;
+select * from user_reservation;
+select vendor_name,sum(total_service_price)from user_reservation group by vendor_name;
+select business_type,count(business_type) from vendor group by business_type;
+select count(business_type) from vendor where business_type='������';
+insert into user_reservation (user_email,user_name,vendor_name,basic_address,detail_address,zipcode,business_regi_num,service_name,	times_hhmm,total_service_price,reservation_use_date)VALUES
+('user1','�����','�����','��õ������','���� ������ 24','22085','11-12358','���� ��Ʈ','18:00','18000','2024-09-03');

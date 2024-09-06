@@ -295,6 +295,12 @@ create table user_reservation (
 		this.status = status;
 	}
 
+	public UserReservationDto(String vendor_name, Integer total_service_price) {
+		super();
+		this.vendor_name = vendor_name;
+		this.total_service_price = total_service_price;
+	}
+
 	
 	
 

@@ -26,4 +26,7 @@ public interface IVendorService {
 
 	public BusinessPlaceInfoDto selectOneBusinessPlaceInfo(String email, String businessRegiNum);
 	
+	//대시보드 관련 기능 만든이:오규원 추가일자:0905
+	public int countBusinessType(String business_type)throws Exception;
+	public String selectBusinessType(String business_regi_num) throws Exception;
 }

@@ -1,6 +1,7 @@
 package com.reservation.ex;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +23,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.reservation.dto.AuthoritiesDto;
 import com.reservation.dto.BusinessPlaceInfoDto;
 import com.reservation.dto.UserDto;
+import com.reservation.dto.UserReservationDto;
 import com.reservation.service.IAuthoritiesService;
 import com.reservation.service.IBusinessPlaceInfoService;
+import com.reservation.service.IUserReservationService;
 import com.reservation.service.IUserService;
 
 @Controller
@@ -38,6 +41,8 @@ public class ManagerController {
 
 	@Autowired
 	private IBusinessPlaceInfoService bPIService;
+	@Autowired
+	private IUserReservationService userRService;
 
 	@RequestMapping(value = "/manager/manager", method = RequestMethod.GET)
 	public String manager(HttpSession session, Model model) throws Exception {
@@ -196,4 +201,14 @@ public class ManagerController {
 		response.getWriter().write(content);
 	}
 
+	
+	//대시보드 기능 추가 만든이:오규원 추가일자:0906
+	@RequestMapping(value = "/manager/dashBoard", method = RequestMethod.GET)
+	public String dashboard(Model model) throws Exception{
+		List<UserReservationDto> dtos =  userRService.sumServicePrice();
+		model.addAttribute("dtos",dtos);
+		System.out.println("dashBoard...."+dtos);
+		return "/manager/dashBoard";
+	}
+	
 }

@@ -99,6 +99,17 @@ public class VendorServiceImpl implements IVendorService{
 		return dao.selectOneBusinessPlaceInfo(email, business_regi_num);
 	}
 
-		
+	//대시 보드 관련 기능 추가 만든이:오규원 추가일자:0906
+	@Override
+	public int countBusinessType(String business_type) throws Exception {
+		VendorDao dao = sqlSession.getMapper(VendorDao.class);
+		return dao.countBusinessType(business_type);
+	}
+
+	@Override
+	public String selectBusinessType(String business_regi_num) throws Exception {
+		VendorDao dao = sqlSession.getMapper(VendorDao.class);
+		return dao.selectBusinessType(business_regi_num);
+	}
 		
 }
