@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reservation.dto.AuthoritiesDto;
 import com.reservation.dto.BusinessPlaceInfoDto;
+import com.reservation.dto.DashBoardDto;
 import com.reservation.dto.UserDto;
 import com.reservation.dto.UserReservationDto;
 import com.reservation.service.IAuthoritiesService;
@@ -205,9 +206,9 @@ public class ManagerController {
 	//대시보드 기능 추가 만든이:오규원 추가일자:0906
 	@RequestMapping(value = "/manager/dashBoard", method = RequestMethod.GET)
 	public String dashboard(Model model) throws Exception{
-		List<UserReservationDto> dtos =  userRService.sumServicePrice();
-		model.addAttribute("dtos",dtos);
-		System.out.println("dashBoard...."+dtos);
+		//List<DashBoardDto> dtos =  userRService.sumServicePrice();
+//		model.addAttribute("dtos",dtos);
+//		System.out.println("dashBoard...."+dtos);
 		return "/manager/dashBoard";
 	}
 	
