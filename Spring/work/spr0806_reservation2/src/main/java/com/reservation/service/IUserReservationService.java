@@ -2,6 +2,7 @@ package com.reservation.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.reservation.dto.UserReservationDto;
 
@@ -20,6 +21,6 @@ public interface IUserReservationService {
 	public int countBasicAddress(String basic_address) throws Exception;
 	public int countDetailAddress(String detail_address) throws Exception;
 	public int countServiceName(String service_name) throws Exception;
-	public int countTimeshhmm(String times_hhmm ) throws Exception;
-	public List<UserReservationDto> sumServicePrice() throws Exception;
+	public List<Map<String,Object>> countTimeshhmm() throws Exception;
+	public List<Map<String,Object>> sumServicePrice() throws Exception;
 }

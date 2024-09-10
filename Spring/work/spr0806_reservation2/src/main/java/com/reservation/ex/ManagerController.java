@@ -3,6 +3,7 @@ package com.reservation.ex;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +23,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.reservation.dto.AuthoritiesDto;
 import com.reservation.dto.BusinessPlaceInfoDto;
-import com.reservation.dto.DashBoardDto;
 import com.reservation.dto.UserDto;
 import com.reservation.dto.UserReservationDto;
 import com.reservation.service.IAuthoritiesService;
@@ -206,9 +206,12 @@ public class ManagerController {
 	//대시보드 기능 추가 만든이:오규원 추가일자:0906
 	@RequestMapping(value = "/manager/dashBoard", method = RequestMethod.GET)
 	public String dashboard(Model model) throws Exception{
-		//List<DashBoardDto> dtos =  userRService.sumServicePrice();
-//		model.addAttribute("dtos",dtos);
-//		System.out.println("dashBoard...."+dtos);
+		List<Map<String,Object>> dtos =  userRService.sumServicePrice();
+		model.addAttribute("dtos",dtos);
+		List<Map<String,Object>> times =  userRService.countTimeshhmm();
+		model.addAttribute("times",times);
+		System.out.println("dashBoard...."+dtos);
+		System.out.println("dashBoard...."+times);
 		return "/manager/dashBoard";
 	}
 	

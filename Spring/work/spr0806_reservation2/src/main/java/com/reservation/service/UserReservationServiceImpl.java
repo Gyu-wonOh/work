@@ -2,11 +2,11 @@ package com.reservation.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.reservation.dao.UserReservationDao;
 import com.reservation.dto.UserReservationDto;
@@ -80,16 +80,15 @@ public class UserReservationServiceImpl implements IUserReservationService {
 	}
 
 	@Override
-	public int countTimeshhmm(String times_hhmm) throws Exception {
+	public List<Map<String,Object>> countTimeshhmm() throws Exception {
 		UserReservationDao dao = sqlSession.getMapper(UserReservationDao.class);
-		return dao.countTimeshhmm(times_hhmm);
+		return dao.countTimeshhmm();
 	}
 
 	@Override
-	public List<UserReservationDto> sumServicePrice() throws Exception {
+	public List<Map<String,Object>> sumServicePrice() throws Exception {
 		UserReservationDao dao = sqlSession.getMapper(UserReservationDao.class);
-		List<UserReservationDto> dtos = dao.sumServicePrice();
-		return dtos;
+		return dao.sumServicePrice();
 	}
 
 }
