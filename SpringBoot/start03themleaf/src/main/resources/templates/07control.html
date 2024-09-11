@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Control</title>
+</head>
+<body>
+<h1>Thymeleaf Control</h1>
+
+<h2>th:if</h2>
+<th:block th:if="${str != null}">
+    <p>메시지 : [[${str}]]</p>
+</th:block>
+<th:block th:unless="${str != null}">
+    <p>메시지가 없습니다.</p>
+</th:block>
+
+<p th:text="'str 값: ' + ${str}"></p>
+<p th:if="${age >= 20}">성인입니다.</p>
+<p th:if="${age < 20}">미성년자입니다.</p>
+
+<hr>
+
+<h2>th:switch</h2>
+<p th:switch="${str}">
+    <span th:case="'control1'">컨트롤1 입니다.</span>
+    <span th:case="'control2'">컨트롤2 입니다.</span>
+    <span th:case="*">기타입니다.</span>
+</p>
+
+<hr>
+
+<h2>th:each</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th width="100">이름</th>
+        <th width="50">나이</th>
+        <th width="100">키</th>
+        <th width="150">생일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="human : ${list}">
+        <td th:text="${human.name}"></td>
+        <td th:text="${human.age}"></td>
+        <td th:text="${human.height}"></td>
+        <td th:text="${#temporals.format(human.birthday, 'dd-MM-yyyy HH:mm')}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>순번 (index)</th>
+        <th>반복 횟수 (count)</th>
+        <th>이름</th>
+        <th>나이</th>
+        <th>키</th>
+        <th>생일</th>
+        <th>첫 번째 항목 여부</th>
+        <th>마지막 항목 여부</th>
+        <th>홀수 여부</th>
+        <th>짝수 여부</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="human, stat : ${list}">
+        <td th:text="${stat.index}"></td> <!-- 목록의 순번 (0부터 시작) -->
+        <td th:text="${stat.count}"></td> <!-- 반복 횟수 (1부터 시작) -->
+        <td th:text="${human.name}"></td> <!-- 이름 -->
+        <td th:text="${human.age}"></td> <!-- 나이 -->
+        <td th:text="${human.height}"></td> <!-- 키 -->
+        <td th:text="${#temporals.format(human.birthday, 'dd-MM-yyyy HH:mm')}"></td> <!-- 생일 -->
+        <td th:if="${stat.first}">첫 번째 항목</td> <!-- 첫 번째 항목 여부 -->
+        <td th:if="${stat.last}">마지막 항목</td> <!-- 마지막 항목 여부 -->
+        <td th:if="${stat.index % 2 == 0}">짝수 번째</td> <!-- 짝수 여부 -->
+        <td th:if="${stat.index % 2 != 0}">홀수 번째</td> <!-- 홀수 여부 -->
+    </tr>
+    </tbody>
+</table>
+
+<hr>
+<a th:href="@{sendData}">데이터전송 ></a>
+<a th:href="@{/a_send(num1=10, num2=20)}">전송</a>
+<p>
+    /a_send?num1=10&num2=20
+</p>
+
+</body>
+</html>

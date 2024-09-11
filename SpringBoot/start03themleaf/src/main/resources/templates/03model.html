@@ -1,0 +1,38 @@
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Model Output</title>
+    </head>
+    <body>
+    <h1>Map and DTO Example</h1>
+
+    <h2>Map Data</h2>
+    <ul>
+        <li>Key1: <span th:text="${mapdata['key1']}"></span></li>
+        <li>Key2: <span th:text="${mapdata['key2']}"></span></li>
+        <li>Key3: <span th:text="${mapdata['key3']}"></span></li>
+    </ul>
+
+    <h2>DTO Data</h2>
+    <p>Name: <span th:text="${humanDto.name}"></span></p>
+    <p>Age: <span th:text="${humanDto.age}"></span></p>
+    <p>Height: <span th:text="${humanDto.height}"></span></p>
+    <p>Birthday: <span th:text="${#dates.format(humanDto.birthday, 'yyyy-MM-dd HH:mm')}"></span></p>
+    <p>Birthday: <span th:text="${humanDto.birthday}"></span></p>
+
+    <h2>Message</h2>
+    <p th:text="${message}"></p>
+
+    <h2>Tag Data</h2>
+    <div th:text="${titleStr}"></div>
+    <div th:utext="${titleStr}"></div>
+    <div>[[${titleStr}]]</div>
+    <div>[(${titleStr})]</div>
+    </body>
+    <script th:inline="javascript">
+        let msg = [[${message}]];
+        if(msg != null){
+            alert(msg);
+        }
+    </script>
+    </html>

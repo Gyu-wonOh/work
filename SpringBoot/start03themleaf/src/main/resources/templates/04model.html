@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Control Flow Example</title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+
+<h2>List of DTOs</h2>
+<ul>
+    <li th:each="human : ${list}">
+        Name: <span th:text="${human.name}"></span>,
+        Age: <span th:text="${human.age}"></span>,
+        Height: <span th:text="${human.height}"></span>,
+        Birthday: <span th:text="${#temporals.format(human.birthday, 'dd-MM-yyyy HH:mm')}"></span>
+    </li>
+</ul>
+</body>
+</html>
