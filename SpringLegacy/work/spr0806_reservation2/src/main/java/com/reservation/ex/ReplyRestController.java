@@ -21,10 +21,10 @@ import com.reservation.service.IReplyService;
 
 @RestController
 @RequestMapping("/replies")
-public class ReplyController {
+public class ReplyRestController {
 	@Autowired
 	private IReplyService rs;
-	private static final Logger logger = LoggerFactory.getLogger(ReplyController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ReplyRestController.class);
 	
 	@RequestMapping(value = "/{bId}/{page}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> list(@PathVariable("bId") int bId, @PathVariable("page") int page) {
