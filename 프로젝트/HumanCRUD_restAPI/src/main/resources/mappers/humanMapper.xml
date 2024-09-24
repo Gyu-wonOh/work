@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.human.dao.HumanDao">
+	<insert id="insert">
+		insert into human_2(id,age,name,height,birthday)
+		values(id_count.nextval,#{age},#{name},#{height},#{birthday})
+	</insert>
+	<update id="update">
+		update human_2 set age=#{age},height=#{height} where
+		name=#{name}
+	</update>
+	<delete id="delete">
+		delete human_2 where name=#{name}
+	</delete>
+	<select id="selectAll" resultType="com.human.dto.HumanDto">
+		select * from human_2
+	</select>
+	<select id="selectName" resultType="com.human.dto.HumanDto">
+		select * from human_2 where name = #{name}
+	</select>
+</mapper>
