@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;00security/src/main/java/com.human.ex&apos;&#x0D;&#x0A;- Original project: &apos;27security&apos;&#x0D;&#x0A;- Destination element: &apos;00security/src/main/java/com.human.ex&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     com.human.ex.HomeController.java&#x0D;&#x0A;     com.human.ex.AdminController.java" description="Copy compilation units" destination="=00security/src\/main\/java&lt;com.human.ex" element1="/src\/main\/java&lt;com.human.ex{HomeController.java" element2="/src\/main\/java&lt;com.human.ex{AdminController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1722822970131" units="2" version="1.0"/>
+</session>

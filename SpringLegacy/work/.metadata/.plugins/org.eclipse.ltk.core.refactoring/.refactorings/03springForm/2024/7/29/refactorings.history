@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;03springForm/src/main/webapp/WEB-INF/views/board/NewFile.jsp&apos; to &apos;checkId.jsp&apos;" description="Rename resource &apos;NewFile.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/views/board/NewFile.jsp" name="checkId.jsp" stamp="1721023363181" updateReferences="true"/>
+</session>

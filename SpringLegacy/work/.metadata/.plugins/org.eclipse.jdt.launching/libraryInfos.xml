@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411" version="1.8.0_411">
+<bootpath>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\resources.jar"/>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\rt.jar"/>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\jsse.jar"/>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\jce.jar"/>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\charsets.jar"/>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\jfr.jar"/>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\MySTS\sts-bundle\common\jre-8u411-windows-x64.tar\jre-8u411-windows-x64\jre1.8.0_411\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

@@ -1,0 +1,104 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Instagram Home</title>
+<style>
+	#head{
+		border:1px;
+		height:150px;
+	}
+	#title{
+		font-size:18pt;
+	}
+	#row{
+		display:flex;
+		padding:20px 40px 40px 0px;
+	}
+	#side{
+		margin:50px;
+	}
+	#main{
+		border:1px solid lightgray;
+		border-radius:5px;
+		width:500px;
+		text-align : center;
+		
+		padding:10px;
+	}
+	.form{
+		border-top: 1px solid lightgray;
+		border-bottom: 1px solid lightgray;
+	
+	}
+	#login{
+		border : 0px;
+		border-radius:5px;
+		position:relative;
+		background-color:lightblue;
+		color:white;
+		width:200px;
+		height: 50px;
+		margin:10px 0px 5px 0px;
+	}
+	#join{
+	border : 0px;
+		border-radius:5px;
+		position:relative;
+		background-color:lightgreen;
+		color:white;
+		width:200px;
+		height: 50px;
+		margin:5px 0px 10px 0px;
+		}
+	input{
+		width:200px;
+		height:20px;
+		margin:10px;
+	}
+	#footer{
+		position:fixed;
+		background-color:black;
+		color:white;
+		text-align:center;
+		width:100%:
+	}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#login").on("click",function(){
+			formObj.attr("actcion","/ex/main/login");
+			formObj.attr("method","post");
+			form.submit();
+		});
+	});
+</script>
+</head>
+<body>
+	<div id = "head">
+		<h1 id = title><a href="https://www.instagram.com/">Instagram</a></h1>
+	</div>
+	<hr>
+	<div id = "row">
+		<div id = "side"><img src='/ex/resources/img/social.jpg'></div>
+		<div id = "main">
+			<img src='/ex/resources/img/instagram_logo.PNG' size="width:150px">
+			Enjoy our contents <br>after login with your account!<br><br>
+			<form class="form" method="post">
+				nickname <input type="text" name="nickname" value="insert your nickname"><br>
+				password <input type="password" name="password">
+			</form>
+			
+			<button type="submit" id="login">log-in</button><br>
+			<a href="/ex/main/join"><button id="join">join</button></a>
+		</div>
+	</div>
+	<div id="footer">
+	
+	</div>
+</body>
+</html>

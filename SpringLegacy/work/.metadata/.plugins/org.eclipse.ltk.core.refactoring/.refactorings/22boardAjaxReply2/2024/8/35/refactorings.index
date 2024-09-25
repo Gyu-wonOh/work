@@ -1,0 +1,6 @@
+1724746215815	Rename type 'replyDto'
+1724809925978	Rename type 'boardDao'
+1724809937049	Rename type 'replyDao'
+1724833067473	Delete element
+1724903320218	Rename package 'mapper'
+1724919730954	Move 'listAll.jsp' to 'board'

@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Sep 25 18:24:38 KST 2024
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\tj-bu-702-07\\.m2\\repository\\org\\springframework\\spring-web\\4.3.5.RELEASE\\spring-web-4.3.5.RELEASE.jar=C\:\\MySTS\\sts-bundle\\common\\apache-tomcat-9.0.90\\wtpwebapps\\spring_SNSwebsite\\WEB-INF\\lib\\spring-web-4.3.5.RELEASE.jar
+org.eclipse.jst.jee.server\:spring_SNSwebsite=C\:\\MySTS\\sts-bundle\\common\\apache-tomcat-9.0.90\\wtpwebapps\\spring_SNSwebsite

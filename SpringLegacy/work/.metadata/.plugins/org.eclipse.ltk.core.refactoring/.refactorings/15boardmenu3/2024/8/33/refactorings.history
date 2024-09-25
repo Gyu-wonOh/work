@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;BoardDto.java&apos; to &apos;15boardmenu3/src/main/java/com.human.dto&apos;&#x0D;&#x0A;- Original project: &apos;15boardmenu3&apos;&#x0D;&#x0A;- Destination element: &apos;15boardmenu3/src/main/java/com.human.dto&apos;&#x0D;&#x0A;- Original element: &apos;com.human.ex.BoardDto.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java&lt;com.human.dto" element1="/src\/main\/java&lt;com.human.ex{BoardDto.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1723602888069" units="1" version="1.0"/>
+</session>
