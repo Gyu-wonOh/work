@@ -1,0 +1,10 @@
+1721263644574	Rename type 'HumanDto'
+1721289301004	Rename type 'IHumanDao'
+1721289358462	Copy compilation unit
+1721289495211	Rename resource 'humanMapper.xml'
+1721289676252	Copy file
+1721290290427	Rename type 'HumanController'
+1721290885357	Rename type 'deptDto'
+1721290896044	Rename type 'empDto'
+1721291014814	Rename type 'HumanServiceImpl'
+1721291031783	Rename type 'IHumanService'

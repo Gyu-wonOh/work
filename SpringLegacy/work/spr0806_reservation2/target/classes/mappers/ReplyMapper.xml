@@ -2,14 +2,13 @@
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org//dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.reservation.dao.ReplyDao">
-	
 	<!-- 새 댓글 작성 -->
 	<insert id="boardReplyCreate">
 		insert into reply(rId,bId,rContent,rName,rGroup)
 		values (rId.nextval,#{bId},#{rContent},#{rName},rId.currval)
 	</insert>
-	
 	<!-- 대댓글 작성 -->
 	<insert id="reReplyCreate">
 		insert into reply(rId,bId,rContent,rName,rGroup,rStep,rIndent)

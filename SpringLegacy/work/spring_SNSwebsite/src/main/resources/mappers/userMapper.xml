@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.dao.UserDao">
+	<insert id="createUser">
+		insert into sns_user (email,phoneNumber,name,nickname,password) values (#{email},#{phoneNumber},#{name},#{nickname},#{password})
+	</insert>
+	<select id="selectUser" resultType="com.sns.dto.UserDto">
+		select * from sns_user where nickname=#{nickname}
+	</select>
+	<update id="updateUser">
+		update sns_user set nickname=#{nickname},password=#{password}
+	</update>
+	<update id="deleteUser">
+		update sns_user set u_delete ='Y'where nickname=#{nickname}
+	</update>
+</mapper>

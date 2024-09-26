@@ -7,26 +7,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <insert id="insertMyBusinessPlaceInfo">
     insert into business_place_info (
-        email, business_regi_num, place_info,
-        img_path0, img_path1, img_path2, img_path3, img_path4,
-        img_path5, img_path6, img_path7, img_path8, img_path9
+        email, business_regi_num, place_info
     ) values (
-        #{email}, #{business_regi_num}, #{place_info},
-        #{img_path0, jdbcType=VARCHAR}, #{img_path1, jdbcType=VARCHAR}, 
-        #{img_path2, jdbcType=VARCHAR}, #{img_path3, jdbcType=VARCHAR}, 
-        #{img_path4, jdbcType=VARCHAR}, #{img_path5, jdbcType=VARCHAR}, 
-        #{img_path6, jdbcType=VARCHAR}, #{img_path7, jdbcType=VARCHAR}, 
-        #{img_path8, jdbcType=VARCHAR}, #{img_path9, jdbcType=VARCHAR}
+        #{email}, #{business_regi_num}, #{place_info}
     )
 </insert>
 <!-- #{img_path0, jdbcType=VARCHAR}  jdbcType=VARCHAR  NULL 허용 한다는 뜻   -->
 
-<select id="selectOneBusinessPlaceInfo" resultType="com.reservation.dto.BusinessPlaceInfoDto">
-select email, business_regi_num, place_info,
-        img_path0, img_path1, img_path2 
-        from business_place_info where email=#{email} and business_regi_num=#{business_regi_num}
-</select>
+<update id="updateMyBusinessPlaceInfo">
+update business_place_info
+set place_info = #{place_info}
+where 
+    email = #{email} 
+    and business_regi_num = #{business_regi_num}
+</update>
 
+<select id="selectOneBusinessPlaceInfo" resultType="com.reservation.dto.BusinessPlaceInfoDto">
+select email, business_regi_num, place_info
+    from business_place_info 
+    where email=#{email} and business_regi_num=#{business_regi_num}
+</select>
 
 
 </mapper>
