@@ -74,18 +74,33 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+	/* var result ='${msg}'
+	if(result=='success'){
+		alert("성공적으로 처리되었습니다.")
+	}else if(result=='fail'){
+		alert("please check again your ID or PW");
+	} */
 	$(document).ready(function(){
+		var result ='${msg}'
+			if(result=='success'){
+				alert("성공적으로 처리되었습니다.");
+				cosole.log(result);
+			}else if(result=='fail'){
+				alert("please check again your ID or PW");
+				console.log(result);
+			}
+		var formObj = $(".form"); // select the form
 		$("#login").on("click",function(){
-			formObj.attr("actcion","/ex/main/login");
+			formObj.attr("action","/ex/main/login");
 			formObj.attr("method","post");
-			form.submit();
+			formObj.submit();
 		});
 	});
 </script>
 </head>
 <body>
 	<div id = "head">
-		<a href="https://www.instagram.com/"><img src='/ex/resources/img/instagram_logo.PNG'></a>
+		<a href="/ex/main/home"><img src='/ex/resources/img/instagram_logo.PNG'></a>
 	</div>
 	<hr>
 	<div id = "row">
@@ -98,10 +113,10 @@
 				password <input type="password" name="password">
 			</form>
 			
-			<button type="submit" id="login">log-in</button><br>
+			<button type="button" id="login">log-in</button><br>
 			<a href="/ex/main/join"><button id="join">join</button></a>
 			<br><br>
-			<div id= "add-function">forget your account/password?</div>
+			<div id= "add-function">forget your <a href="/ex/user/findAccount">account</a>/<a href="/ex/user/findPassword">password</a>?</div>
 		</div>
 	</div>
 	<hr/>

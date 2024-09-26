@@ -22,4 +22,5 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.sns.ex" />
+	<context:component-scan base-package="com.sns.service" />
 </beans:beans>

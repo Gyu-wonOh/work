@@ -16,5 +16,6 @@
 </aspect-definition>
 </aop-project>
 <aop-project name="spring_SNSwebsite"/>
+<aop-project name="18boardPage"/>
 <aop-project name="01springStart"/>
 </aop-reference-model>

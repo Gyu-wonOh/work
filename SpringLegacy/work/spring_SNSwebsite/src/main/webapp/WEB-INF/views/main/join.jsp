@@ -40,7 +40,7 @@
 	<div id="head"><a href="/ex/main/home"><img src='/ex/resources/img/instagram_logo.PNG'></a></div>
 	<div id="row">
 		<hr>
-		<form action="/ex/main/createUser" method="post">
+		<form action="/ex/user/createUser" method="post">
 			<h1 id="title">JOIN</h1>
 			Enjoy our contents <br>after create your account!<br><br>
 			e-mail <input type="text" name="email"><br>
