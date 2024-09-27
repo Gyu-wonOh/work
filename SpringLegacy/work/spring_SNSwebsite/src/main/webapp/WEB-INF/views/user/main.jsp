@@ -9,10 +9,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	body{
-		margin:10;
-		align: center;
-	}
+	body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* 전체 뷰포트 높이 사용 */
+        margin: 0; /* 기본 마진 제거 */
+    }
 	#head{
 		display:flex;
 	}
@@ -26,17 +29,19 @@
 	#box{
 		border:1px solid lightgray;
 		border-radius:5px;
-		width:28%;
-		padding:30px;
+		width:40%;
+		padding:10px;
 	}
 	#main{
 		text-align:center;
+		display:flex;
 	}
 	#tab img{
 		width:55px;
 		height:50px;
 		margin:5px 20px 20px 5px;
 		text-align:center;
+		padding:0;
 	}
 	#user_post img{
 		width:100px;
