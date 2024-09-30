@@ -109,7 +109,7 @@
 			<br><br><br>
 			Enjoy our contents <br>after login with your account!<br><br>
 			<form class="form" method="post">
-				nickname <input type="text" name="nickname" value="insert your nickname"><br>
+				nickname <input type="text" name="nickname" placeholder=" insert your nickname" onfocus="this.value='';"><br>
 				password <input type="password" name="password">
 			</form>
 			
