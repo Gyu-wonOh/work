@@ -95,6 +95,12 @@
 			formObj.attr("method","post");
 			formObj.submit();
 		});
+		$("#nickname").on("focus",function(){
+			$("this").val("");
+		})
+		$("#password").on("focus",function(){
+			$("this").val("");
+		})
 	});
 </script>
 </head>
@@ -109,10 +115,9 @@
 			<br><br><br>
 			Enjoy our contents <br>after login with your account!<br><br>
 			<form class="form" method="post">
-				nickname <input type="text" name="nickname" placeholder=" insert your nickname" onfocus="this.value='';"><br>
-				password <input type="password" name="password">
+				nickname <input type="text" name="nickname" placeholder='insert your nickname'><br>
+				password <input type="password" name="password" placeholder='insert your password'>
 			</form>
-			
 			<button type="button" id="login">log-in</button><br>
 			<a href="/ex/main/join"><button id="join">join</button></a>
 			<br><br>

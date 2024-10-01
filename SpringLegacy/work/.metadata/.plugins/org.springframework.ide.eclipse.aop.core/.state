@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="spr0806_reservation2"/>
 <aop-project name="spr0806_reservation_git"/>
 <aop-project name="spring_SNSwebsite"/>
 <aop-project name="18boardPage"/>
