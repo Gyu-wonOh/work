@@ -1,0 +1,7 @@
+package com.human.dao;
+
+import com.human.dto.BoardDto;
+
+public class boardDao {
+	public void create(BoardDto dto) throws Exception;
+}

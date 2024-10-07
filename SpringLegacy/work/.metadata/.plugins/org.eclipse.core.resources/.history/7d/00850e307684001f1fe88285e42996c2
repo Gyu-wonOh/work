@@ -1,0 +1,57 @@
+package com.human.service;
+
+import java.util.List;
+
+import com.human.dto.BoardDto;
+
+public class BoardServiceImple implements IBoardService {
+
+	@Override
+	public void create(BoardDto dto) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public BoardDto read(int bId) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(BoardDto dto) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void bHitUpdate(int bId) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void bLike(int bId) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void bDislike(int bId) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<BoardDto> listAll() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String menuKind() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

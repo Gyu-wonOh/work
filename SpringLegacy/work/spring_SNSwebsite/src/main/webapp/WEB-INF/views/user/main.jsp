@@ -71,7 +71,7 @@
 		</div>
 		<hr/>
 		<div id="tab">
-			<a href><img src="/ex/resources/img/home-icon.png"></a>
+			<a href="/ex/common/main"><img src="/ex/resources/img/home-icon.png"></a>
 			<a href><img src="/ex/resources/img/search-icon.png"></a>
 			<a href><img src="/ex/resources/img/male-icon.png"></a>
 			<a href><img src="/ex/resources/img/hamburger-menu-icon.png"></a>

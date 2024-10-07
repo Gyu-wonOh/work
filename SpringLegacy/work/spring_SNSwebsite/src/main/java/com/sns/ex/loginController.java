@@ -37,7 +37,7 @@ public class loginController {
 			UserDto userLog = service.selectUser(nickname);
 			if(userLog!=null&&nickname.equals(userLog.getNickname())&&password.equals(userLog.getPassword())) {
 				session.setAttribute("user", nickname);
-				return "redirect:/user/main";
+				return "redirect:/common/main";
 			}
 		}
 		rttr.addFlashAttribute("msg","fail");

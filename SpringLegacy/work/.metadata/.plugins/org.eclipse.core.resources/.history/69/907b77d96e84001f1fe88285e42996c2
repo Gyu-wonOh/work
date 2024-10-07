@@ -1,0 +1,24 @@
+package com.human.dto;
+
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+public class boardDto {
+	private String bGroupkind;
+	private int bId;
+	private String bTitle;
+	private String bContent;
+	private String bWrite;
+	private String bEtc;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date bWrirteTime;
+	@DateTimeFormat(pattern="yyyy-mm-dd")
+	private Date bUpdateTime;
+	private int bLike;
+	private int bDislike;
+	private int bGroup;
+	private int bIndent;
+	private int bStep;
+	
+}

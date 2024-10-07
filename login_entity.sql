@@ -15,3 +15,5 @@ select * from tab;
 select * from Login_Entity;
 select * from comment_Entity;
 delete login_entity;
+
+select * from tab;
